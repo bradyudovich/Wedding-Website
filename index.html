@@ -4,74 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Website</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f8f8e8; /* Off-white color */
+            background-color: #f5f5f5;
+            color: #333;
             margin: 0;
-            padding: 0;
+            padding: 20px;
         }
-        .header { text-align: center; padding: 20px; }
-        .nav { display: flex; justify-content: center; }
-        .nav a { margin: 0 15px; text-decoration: none; }
-        .section { display: none; padding: 20px; }
-        .active { display: block; }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .rsvp {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-
-<div class="header">
-    <h1>Welcome to Our Wedding</h1>
-    <div class="nav">
-        <a href="#" onclick="showSection('home')">Home</a>
-        <a href="#" onclick="showSection('about')">About Us</a>
-        <a href="#" onclick="showSection('events')">Events</a>
-        <a href="#" onclick="showSection('registry')">Registry</a>
-        <a href="#" onclick="showSection('rsvp')">RSVP</a>
-        <a href="#" onclick="showSection('contact')">Contact</a>
-    </div>
-</div>
-
-<div id="home" class="section active"> 
-    <h2>Home</h2>
-    <p>Welcome to our wedding website!</p>
-</div>
-
-<div id="about" class="section"> 
-    <h2>About Us</h2>
-    <p>We are excited to share our story with you!</p>
-</div>
-
-<div id="events" class="section"> 
-    <h2>Events</h2>
-    <p>Details about the wedding events.</p>
-</div>
-
-<div id="registry" class="section"> 
-    <h2>Registry</h2>
-    <p>Registry details go here.</p>
-</div>
-
-<div id="rsvp" class="section"> 
-    <h2>RSVP</h2>
-    <a href="https://docs.google.com/forms/d/1SuwIRRoHyp5-oiN665x-qfgtmp2uD9yQVl_mWvgcuaU/edit?usp=drive_web&ouid=100496277999797114008" target="_blank">Click here to RSVP</a>
-</div>
-
-<div id="contact" class="section"> 
-    <h2>Contact</h2>
-    <p>Get in touch with us!</p>
-</div>
-
-<script>
-    function showSection(sectionId) {
-        const sections = document.querySelectorAll('.section');
-        sections.forEach(section => {
-            section.classList.remove('active');
-        });
-        document.getElementById(sectionId).classList.add('active');
-    }
-</script>
-
+    <header>
+        <h1>Welcome to Our Wedding!</h1>
+        <h2>Bienvenidos a Nuestra Boda!</h2>
+    </header>
+    <section>
+        <h3>Our Story / Nuestra Historia</h3>
+        <p>We met in college and fell in love while exploring the world together.</p>
+        <p>Nos conocimos en la universidad y nos enamoramos mientras exploramos el mundo juntos.</p>
+    </section>
+    <section>
+        <h3>The Big Day / El Gran Día</h3>
+        <p>Date: June 20, 2026</p>
+        <p>Lugar: Jardín Botánico, Ciudad, País</p>
+    </section>
+    <section>
+        <h3>RSVP</h3>
+        <p>Please let us know if you can make it!</p>
+        <p>¡Por favor háganos saber si puede asistir!</p>
+        <a class="rsvp" href="https://docs.google.com/forms/d/1SuwIRRoHyp5-oiN665x-qfgtmp2uD9yQVl_mWvgcuaU/edit?usp=drive_web&ouid=100496277999797114008">RSVP Here / RSVP Aquí</a>
+    </section>
 </body>
 </html>
