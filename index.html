@@ -3,40 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <title>Wedding Website</title>
-    <link rel="stylesheet" href="style.css">
-    <script>
-        let currentLang = 'en';
-        function toggleLanguage() {
-            currentLang = (currentLang === 'en') ? 'es' : 'en';
-            updateContent();
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
         }
-        function updateContent() {
-            const elements = document.querySelectorAll('[data-lang]');
-            elements.forEach(element => {
-                const langKey = element.getAttribute('data-lang');
-                element.textContent = content[langKey][currentLang];
-            });
+        .header {
+            text-align: center;
+            padding: 20px;
         }
-        const content = {
-            title: { en: 'Wedding Website', es: 'Sitio web de la boda' },
-            rsvp: { en: 'RSVP Here', es: 'Confirma tu asistencia aquí' },
-            welcome: { en: 'Welcome to our Wedding!', es: '¡Bienvenidos a nuestra boda!' }
-        };
-    </script>
+        /* Add more styles here as needed */
+    </style>
 </head>
 <body>
-    <header>
-        <h1 data-lang="title">Wedding Website</h1>
-        <button onclick="toggleLanguage()">Toggle English/Español</button>
-    </header>
-    <section>
-        <h2 data-lang="welcome">Welcome to our Wedding!</h2>
-        <p><a href="https://forms.gle/exampleRSVP" data-lang="rsvp">RSVP Here</a></p>
-    </section>
-    <footer>
-        <p>&copy; 2026 Wedding Planning</p>
-    </footer>
-    <script>updateContent();</script>
+    <div class="header">
+        <h1>Bride & Groom's Wedding</h1>
+        <button id="toggleLanguage">Español</button>
+    </div>
+    <div id="content">
+        <h2>Welcome</h2>
+        <p>This is the English version of our wedding website.</p>
+        <h3>About Us</h3>
+        <p>Information about the couple.</p>
+        <h3>Events</h3>
+        <p>Details regarding the wedding event.</p>
+        <h3>Registry</h3>
+        <p>Registry details.</p>
+        <h3>RSVP</h3>
+        <a href="https://docs.google.com/forms/d/1SuwIRRoHyp5-oiN665x-qfgtmp2uD9yQVl_mWvgcuaU/edit?usp=drive_web&ouid=100496277999797114008" target="_blank">Click here to RSVP</a>
+        <h3>Contact</h3>
+        <p>Contact information.</p>
+    </div>
+    <script>
+        document.getElementById('toggleLanguage').addEventListener('click', function() {
+            // Toggle language between English and Spanish here
+            alert('Toggle language functionality to be implemented.');
+        });
+    </script>
 </body>
 </html>
