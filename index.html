@@ -4,52 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Website</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
+            background-color: #f5f3f0;
             margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: 20px;
+            background-color: white;
         }
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-        }
-        a {
-            color: #007BFF;
+        nav a {
+            margin: 0 15px;
             text-decoration: none;
+            color: black;
         }
-        .rsvp {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
+        .toggle {
             cursor: pointer;
+        }
+        section {
+            padding: 20px;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to Our Wedding!</h1>
-        <h2>Bienvenidos a Nuestra Boda!</h2>
+        <h1>Our Wedding</h1>
+        <div class="toggle">
+            <button onclick="toggleLanguage()">English/Español</button>
+        </div>
     </header>
-    <section>
-        <h3>Our Story / Nuestra Historia</h3>
-        <p>We met in college and fell in love while exploring the world together.</p>
-        <p>Nos conocimos en la universidad y nos enamoramos mientras exploramos el mundo juntos.</p>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#events">Events</a>
+        <a href="#registry">Registry</a>
+        <a href="#rsvp">RSVP</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <section id="home">
+        <h2>Home</h2>
+        <p>Welcome to our wedding website! We're thrilled to celebrate this special day with you.</p>
     </section>
-    <section>
-        <h3>The Big Day / El Gran Día</h3>
-        <p>Date: June 20, 2026</p>
-        <p>Lugar: Jardín Botánico, Ciudad, País</p>
+    <section id="about">
+        <h2>About Us</h2>
+        <p>We met several years ago and can't wait to start our journey together.</p>
     </section>
-    <section>
-        <h3>RSVP</h3>
-        <p>Please let us know if you can make it!</p>
-        <p>¡Por favor háganos saber si puede asistir!</p>
-        <a class="rsvp" href="https://docs.google.com/forms/d/1SuwIRRoHyp5-oiN665x-qfgtmp2uD9yQVl_mWvgcuaU/edit?usp=drive_web&ouid=100496277999797114008">RSVP Here / RSVP Aquí</a>
+    <section id="events">
+        <h2>Events</h2>
+        <p>Join us for our wedding ceremony and reception.</p>
     </section>
+    <section id="registry">
+        <h2>Registry</h2>
+        <p>Your presence at our wedding is the greatest gift of all!</p>
+    </section>
+    <section id="rsvp">
+        <h2>RSVP</h2>
+        <p>Please tell us if you can make it by clicking <a href="https://docs.google.com/forms/d/1SuwIRRoHyp5-oiN665x-qfgtmp2uD9yQVl_mWvgcuaU/edit?usp=drive_web&ouid=100496277999797114008" target="_blank">here</a>.</p>
+    </section>
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>If you have any questions, feel free to reach out!</p>
+    </section>
+    <script>
+        function toggleLanguage() {
+            // Simple toggle implementation (can be expanded for full bilingual support)
+            alert("Language toggled! (Implement full bilingual support as needed)");
+        }
+    </script>
 </body>
 </html>
