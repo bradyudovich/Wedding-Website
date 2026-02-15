@@ -15,7 +15,8 @@ const FallingGallery = () => {
     }
   }, []);
 
-  // Spring animation configuration
+  // Animation configuration constants
+  const INITIAL_FALL_HEIGHT = -800;
   const springConfig = {
     type: 'spring',
     stiffness: 50,
@@ -36,7 +37,7 @@ const FallingGallery = () => {
           <motion.div
             key={square.id}
             className="w-12 h-12 md:w-20 md:h-20 border-2 border-black bg-gray-50 rounded-md shadow-sm"
-            initial={hasSeenIntro ? { y: 0, opacity: 1 } : { y: -800, opacity: 0 }}
+            initial={hasSeenIntro ? { y: 0, opacity: 1 } : { y: INITIAL_FALL_HEIGHT, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={
               hasSeenIntro
