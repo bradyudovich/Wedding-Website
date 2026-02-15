@@ -7,11 +7,11 @@ const FallingGallery = () => {
   useEffect(() => {
     // Check if the user has already seen the intro animation
     const seen = sessionStorage.getItem('hasSeenIntro');
-    if (seen === 'true') {
+    if (seen) {
       setHasSeenIntro(true);
     } else {
       // Mark as seen once component mounts
-      sessionStorage.setItem('hasSeenIntro', 'true');
+      sessionStorage.setItem('hasSeenIntro', '1');
     }
   }, []);
 
