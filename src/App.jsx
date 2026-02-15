@@ -9,7 +9,7 @@ import FAQ from './pages/FAQ';
 function App() {
   return (
     <LanguageProvider>
-      <Router>
+      <Router basename="/Wedding-Website">
         <div className="min-h-screen bg-wedding-bg">
           <Navbar />
           <Routes>
