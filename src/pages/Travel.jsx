@@ -11,7 +11,12 @@ const Travel = () => {
 
   useEffect(() => {
     fetch('https://api.exchangerate-api.com/v4/latest/USD')
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
       .then(data => {
         if (data.rates && data.rates.ARS) {
           setExchangeRate(data.rates.ARS);

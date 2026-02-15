@@ -15,7 +15,7 @@ const Navbar = () => {
         <div className="flex flex-col md:flex-row md:justify-between md:items-center space-y-4 md:space-y-0">
           {/* Brand - centered on mobile, left-aligned on desktop */}
           <Link to="/" className="text-2xl md:text-3xl font-bold text-gray-800 font-bodoni text-center md:text-left">
-            Cami &amp; Brady
+            Cami & Brady
           </Link>
 
           {/* Navigation Links */}
