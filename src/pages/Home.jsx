@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Calendar, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '../LanguageContext';
@@ -24,19 +24,29 @@ const FallingGallery = () => {
   const squares = [0, 1, 2];
 
   return (
-    <div className="mt-6">
-      <div className="flex justify-between gap-4">
+    // Keep horizontal max width / padding alignment with the "Our Story" box by using px-10 here
+    <div className="mt-6 px-10">
+      {/* 
+        Mobile: stacked column (w-full)
+        Desktop: row (md:flex-row) with equal widths (flex-1)
+        Gap between squares is gap-4; thin black border on each square.
+      */}
+      <div className="flex flex-col md:flex-row gap-4">
         {squares.map((_, i) => (
           <motion.div
             key={i}
-            className="flex-1 min-w-0 aspect-square border border-black bg-[rgba(248,246,242,0.6)]"
-            initial={seen ? { y: 0, opacity: 1 } : { y: '-120vh', opacity: 0 }}
+            // On mobile use full width; on desktop allow flex to split available width equally
+            className="w-full md:flex-1 min-w-0 aspect-square border border-black bg-[rgba(248,246,242,0.6)]"
+            // Ensure initial is explicitly set so the browser doesn't skip the transition.
+            // When the session has been seen, render in-place immediately.
+            initial={seen ? { y: 0, opacity: 1 } : { y: -1000, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{
               type: 'spring',
               stiffness: 80,
               damping: 14,
               mass: 1,
+              // individual stagger via delay per square
               delay: i * 0.12,
             }}
             onAnimationComplete={i === squares.length - 1 && !seen ? handleComplete : undefined}
@@ -53,7 +63,8 @@ const Home = () => {
   const t = translations[language].home;
 
   return (
-    <div className="min-h-screen">
+    // Apply hyphens: auto globally inside this page container to keep text hyphenation consistent.
+    <div className="min-h-screen" style={{ WebkitHyphens: 'auto', hyphens: 'auto' }}>
       {/* Hero Section */}
       <div className="bg-wedding-secondary py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
