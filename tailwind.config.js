@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         'poppins': ['Poppins', 'sans-serif'],
         'playfair': ['Playfair Display', 'serif'],
+        'bodoni': ['Bodoni Moda', 'serif'],
       },
       colors: {
         'wedding-bg': '#F9F8F6',
