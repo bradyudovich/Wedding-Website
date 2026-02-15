@@ -11,26 +11,62 @@ const Travel = () => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    fetch('https://api.exchangerate.host/latest?base=USD&symbols=ARS')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
+    let isMounted = true;
+    const controller = new AbortController();
+
+    const fetchExchangeRate = async () => {
+      const primaryUrl = 'https://open.er-api.com/v6/latest/USD';
+      const backupUrl = 'https://api.exchangerate-api.com/v4/latest/USD';
+
+      try {
+        // Try primary source
+        const primaryResponse = await fetch(primaryUrl, { signal: controller.signal });
+        if (primaryResponse.ok) {
+          const primaryData = await primaryResponse.json();
+          if (primaryData.rates && primaryData.rates.ARS) {
+            if (isMounted) {
+              setExchangeRate(primaryData.rates.ARS);
+              setLoading(false);
+            }
+            return;
+          }
         }
-        return response.json();
-      })
-      .then(data => {
-        if (data.rates && data.rates.ARS) {
-          setExchangeRate(data.rates.ARS);
-          setLoading(false);
-        } else {
-          setError(true);
-          setLoading(false);
+      } catch (primaryError) {
+        // Primary failed, continue to backup
+        console.log('Primary exchange rate source failed, trying backup');
+      }
+
+      try {
+        // Try backup source
+        const backupResponse = await fetch(backupUrl, { signal: controller.signal });
+        if (backupResponse.ok) {
+          const backupData = await backupResponse.json();
+          if (backupData.rates && backupData.rates.ARS) {
+            if (isMounted) {
+              setExchangeRate(backupData.rates.ARS);
+              setLoading(false);
+            }
+            return;
+          }
         }
-      })
-      .catch(() => {
+      } catch (backupError) {
+        // Both failed
+        console.log('Backup exchange rate source also failed');
+      }
+
+      // Both sources failed
+      if (isMounted) {
         setError(true);
         setLoading(false);
-      });
+      }
+    };
+
+    fetchExchangeRate();
+
+    return () => {
+      isMounted = false;
+      controller.abort();
+    };
   }, []);
 
   const formatRate = (rate) => {

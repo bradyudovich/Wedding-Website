@@ -14,10 +14,12 @@ const Navbar = () => {
         {/* Mobile Language Toggle - Absolute positioned top-right */}
         <button
           onClick={toggleLanguage}
-          className="md:hidden absolute top-4 right-4 bg-gray-200 hover:bg-gray-300 px-3 py-2 rounded-md text-sm font-medium transition-colors z-10"
+          className="md:hidden absolute top-4 right-4 bg-gray-200 hover:bg-gray-300 h-10 w-10 p-1 rounded-md font-medium transition-colors z-10 flex items-center justify-center"
           aria-label="Toggle Language"
         >
-          {language === 'en' ? '🇦🇷' : '🇺🇸'}
+          <span className="text-3xl leading-none">
+            {language === 'en' ? '🇦🇷' : '🇺🇸'}
+          </span>
         </button>
 
         {/* Mobile-first: Stacked layout */}
@@ -65,10 +67,12 @@ const Navbar = () => {
           <div className="hidden md:flex md:justify-end md:col-start-3">
             <button
               onClick={toggleLanguage}
-              className="bg-gray-200 hover:bg-gray-300 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              className="bg-gray-200 hover:bg-gray-300 h-10 w-10 p-1 rounded-md font-medium transition-colors flex items-center justify-center"
               aria-label="Toggle Language"
             >
-              {language === 'en' ? '🇦🇷' : '🇺🇸'}
+              <span className="text-3xl leading-none">
+                {language === 'en' ? '🇦🇷' : '🇺🇸'}
+              </span>
             </button>
           </div>
         </div>
