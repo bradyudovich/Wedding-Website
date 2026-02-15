@@ -12,6 +12,8 @@ export default {
       },
       colors: {
         'wedding-bg': '#F9F8F6',
+        'wedding-secondary': '#F0F4F7',
+        'wedding-accent': '#E1E8ED',
       },
     },
   },
