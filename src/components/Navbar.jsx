@@ -16,7 +16,7 @@ const Navbar = () => {
           {/* Branding - centered on mobile, left on desktop */}
           <div className="text-center md:text-left">
             <Link to="/" className="text-2xl font-bold text-gray-800 font-bodoni">
-              Cami &amp; Brady
+              Cami & Brady
             </Link>
           </div>
 
