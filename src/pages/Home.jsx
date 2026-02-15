@@ -2,6 +2,7 @@ import React from 'react';
 import { Calendar, MapPin } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
+import FallingGallery from '../components/FallingGallery';
 
 const Home = () => {
   const { language } = useLanguage();
@@ -10,7 +11,7 @@ const Home = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="bg-wedding-secondary py-20 px-4">
+      <div className="bg-wedding-secondary py-20 pb-32 md:pb-20 px-4 relative">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold text-gray-800 mb-4 font-bodoni">
             {t.title}
@@ -19,6 +20,7 @@ const Home = () => {
             {t.subtitle}
           </p>
         </div>
+        <FallingGallery />
       </div>
 
       {/* Date and Location Section */}
