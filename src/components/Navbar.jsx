@@ -13,7 +13,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           {/* Logo/Brand */}
           <Link to="/" className="text-2xl font-bold text-gray-800 font-playfair">
-            Cami &amp; Brady
+            Cami & Brady
           </Link>
 
           {/* Navigation Links */}
