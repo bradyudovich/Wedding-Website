@@ -7,6 +7,7 @@ A beautiful, single-page React application that functions as a multi-page weddin
 ## Quick Links
 
 - 📖 [Quick Deployment Guide](./QUICKSTART.md) - Deploy in 3 steps
+- 📄 [Deployment Cheat Sheet](./CHEATSHEET.md) - Quick reference commands
 - 📚 [Detailed Deployment Guide](./DEPLOYMENT.md) - Comprehensive instructions
 - ⚙️ [Development Setup](#getting-started) - Start developing locally
 
@@ -234,6 +235,7 @@ The website supports English and Spanish. Toggle between languages using the but
 ## Additional Documentation
 
 - **[QUICKSTART.md](./QUICKSTART.md)** - Fast track deployment guide (3 steps)
+- **[CHEATSHEET.md](./CHEATSHEET.md)** - Quick reference for deployment commands
 - **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Complete deployment documentation
   - GitHub Pages setup
   - Alternative hosting options
