@@ -17,3 +17,15 @@ h1, h2, h3, h4, h5, h6 {
 * {
   box-sizing: border-box;
 }
+
+.text-justify {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+}
+
+.font-bodoni {
+  font-family: 'Bodoni Moda', serif;
+}
