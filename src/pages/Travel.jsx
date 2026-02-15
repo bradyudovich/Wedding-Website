@@ -34,11 +34,11 @@ const Travel = () => {
             {t.accommodationsText}
           </p>
           <div className="space-y-4">
-            <div className="bg-rose-50 p-4 rounded-md">
+            <div className="bg-wedding-secondary p-4 rounded-md">
               <h3 className="font-semibold text-xl text-gray-800 mb-2">{t.hotel1Name}</h3>
               <p className="text-gray-600">{t.hotel1Details}</p>
             </div>
-            <div className="bg-rose-50 p-4 rounded-md">
+            <div className="bg-wedding-secondary p-4 rounded-md">
               <h3 className="font-semibold text-xl text-gray-800 mb-2">{t.hotel2Name}</h3>
               <p className="text-gray-600">{t.hotel2Details}</p>
             </div>

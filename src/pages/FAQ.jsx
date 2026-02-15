@@ -27,7 +27,7 @@ const FAQ = () => {
         <div className="space-y-6">
           {faqs.map((faq, index) => (
             <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold text-rose-600 mb-3">
+              <h3 className="text-xl font-semibold text-gray-800 mb-3">
                 {faq.question}
               </h3>
               <p className="text-gray-700 leading-relaxed">
