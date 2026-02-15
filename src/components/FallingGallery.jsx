@@ -33,22 +33,25 @@ const FallingGallery = () => {
   return (
     <div className="absolute bottom-0 left-0 right-0 flex justify-center items-end pb-2 md:pb-6 pointer-events-none">
       <div className="flex flex-col md:flex-row gap-2 md:gap-4">
-        {squares.map((square) => (
-          <motion.div
-            key={square.id}
-            className="w-12 h-12 md:w-20 md:h-20 border-2 border-black bg-gray-50 rounded-md shadow-sm"
-            initial={hasSeenIntro ? { y: 0, opacity: 1 } : { y: INITIAL_FALL_HEIGHT, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={
-              hasSeenIntro
-                ? { duration: 0 }
-                : {
-                    ...springConfig,
-                    delay: square.delay,
-                  }
-            }
-          />
-        ))}
+        {squares.map((square) => {
+          const initialPosition = hasSeenIntro 
+            ? { y: 0, opacity: 1 } 
+            : { y: INITIAL_FALL_HEIGHT, opacity: 0 };
+          
+          const transitionConfig = hasSeenIntro
+            ? { duration: 0 }
+            : { ...springConfig, delay: square.delay };
+
+          return (
+            <motion.div
+              key={square.id}
+              className="w-12 h-12 md:w-20 md:h-20 border-2 border-black bg-gray-50 rounded-md shadow-sm"
+              initial={initialPosition}
+              animate={{ y: 0, opacity: 1 }}
+              transition={transitionConfig}
+            />
+          );
+        })}
       </div>
     </div>
   );
