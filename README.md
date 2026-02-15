@@ -2,6 +2,14 @@
 
 A beautiful, single-page React application that functions as a multi-page wedding website with English/Spanish language support.
 
+**🚀 Live Site:** https://bradyudovich.github.io/Wedding-Website/
+
+## Quick Links
+
+- 📖 [Quick Deployment Guide](./QUICKSTART.md) - Deploy in 3 steps
+- 📚 [Detailed Deployment Guide](./DEPLOYMENT.md) - Comprehensive instructions
+- ⚙️ [Development Setup](#getting-started) - Start developing locally
+
 ## Features
 
 - 🎨 **Modern Design**: Clean, elegant interface with Tailwind CSS
@@ -222,6 +230,15 @@ The website supports English and Spanish. Toggle between languages using the but
   - Poppins for UI elements and body text
   - Playfair Display for headings
 - **Color Scheme**: Rose/pink accents for a romantic feel
+
+## Additional Documentation
+
+- **[QUICKSTART.md](./QUICKSTART.md)** - Fast track deployment guide (3 steps)
+- **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Complete deployment documentation
+  - GitHub Pages setup
+  - Alternative hosting options
+  - Troubleshooting guide
+  - Custom domain configuration
 
 ## License
 
