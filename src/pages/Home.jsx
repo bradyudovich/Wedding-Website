@@ -1,4 +1,5 @@
 import React from 'react';
+import { Calendar, MapPin } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 
@@ -24,12 +25,16 @@ const Home = () => {
       <div className="max-w-6xl mx-auto py-16 px-4">
         <div className="grid md:grid-cols-2 gap-8">
           <div className="bg-white p-8 rounded-lg shadow-md text-center">
-            <div className="text-gray-700 text-4xl mb-4">📅</div>
+            <div className="text-gray-700 flex justify-center mb-4">
+              <Calendar size={40} color="black" strokeWidth={2} />
+            </div>
             <h3 className="text-2xl font-semibold mb-2 text-gray-800 font-bodoni">{t.date}</h3>
             <p className="text-gray-600 text-lg">{t.dateDetails}</p>
           </div>
           <div className="bg-white p-8 rounded-lg shadow-md text-center">
-            <div className="text-gray-700 text-4xl mb-4">📍</div>
+            <div className="text-gray-700 flex justify-center mb-4">
+              <MapPin size={40} color="black" strokeWidth={2} />
+            </div>
             <h3 className="text-2xl font-semibold mb-2 text-gray-800 font-bodoni">{t.location}</h3>
             <p className="text-gray-600 text-lg">{t.locationDetails}</p>
           </div>
