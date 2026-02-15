@@ -31,7 +31,11 @@ export const translations = {
       transportationTitle: "Transportation",
       transportationText: "Shuttle service will be provided between The Grand Hotel and the venue. Shuttles will run every 30 minutes starting at 2:00 PM. The last shuttle back to the hotel will depart at 11:30 PM.",
       localAttractionsTitle: "Local Attractions",
-      localAttractionsText: "While you're in town, don't miss these local favorites: Downtown Historic District, Riverside Park, City Museum, and the famous Local Restaurant Row on 5th Avenue."
+      localAttractionsText: "While you're in town, don't miss these local favorites: Downtown Historic District, Riverside Park, City Museum, and the famous Local Restaurant Row on 5th Avenue.",
+      currentRateLabel: "Current Exchange Rate",
+      exchangeNote: "Note: The official rate may differ from the 'Blue Dollar' rate, which is an unofficial parallel exchange rate often available at local exchange houses ('cuevas') in Argentina.",
+      loading: "Loading...",
+      notAvailable: "Rate not available"
     },
     faq: {
       title: "Frequently Asked Questions",
@@ -85,7 +89,11 @@ export const translations = {
       transportationTitle: "Transporte",
       transportationText: "Se proporcionará servicio de transporte entre El Gran Hotel y el lugar. Los autobuses saldrán cada 30 minutos a partir de las 2:00 PM. El último autobús de regreso al hotel saldrá a las 11:30 PM.",
       localAttractionsTitle: "Atracciones Locales",
-      localAttractionsText: "Mientras esté en la ciudad, no se pierda estos favoritos locales: Distrito Histórico del Centro, Parque Riverside, Museo de la Ciudad y la famosa Fila de Restaurantes Locales en la Avenida 5."
+      localAttractionsText: "Mientras esté en la ciudad, no se pierda estos favoritos locales: Distrito Histórico del Centro, Parque Riverside, Museo de la Ciudad y la famosa Fila de Restaurantes Locales en la Avenida 5.",
+      currentRateLabel: "Tipo de Cambio Actual",
+      exchangeNote: "Nota: El tipo de cambio oficial puede diferir del 'Dólar Blue', que es un tipo de cambio paralelo no oficial que a menudo está disponible en casas de cambio locales ('cuevas') en Argentina.",
+      loading: "Cargando...",
+      notAvailable: "Tasa no disponible"
     },
     faq: {
       title: "Preguntas Frecuentes",

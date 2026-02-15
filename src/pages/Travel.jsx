@@ -1,10 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 
 const Travel = () => {
   const { language } = useLanguage();
   const t = translations[language].travel;
+  const [exchangeRate, setExchangeRate] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchExchangeRate = async () => {
+      try {
+        const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
+        const data = await response.json();
+        if (data && data.rates && data.rates.ARS) {
+          setExchangeRate(data.rates.ARS.toFixed(2));
+        }
+      } catch (error) {
+        console.error('Error fetching exchange rate:', error);
+        setExchangeRate(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchExchangeRate();
+  }, []);
 
   return (
     <div className="min-h-screen py-12 px-4">
@@ -12,6 +33,23 @@ const Travel = () => {
         <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-12 text-center">
           {t.title}
         </h1>
+
+        {/* Exchange Rate Card */}
+        <div className="bg-white p-6 rounded-lg shadow-md mb-8">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">{t.currentRateLabel}</h2>
+          <div className="text-gray-700 text-lg mb-3">
+            {loading ? (
+              <span>{t.loading}</span>
+            ) : exchangeRate ? (
+              <span className="font-semibold">1 USD = {exchangeRate} ARS</span>
+            ) : (
+              <span>{t.notAvailable}</span>
+            )}
+          </div>
+          <p className="text-gray-600 text-sm leading-relaxed">
+            {t.exchangeNote}
+          </p>
+        </div>
 
         {/* Getting There */}
         <div className="bg-white p-8 rounded-lg shadow-md mb-8">
