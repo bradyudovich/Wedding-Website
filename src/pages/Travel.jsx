@@ -33,6 +33,7 @@ const Travel = () => {
         }
       } catch (primaryError) {
         // Primary failed, continue to backup
+        console.log('Primary exchange rate source failed, trying backup');
       }
 
       try {
@@ -50,6 +51,7 @@ const Travel = () => {
         }
       } catch (backupError) {
         // Both failed
+        console.log('Backup exchange rate source also failed');
       }
 
       // Both sources failed
