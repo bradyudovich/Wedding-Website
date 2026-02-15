@@ -11,7 +11,7 @@ const Home = () => {
       {/* Hero Section */}
       <div className="bg-wedding-secondary py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-800 mb-4">
+          <h1 className="text-5xl md:text-7xl font-bold text-gray-800 mb-4 font-bodoni">
             {t.title}
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 font-light">
@@ -39,10 +39,10 @@ const Home = () => {
       {/* Welcome Section */}
       <div className="max-w-4xl mx-auto py-12 px-4">
         <div className="bg-white p-10 rounded-lg shadow-md">
-          <h2 className="text-4xl font-bold mb-6 text-gray-800 text-center">
+          <h2 className="text-4xl font-bold mb-6 text-gray-800 text-center font-bodoni">
             {t.welcomeTitle}
           </h2>
-          <p className="text-gray-700 leading-relaxed text-lg mb-6">
+          <p className="text-gray-700 leading-relaxed text-lg mb-6 text-justify">
             {t.welcomeText}
           </p>
         </div>
@@ -50,11 +50,11 @@ const Home = () => {
 
       {/* Our Story Section */}
       <div className="max-w-4xl mx-auto py-12 px-4 pb-20">
-        <div className="bg-wedding-secondary p-10 rounded-lg shadow-md">
-          <h2 className="text-4xl font-bold mb-6 text-gray-800 text-center">
+        <div className="bg-wedding-accent p-10 rounded-lg shadow-md">
+          <h2 className="text-4xl font-bold mb-6 text-gray-800 text-center font-bodoni">
             {t.storyTitle}
           </h2>
-          <p className="text-gray-700 leading-relaxed text-lg">
+          <p className="text-gray-700 leading-relaxed text-lg text-justify">
             {t.storyText}
           </p>
         </div>

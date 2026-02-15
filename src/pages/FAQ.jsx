@@ -20,7 +20,7 @@ const FAQ = () => {
   return (
     <div className="min-h-screen py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-12 text-center">
+        <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-12 text-center font-bodoni">
           {t.title}
         </h1>
 
@@ -30,7 +30,7 @@ const FAQ = () => {
               <h3 className="text-xl font-semibold text-gray-800 mb-3">
                 {faq.question}
               </h3>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed text-justify">
                 {faq.answer}
               </p>
             </div>

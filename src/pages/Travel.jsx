@@ -30,13 +30,13 @@ const Travel = () => {
   return (
     <div className="min-h-screen py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-12 text-center">
+        <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-12 text-center font-bodoni">
           {t.title}
         </h1>
 
         {/* Exchange Rate Card */}
         <div className="bg-white p-6 rounded-lg shadow-md mb-8">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">{t.currentRateLabel}</h2>
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4 font-bodoni">{t.currentRateLabel}</h2>
           <div className="text-gray-700 text-lg mb-3">
             {loading ? (
               <span>{t.loading}</span>
@@ -46,7 +46,7 @@ const Travel = () => {
               <span>{t.notAvailable}</span>
             )}
           </div>
-          <p className="text-gray-600 text-sm leading-relaxed">
+          <p className="text-gray-600 text-sm leading-relaxed text-justify">
             {t.exchangeNote}
           </p>
         </div>
@@ -55,9 +55,9 @@ const Travel = () => {
         <div className="bg-white p-8 rounded-lg shadow-md mb-8">
           <div className="flex items-center mb-4">
             <span className="text-3xl mr-3">🚗</span>
-            <h2 className="text-3xl font-semibold text-gray-800">{t.gettingThereTitle}</h2>
+            <h2 className="text-3xl font-semibold text-gray-800 font-bodoni">{t.gettingThereTitle}</h2>
           </div>
-          <p className="text-gray-700 leading-relaxed text-lg">
+          <p className="text-gray-700 leading-relaxed text-lg text-justify">
             {t.gettingThereText}
           </p>
         </div>
@@ -66,17 +66,17 @@ const Travel = () => {
         <div className="bg-white p-8 rounded-lg shadow-md mb-8">
           <div className="flex items-center mb-4">
             <span className="text-3xl mr-3">🏨</span>
-            <h2 className="text-3xl font-semibold text-gray-800">{t.accommodationsTitle}</h2>
+            <h2 className="text-3xl font-semibold text-gray-800 font-bodoni">{t.accommodationsTitle}</h2>
           </div>
-          <p className="text-gray-700 leading-relaxed text-lg mb-6">
+          <p className="text-gray-700 leading-relaxed text-lg mb-6 text-justify">
             {t.accommodationsText}
           </p>
           <div className="space-y-4">
-            <div className="bg-wedding-secondary p-4 rounded-md">
+            <div className="bg-wedding-accent p-4 rounded-md">
               <h3 className="font-semibold text-xl text-gray-800 mb-2">{t.hotel1Name}</h3>
               <p className="text-gray-600">{t.hotel1Details}</p>
             </div>
-            <div className="bg-wedding-secondary p-4 rounded-md">
+            <div className="bg-wedding-accent p-4 rounded-md">
               <h3 className="font-semibold text-xl text-gray-800 mb-2">{t.hotel2Name}</h3>
               <p className="text-gray-600">{t.hotel2Details}</p>
             </div>
@@ -87,9 +87,9 @@ const Travel = () => {
         <div className="bg-white p-8 rounded-lg shadow-md mb-8">
           <div className="flex items-center mb-4">
             <span className="text-3xl mr-3">🚌</span>
-            <h2 className="text-3xl font-semibold text-gray-800">{t.transportationTitle}</h2>
+            <h2 className="text-3xl font-semibold text-gray-800 font-bodoni">{t.transportationTitle}</h2>
           </div>
-          <p className="text-gray-700 leading-relaxed text-lg">
+          <p className="text-gray-700 leading-relaxed text-lg text-justify">
             {t.transportationText}
           </p>
         </div>
@@ -98,9 +98,9 @@ const Travel = () => {
         <div className="bg-white p-8 rounded-lg shadow-md mb-8">
           <div className="flex items-center mb-4">
             <span className="text-3xl mr-3">🎭</span>
-            <h2 className="text-3xl font-semibold text-gray-800">{t.localAttractionsTitle}</h2>
+            <h2 className="text-3xl font-semibold text-gray-800 font-bodoni">{t.localAttractionsTitle}</h2>
           </div>
-          <p className="text-gray-700 leading-relaxed text-lg">
+          <p className="text-gray-700 leading-relaxed text-lg text-justify">
             {t.localAttractionsText}
           </p>
         </div>
