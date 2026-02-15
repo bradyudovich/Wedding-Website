@@ -33,21 +33,21 @@ const Navbar = () => {
               to="/" 
               className="flex items-center gap-1 text-black hover:text-gray-800 transition-colors font-medium font-poppins"
             >
-              <Home size={18} className="text-black" />
+              <Home size={18} />
               <span>{t.home}</span>
             </Link>
             <Link 
               to="/travel" 
               className="flex items-center gap-1 text-black hover:text-gray-800 transition-colors font-medium font-poppins"
             >
-              <Plane size={18} className="text-black" />
+              <Plane size={18} />
               <span>{t.travel}</span>
             </Link>
             <Link 
               to="/faq" 
               className="flex items-center gap-1 text-black hover:text-gray-800 transition-colors font-medium font-poppins"
             >
-              <HelpCircle size={18} className="text-black" />
+              <HelpCircle size={18} />
               <span>{t.faq}</span>
             </Link>
             <a 
@@ -56,7 +56,7 @@ const Navbar = () => {
               rel="noopener noreferrer"
               className="flex items-center gap-1 bg-wedding-accent text-gray-800 px-4 py-2 rounded-md hover:bg-gray-300 transition-colors font-medium font-poppins"
             >
-              <Send size={18} className="text-black" />
+              <Send size={18} />
               <span>{t.rsvp}</span>
             </a>
           </div>
