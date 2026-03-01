@@ -1,7 +1,14 @@
 import React from 'react';
-import { MapPin, ExternalLink, Mountain } from 'lucide-react';
+import { MapPin, ExternalLink, Mountain, Globe } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
+
+const buenosAiresActivities = [
+  { key: 'sanTelmo' },
+  { key: 'laBoca' },
+  { key: 'tangoShow' },
+  { key: 'palermo' },
+];
 
 const restaurants = [
   {
@@ -46,6 +53,31 @@ const ThingsToDo = () => {
           <p className="text-gray-700 leading-relaxed text-lg font-poppins text-center italic">
             {t.explorerMessage}
           </p>
+        </div>
+
+        {/* Buenos Aires */}
+        <div className="bg-white p-8 rounded-lg shadow-md mb-8">
+          <div className="flex items-center mb-4">
+            <Globe size={32} className="text-black mr-3" />
+            <h2 className="text-3xl font-semibold text-gray-800 font-bodoni">{t.buenosAiresTitle}</h2>
+          </div>
+          <p className="text-gray-700 leading-relaxed text-lg mb-6 font-poppins" style={{ textAlign: 'justify' }}>
+            {t.buenosAiresSubtitle}
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {buenosAiresActivities.map((activity) => (
+              <div key={activity.key} className="bg-wedding-secondary rounded-lg overflow-hidden">
+                <div className="p-5">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2 font-bodoni">
+                    {t[`${activity.key}Name`]}
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed font-poppins text-sm" style={{ textAlign: 'justify' }}>
+                    {t[`${activity.key}Description`]}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Restaurants */}

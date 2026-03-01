@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Car, Hotel, Bus, Theater, CloudSun, AlertCircle } from 'lucide-react';
+import { Car, Hotel, Bus, CloudSun, AlertCircle } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 
@@ -166,17 +166,6 @@ const Travel = () => {
           </div>
           <p className="text-gray-700 leading-relaxed text-lg font-poppins" style={{ textAlign: 'justify', hyphens: 'auto' }}>
             {t.transportationText}
-          </p>
-        </div>
-
-        {/* Local Attractions */}
-        <div className="bg-white p-8 rounded-lg shadow-md mb-8">
-          <div className="flex items-center mb-4">
-            <Theater size={32} className="text-black mr-3" />
-            <h2 className="text-3xl font-semibold text-gray-800 font-bodoni">{t.localAttractionsTitle}</h2>
-          </div>
-          <p className="text-gray-700 leading-relaxed text-lg font-poppins" style={{ textAlign: 'justify', hyphens: 'auto' }}>
-            {t.localAttractionsText}
           </p>
         </div>
       </div>
