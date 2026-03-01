@@ -104,6 +104,29 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Schedule Section */}
+      <div className="max-w-6xl mx-auto py-8 px-4">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8 font-bodoni">{t.scheduleTitle}</h2>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="bg-white p-8 rounded-lg shadow-md text-center">
+            <div className="text-gray-700 flex justify-center mb-4">
+              <Calendar size={32} color="black" strokeWidth={2} />
+            </div>
+            <h3 className="text-2xl font-semibold mb-2 text-gray-800 font-bodoni">{t.preWeddingEvent}</h3>
+            <p className="text-gray-600 text-lg">{t.preWeddingDate}</p>
+            <p className="text-gray-500 text-base mt-1">{t.preWeddingLocation}</p>
+          </div>
+          <div className="bg-white p-8 rounded-lg shadow-md text-center">
+            <div className="text-gray-700 flex justify-center mb-4">
+              <Calendar size={32} color="black" strokeWidth={2} />
+            </div>
+            <h3 className="text-2xl font-semibold mb-2 text-gray-800 font-bodoni">{t.weddingEventTitle}</h3>
+            <p className="text-gray-600 text-lg">{t.dateDetails}</p>
+            <p className="text-gray-500 text-base mt-1">{t.weddingLocation}</p>
+          </div>
+        </div>
+      </div>
+
       {/* Welcome Section */}
       <div className="max-w-4xl mx-auto py-12 px-4">
         <div className="bg-white p-10 rounded-lg shadow-md">
