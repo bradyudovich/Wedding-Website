@@ -94,30 +94,13 @@ const Travel = () => {
           {t.title}
         </h1>
 
-        {/* Exchange Rate Display */}
-        <div className="bg-white p-6 rounded-lg shadow-md mb-8">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4 font-bodoni">{t.exchangeRateTitle}</h2>
-          {loading ? (
-            <p className="text-gray-600 font-poppins">{t.loading}</p>
-          ) : error || !exchangeRate ? (
-            <p className="text-gray-600 font-poppins">{t.notAvailable}</p>
-          ) : (
-            <>
-              <p className="text-lg text-gray-800 font-poppins">
-                1 USD = {formatRate(exchangeRate)} ARS
-              </p>
-              <p className="text-sm text-gray-500 mt-2 font-poppins">{t.exchangeNote}</p>
-            </>
-          )}
-        </div>
-
         {/* Passport Reminder */}
         <div className="bg-white p-6 rounded-lg shadow-md mb-8 border-l-4 border-yellow-400">
           <div className="flex items-start gap-3">
             <AlertCircle size={28} className="text-yellow-500 mt-1 flex-shrink-0" />
             <div>
               <h2 className="text-xl font-semibold text-gray-800 mb-2 font-bodoni">{t.passportReminderTitle}</h2>
-              <p className="text-gray-700 font-poppins">{t.passportReminderText}</p>
+              <p className="text-gray-700 font-poppins" style={{ textAlign: 'justify' }}>{t.passportReminderText}</p>
             </div>
           </div>
         </div>
@@ -145,6 +128,23 @@ const Travel = () => {
               <p className="text-base font-semibold text-gray-700 font-poppins">{t.weatherRain}</p>
             </div>
           </div>
+        </div>
+
+        {/* Exchange Rate Display */}
+        <div className="bg-white p-6 rounded-lg shadow-md mb-8">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4 font-bodoni">{t.exchangeRateTitle}</h2>
+          {loading ? (
+            <p className="text-gray-600 font-poppins">{t.loading}</p>
+          ) : error || !exchangeRate ? (
+            <p className="text-gray-600 font-poppins">{t.notAvailable}</p>
+          ) : (
+            <>
+              <p className="text-lg text-gray-800 font-poppins">
+                1 USD = {formatRate(exchangeRate)} ARS
+              </p>
+              <p className="text-sm text-gray-500 mt-2 font-poppins">{t.exchangeNote}</p>
+            </>
+          )}
         </div>
 
         {/* Getting There */}
@@ -207,7 +207,7 @@ const Travel = () => {
             <MapPin size={32} className="text-black mr-3" />
             <h2 className="text-3xl font-semibold text-gray-800 font-bodoni">{tr.restaurantsTitle}</h2>
           </div>
-          <p className="text-gray-700 leading-relaxed text-lg mb-6 font-poppins">{tr.subtitle}</p>
+          <p className="text-gray-700 leading-relaxed text-lg mb-6 font-poppins" style={{ textAlign: 'justify' }}>{tr.subtitle}</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {restaurants.map((restaurant) => (
               <div key={restaurant.key} className="bg-wedding-secondary rounded-lg overflow-hidden">
@@ -215,7 +215,7 @@ const Travel = () => {
                   <h3 className="text-xl font-semibold text-gray-800 mb-2 font-bodoni">
                     {tr[`${restaurant.key}Name`]}
                   </h3>
-                  <p className="text-gray-700 leading-relaxed font-poppins mb-3 text-sm">
+                  <p className="text-gray-700 leading-relaxed font-poppins mb-3 text-sm" style={{ textAlign: 'justify' }}>
                     {tr[`${restaurant.key}Description`]}
                   </p>
                   <a
