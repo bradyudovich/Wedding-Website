@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Plane, HelpCircle, Send } from 'lucide-react';
+import { Home, Plane, HelpCircle, Send, Star } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 
@@ -51,6 +51,13 @@ const Navbar = () => {
             >
               <HelpCircle size={18} />
               <span>{t.faq}</span>
+            </Link>
+            <Link
+              to="/recommendations"
+              className="flex items-center gap-1 text-black hover:text-gray-800 transition-colors font-medium font-poppins"
+            >
+              <Star size={18} />
+              <span>{t.recommendations}</span>
             </Link>
             <a 
               href="https://docs.google.com/forms/d/1SuwIRRoHyp5-oiN665x-qfgtmp2uD9yQVl_mWvgcuaU/edit"

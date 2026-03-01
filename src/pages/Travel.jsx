@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Car, Hotel, Bus, Theater } from 'lucide-react';
+import { Car, Hotel, Bus, Theater, CloudSun, AlertCircle } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 
@@ -15,46 +15,40 @@ const Travel = () => {
     const controller = new AbortController();
 
     const fetchExchangeRate = async () => {
-      const primaryUrl = 'https://open.er-api.com/v6/latest/USD';
-      const backupUrl = 'https://api.exchangerate-api.com/v4/latest/USD';
+      const apis = [
+        {
+          url: 'https://open.er-api.com/v6/latest/USD',
+          extract: (data) => data?.rates?.ARS,
+        },
+        {
+          url: 'https://api.exchangerate-api.com/v4/latest/USD',
+          extract: (data) => data?.rates?.ARS,
+        },
+        {
+          url: 'https://api.frankfurter.app/latest?from=USD&to=ARS',
+          extract: (data) => data?.rates?.ARS,
+        },
+      ];
 
-      try {
-        // Try primary source
-        const primaryResponse = await fetch(primaryUrl, { signal: controller.signal });
-        if (primaryResponse.ok) {
-          const primaryData = await primaryResponse.json();
-          if (primaryData.rates && primaryData.rates.ARS) {
-            if (isMounted) {
-              setExchangeRate(primaryData.rates.ARS);
-              setLoading(false);
+      for (const api of apis) {
+        try {
+          const response = await fetch(api.url, { signal: controller.signal });
+          if (response.ok) {
+            const data = await response.json();
+            const rate = api.extract(data);
+            if (rate) {
+              if (isMounted) {
+                setExchangeRate(rate);
+                setLoading(false);
+              }
+              return;
             }
-            return;
           }
+        } catch {
+          // Try next API
         }
-      } catch (primaryError) {
-        // Primary failed, continue to backup
-        console.log('Primary exchange rate source failed, trying backup');
       }
 
-      try {
-        // Try backup source
-        const backupResponse = await fetch(backupUrl, { signal: controller.signal });
-        if (backupResponse.ok) {
-          const backupData = await backupResponse.json();
-          if (backupData.rates && backupData.rates.ARS) {
-            if (isMounted) {
-              setExchangeRate(backupData.rates.ARS);
-              setLoading(false);
-            }
-            return;
-          }
-        }
-      } catch (backupError) {
-        // Both failed
-        console.log('Backup exchange rate source also failed');
-      }
-
-      // Both sources failed
       if (isMounted) {
         setError(true);
         setLoading(false);
@@ -88,10 +82,49 @@ const Travel = () => {
           ) : error || !exchangeRate ? (
             <p className="text-gray-600 font-poppins">{t.notAvailable}</p>
           ) : (
-            <p className="text-lg text-gray-800 font-poppins">
-              1 USD = {formatRate(exchangeRate)} ARS
-            </p>
+            <>
+              <p className="text-lg text-gray-800 font-poppins">
+                1 USD = {formatRate(exchangeRate)} ARS
+              </p>
+              <p className="text-sm text-gray-500 mt-2 font-poppins">{t.exchangeNote}</p>
+            </>
           )}
+        </div>
+
+        {/* April Weather in Buenos Aires */}
+        <div className="bg-white p-8 rounded-lg shadow-md mb-8">
+          <div className="flex items-center mb-4">
+            <CloudSun size={32} className="text-black mr-3" />
+            <h2 className="text-3xl font-semibold text-gray-800 font-bodoni">{t.weatherTitle}</h2>
+          </div>
+          <p className="text-gray-700 leading-relaxed text-lg mb-4 font-poppins">
+            {t.weatherDescription}
+          </p>
+          <div className="grid grid-cols-3 gap-4 text-center">
+            <div className="bg-wedding-secondary p-4 rounded-md">
+              <p className="text-sm text-gray-500 font-poppins">{t.weatherHighLabel}</p>
+              <p className="text-xl font-semibold text-gray-800 font-bodoni">{t.weatherHigh}</p>
+            </div>
+            <div className="bg-wedding-secondary p-4 rounded-md">
+              <p className="text-sm text-gray-500 font-poppins">{t.weatherLowLabel}</p>
+              <p className="text-xl font-semibold text-gray-800 font-bodoni">{t.weatherLow}</p>
+            </div>
+            <div className="bg-wedding-secondary p-4 rounded-md">
+              <p className="text-sm text-gray-500 font-poppins">&nbsp;</p>
+              <p className="text-base font-semibold text-gray-700 font-poppins">{t.weatherRain}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Passport Reminder */}
+        <div className="bg-white p-6 rounded-lg shadow-md mb-8 border-l-4 border-yellow-400">
+          <div className="flex items-start gap-3">
+            <AlertCircle size={28} className="text-yellow-500 mt-1 flex-shrink-0" />
+            <div>
+              <h2 className="text-xl font-semibold text-gray-800 mb-2 font-bodoni">{t.passportReminderTitle}</h2>
+              <p className="text-gray-700 font-poppins">{t.passportReminderText}</p>
+            </div>
+          </div>
         </div>
 
         {/* Getting There */}
