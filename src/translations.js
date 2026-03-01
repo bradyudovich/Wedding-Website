@@ -17,6 +17,9 @@ export const translations = {
       preWeddingLocation: "Location: TBD",
       location: "Location",
       locationDetails: "Buenos Aires, Argentina",
+      scheduleTitle: "Schedule",
+      weddingEventTitle: "Wedding",
+      weddingLocation: "Location: TBD",
       welcomeTitle: "Welcome to Our Wedding",
       welcomeText: "We are so excited to celebrate this special moment with our family and friends. Your presence means the world to us, and we can't wait to share this beautiful day with you. Please explore our website for all the details about the wedding, travel information, and frequently asked questions.",
       storyTitle: "Our Story",
@@ -47,7 +50,7 @@ export const translations = {
       weatherLowLabel: "Average Low",
       weatherHigh: "69°F / 21°C",
       weatherLow: "57°F / 14°C",
-      weatherRain: "Avg. Rainfall: ~70 mm",
+      weatherRain: "Avg. Rainfall: ~2.8 in",
       passportReminderTitle: "Passport Reminder",
       passportReminderText: "If you are coming from another country, ensure your passport does not expire within 6 months of the trip."
     },
@@ -59,6 +62,10 @@ export const translations = {
       restaurant1Description: "A beloved neighborhood pizzeria known for its authentic Buenos Aires-style pizza with a crispy crust and generous toppings. A must-visit for pizza lovers!",
       restaurant2Name: "La Cabrera",
       restaurant2Description: "One of Buenos Aires' most renowned parrillas (steakhouses), famous for its incredible cuts of Argentine beef served with an array of delicious accompaniments. A true taste of Argentine culinary culture.",
+      restaurant3Name: "La Alacena",
+      restaurant3Description: "A charming Buenos Aires eatery celebrated for its market-fresh ingredients and creative takes on classic Argentine dishes. A local favorite for a relaxed and delicious meal.",
+      restaurant4Name: "El Preferido",
+      restaurant4Description: "A traditional Buenos Aires bodegón with a warm, welcoming atmosphere, serving hearty Argentine and Spanish-inspired dishes alongside an excellent wine selection.",
       viewOnMaps: "View on Google Maps"
     },
     faq: {
@@ -99,6 +106,9 @@ export const translations = {
       preWeddingLocation: "Lugar: Por Confirmar",
       location: "Ubicación",
       locationDetails: "Buenos Aires, Argentina",
+      scheduleTitle: "Programa",
+      weddingEventTitle: "Boda",
+      weddingLocation: "Lugar: Por Confirmar",
       welcomeTitle: "Bienvenido a Nuestra Boda",
       welcomeText: "Estamos muy emocionados de celebrar este momento especial con nuestra familia y amigos. Su presencia significa el mundo para nosotros, y no podemos esperar para compartir este hermoso día con ustedes. Por favor, explore nuestro sitio web para todos los detalles sobre la boda, información de viaje y preguntas frecuentes.",
       storyTitle: "Nuestra Historia",
@@ -141,6 +151,10 @@ export const translations = {
       restaurant1Description: "Una querida pizzería de barrio conocida por su auténtica pizza estilo Buenos Aires con una masa crujiente y generosos ingredientes. ¡Una visita obligada para los amantes de la pizza!",
       restaurant2Name: "La Cabrera",
       restaurant2Description: "Una de las parrillas más reconocidas de Buenos Aires, famosa por sus increíbles cortes de carne vacuna argentina servidos con una variedad de deliciosas guarniciones. Un verdadero sabor de la cultura culinaria argentina.",
+      restaurant3Name: "La Alacena",
+      restaurant3Description: "Un encantador restaurante porteño celebrado por sus ingredientes frescos de mercado y sus creativas versiones de los clásicos platos argentinos. Un favorito local para una comida relajada y deliciosa.",
+      restaurant4Name: "El Preferido",
+      restaurant4Description: "Un bodegón tradicional porteño con un ambiente cálido y acogedor, que sirve contundentes platos argentinos y de inspiración española junto con una excelente selección de vinos.",
       viewOnMaps: "Ver en Google Maps"
     },
     faq: {

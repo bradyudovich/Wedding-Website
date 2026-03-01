@@ -5,8 +5,6 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Travel from './pages/Travel';
 import FAQ from './pages/FAQ';
-import Recommendations from './pages/Recommendations';
-
 function AppContent() {
   const { language } = useLanguage();
   
@@ -18,7 +16,6 @@ function AppContent() {
           <Route path="/" element={<Home />} />
           <Route path="/travel" element={<Travel />} />
           <Route path="/faq" element={<FAQ />} />
-          <Route path="/recommendations" element={<Recommendations />} />
         </Routes>
       </div>
     </Router>
