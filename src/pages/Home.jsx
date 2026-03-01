@@ -71,19 +71,23 @@ const Home = () => {
       </div>
 
       {/* Photo Gallery */}
-      <div className="max-w-6xl mx-auto py-12 px-4 pb-20">
+      <div className="max-w-4xl mx-auto py-12 px-4 pb-20">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-8 font-bodoni">{t.photoGalleryTitle}</h2>
-        <div className="flex flex-row gap-3 overflow-x-auto pb-2" style={{ WebkitOverflowScrolling: 'touch' }}>
-          {photos.map((photo) => (
-            <div key={photo} className="flex-shrink-0 w-64 h-64 overflow-hidden rounded-lg shadow-md bg-wedding-secondary">
-              <img
-                src={`${base}photos/${photo}`}
-                alt=""
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                loading="lazy"
-              />
-            </div>
-          ))}
+        <div className="overflow-hidden" style={{ WebkitOverflowScrolling: 'touch' }}>
+          <div className="flex flex-row gap-3 animate-scroll-x" style={{ width: 'max-content' }}>
+            {[...photos, ...photos].map((photo, index) => (
+              <div key={`${photo}-${index}`} className="flex-shrink-0 w-64 h-64 overflow-hidden rounded-lg shadow-md bg-wedding-secondary">
+                <img
+                  src={`${base}photos/${photo}`}
+                  alt=""
+                  width="256"
+                  height="256"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
