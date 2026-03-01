@@ -78,13 +78,21 @@ const Home = () => {
 
       {/* Date and Location Section */}
       <div className="max-w-6xl mx-auto py-16 px-4">
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-white p-8 rounded-lg shadow-md text-center">
             <div className="text-gray-700 flex justify-center mb-4">
               <Calendar size={40} color="black" strokeWidth={2} />
             </div>
             <h3 className="text-2xl font-semibold mb-2 text-gray-800 font-bodoni">{t.date}</h3>
             <p className="text-gray-600 text-lg">{t.dateDetails}</p>
+          </div>
+          <div className="bg-white p-8 rounded-lg shadow-md text-center">
+            <div className="text-gray-700 flex justify-center mb-4">
+              <Calendar size={40} color="black" strokeWidth={2} />
+            </div>
+            <h3 className="text-2xl font-semibold mb-2 text-gray-800 font-bodoni">{t.preWeddingEvent}</h3>
+            <p className="text-gray-600 text-lg">{t.preWeddingDate}</p>
+            <p className="text-gray-500 text-base mt-1">{t.preWeddingLocation}</p>
           </div>
           <div className="bg-white p-8 rounded-lg shadow-md text-center">
             <div className="text-gray-700 flex justify-center mb-4">
