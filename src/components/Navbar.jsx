@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Home, Plane, HelpCircle, Send } from 'lucide-react';
+import { Home, Plane, Calendar, Map, HelpCircle, Send } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 
@@ -44,6 +44,20 @@ const Navbar = () => {
             >
               <Plane size={18} />
               <span>{t.travel}</span>
+            </Link>
+            <Link 
+              to="/schedule" 
+              className="flex items-center gap-1 text-black hover:text-gray-800 transition-colors font-medium font-poppins"
+            >
+              <Calendar size={18} />
+              <span>{t.schedule}</span>
+            </Link>
+            <Link 
+              to="/things-to-do" 
+              className="flex items-center gap-1 text-black hover:text-gray-800 transition-colors font-medium font-poppins"
+            >
+              <Map size={18} />
+              <span>{t.thingsToDo}</span>
             </Link>
             <Link 
               to="/faq" 

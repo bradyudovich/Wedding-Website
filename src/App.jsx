@@ -4,6 +4,8 @@ import { LanguageProvider, useLanguage } from './LanguageContext';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Travel from './pages/Travel';
+import Schedule from './pages/Schedule';
+import ThingsToDo from './pages/ThingsToDo';
 import FAQ from './pages/FAQ';
 function AppContent() {
   const { language } = useLanguage();
@@ -15,6 +17,8 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/travel" element={<Travel />} />
+          <Route path="/schedule" element={<Schedule />} />
+          <Route path="/things-to-do" element={<ThingsToDo />} />
           <Route path="/faq" element={<FAQ />} />
         </Routes>
       </div>
