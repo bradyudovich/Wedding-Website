@@ -2,6 +2,7 @@
 import React, { useMemo } from 'react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
+import PhotoCarousel from '../components/PhotoCarousel';
 
 const photoList = [
   'FullSizeRender.jpeg',
@@ -73,22 +74,7 @@ const Home = () => {
       {/* Photo Gallery */}
       <div className="max-w-4xl mx-auto py-12 px-4 pb-20">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-8 font-bodoni">{t.photoGalleryTitle}</h2>
-        <div className="overflow-hidden">
-          <div className="flex flex-row gap-3 animate-scroll-x" style={{ width: 'max-content' }}>
-            {[...photos, ...photos].map((photo, index) => (
-              <div key={`${photo}-${index}`} className="flex-shrink-0 w-64 h-64 overflow-hidden rounded-lg shadow-md bg-wedding-secondary">
-                <img
-                  src={`${base}photos/${photo}`}
-                  alt=""
-                  width="256"
-                  height="256"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  loading="lazy"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
+        <PhotoCarousel photos={photos} base={base} />
       </div>
     </div>
   );
