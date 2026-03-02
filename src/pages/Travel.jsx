@@ -32,7 +32,7 @@ const Travel = () => {
 
       for (const api of apis) {
         try {
-          const response = await fetch(api.url, { signal: controller.signal });
+          const response = await fetch(api.url, { signal: controller.signal, cache: 'no-store' });
           if (response.ok) {
             const data = await response.json();
             const rate = api.extract(data);
