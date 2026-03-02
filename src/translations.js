@@ -51,8 +51,8 @@ export const translations = {
       weddingEventTitle: "Wedding",
       dateDetails: "April 3rd, 2027",
       weddingLocation: "Las Cortadares",
-      busPickup: "Bus Pickup",
-      busPickupTime: "4:30 PM (TBD location)",
+      busPickup: "Bus Pickup (Optional)",
+      busPickupTime: "4:30 PM — Central Palermo Hotel",
       ceremony: "Ceremony",
       ceremonyTime: "6:00 PM",
       cocktailHour: "Cocktail Hour",
@@ -65,7 +65,9 @@ export const translations = {
       bahonTime: "1:30 AM",
       partyEnd: "Party End",
       partyEndTime: "2:00 AM",
-      dancingNote: "Dancing continues after dinner with pauses for special activities throughout the night"
+      languagePopupTitle: "Language Selector",
+      languagePopupText: "This website is available in both English and Spanish. You can switch languages using the flag button (🇦🇷/🇺🇸) located in the top-right corner of the navigation bar.",
+      languagePopupClose: "Got it!"
     },
     thingsToDo: {
       title: "Things to Do",
@@ -127,7 +129,7 @@ export const translations = {
       weatherLowLabel: "Average Low",
       weatherHigh: "69°F",
       weatherLow: "57°F",
-      weatherRain: "Avg. Rainfall: ~2.8 in",
+      weatherRain: "Avg. Rainfall: ~3.7 in",
       passportReminderTitle: "Passport Reminder",
       passportReminderText: "If you are coming from another country, ensure your passport does not expire within 6 months of the trip."
     },
@@ -217,8 +219,8 @@ export const translations = {
       weddingEventTitle: "Boda",
       dateDetails: "3 de abril de 2027",
       weddingLocation: "Las Cortadares",
-      busPickup: "Micro",
-      busPickupTime: "16:30 (lugar a confirmar)",
+      busPickup: "Micro (Opcional)",
+      busPickupTime: "16:30 — Hotel Central Palermo",
       ceremony: "Ceremonia",
       ceremonyTime: "18:00",
       cocktailHour: "Cóctel",
@@ -231,7 +233,9 @@ export const translations = {
       bahonTime: "01:30",
       partyEnd: "Fin de Fiesta",
       partyEndTime: "02:00",
-      dancingNote: "El baile continúa después de la cena con pausas para actividades especiales durante la noche"
+      languagePopupTitle: "Selector de Idioma",
+      languagePopupText: "Este sitio web está disponible en inglés y español. Puedes cambiar el idioma usando el botón con la bandera (🇦🇷/🇺🇸) ubicado en la esquina superior derecha de la barra de navegación.",
+      languagePopupClose: "¡Entendido!"
     },
     thingsToDo: {
       title: "Qué Hacer",
@@ -293,7 +297,7 @@ export const translations = {
       weatherLowLabel: "Mínima Promedio",
       weatherHigh: "21°C",
       weatherLow: "14°C",
-      weatherRain: "Precipitación Prom.: ~70 mm",
+      weatherRain: "Precipitación Prom.: ~94 mm",
       passportReminderTitle: "Recordatorio de Pasaporte",
       passportReminderText: "Si viene de otro país, asegúrese de que su pasaporte no expire dentro de los 6 meses del viaje."
     },

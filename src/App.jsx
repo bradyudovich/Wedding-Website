@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LanguageProvider, useLanguage } from './LanguageContext';
 import Navbar from './components/Navbar';
+import LanguagePopup from './components/LanguagePopup';
 import Home from './pages/Home';
 import Travel from './pages/Travel';
 import Schedule from './pages/Schedule';
@@ -14,6 +15,7 @@ function AppContent() {
     <Router basename="/Wedding-Website">
       <div className="min-h-screen bg-wedding-bg font-poppins" lang={language}>
         <Navbar />
+        <LanguagePopup />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/travel" element={<Travel />} />

@@ -22,7 +22,7 @@ const Schedule = () => {
           </div>
 
           {/* Pre-Wedding Row */}
-          <div className="grid grid-cols-2 items-start px-6 py-5 border-b border-gray-100">
+          <div className="grid grid-cols-[2fr_1fr] items-start px-6 py-5 border-b border-gray-100">
             <div className="flex items-start gap-3">
               <Calendar size={20} className="text-gray-500 flex-shrink-0 mt-1" />
               <div>
@@ -48,7 +48,7 @@ const Schedule = () => {
           </div>
 
           {/* Wedding Row */}
-          <div className="grid grid-cols-2 items-start px-6 py-5">
+          <div className="grid grid-cols-[2fr_1fr] items-start px-6 py-5">
             <div className="flex items-start gap-3">
               <Calendar size={20} className="text-gray-500 flex-shrink-0 mt-1" />
               <div>
@@ -71,10 +71,6 @@ const Schedule = () => {
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
                     <span className="text-sm text-gray-700 font-poppins">{t.dinner} <span className="text-gray-400">— {t.dinnerTime}</span></span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-rose-300 flex-shrink-0"></span>
-                    <span className="text-sm text-gray-500 font-poppins italic">{t.dancingNote}</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
