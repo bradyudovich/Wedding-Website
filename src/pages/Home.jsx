@@ -73,8 +73,8 @@ const Home = () => {
       {/* Photo Gallery */}
       <div className="max-w-4xl mx-auto py-12 px-4 pb-20">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-8 font-bodoni">{t.photoGalleryTitle}</h2>
-        <div className="overflow-hidden" style={{ WebkitOverflowScrolling: 'touch' }}>
-          <div className="flex flex-row gap-3 animate-scroll-x" style={{ width: 'max-content' }}>
+        <div className="overflow-x-auto md:overflow-hidden" style={{ WebkitOverflowScrolling: 'touch' }}>
+          <div className="flex flex-row gap-3 md:animate-scroll-x" style={{ width: 'max-content' }}>
             {[...photos, ...photos].map((photo, index) => (
               <div key={`${photo}-${index}`} className="flex-shrink-0 w-64 h-64 overflow-hidden rounded-lg shadow-md bg-wedding-secondary">
                 <img

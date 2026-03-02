@@ -22,17 +22,28 @@ const Schedule = () => {
           </div>
 
           {/* Pre-Wedding Row */}
-          <div className="grid grid-cols-2 items-center px-6 py-5 border-b border-gray-100">
-            <div className="flex items-center gap-3">
-              <Calendar size={20} className="text-gray-500 flex-shrink-0" />
+          <div className="grid grid-cols-2 items-start px-6 py-5 border-b border-gray-100">
+            <div className="flex items-start gap-3">
+              <Calendar size={20} className="text-gray-500 flex-shrink-0 mt-1" />
               <div>
                 <p className="font-semibold text-gray-800 font-bodoni text-lg">{t.preWeddingEvent}</p>
                 <p className="text-sm text-gray-500 font-poppins">{t.preWeddingDate}</p>
+                <p className="text-sm text-gray-500 font-poppins">{t.preWeddingTime}</p>
+                <p className="text-sm text-gray-500 font-poppins mt-1 italic">{t.preWeddingNote}</p>
               </div>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-start gap-3 mt-1">
               <MapPin size={20} className="text-gray-500 flex-shrink-0" />
-              <p className="text-gray-700 font-poppins">{t.preWeddingLocation}</p>
+              <p className="text-gray-700 font-poppins">
+                <a
+                  href="https://maps.app.goo.gl/qo4p5QoEbnxorbcA6?g_st=ic"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-gray-500"
+                >
+                  {t.preWeddingLocation}
+                </a>
+              </p>
             </div>
           </div>
 
@@ -47,6 +58,10 @@ const Schedule = () => {
                 <div className="mt-3 ml-2 border-l-2 border-gray-200 pl-4 space-y-2">
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
+                    <span className="text-sm text-gray-700 font-poppins">{t.busPickup} <span className="text-gray-400">— {t.busPickupTime}</span></span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
                     <span className="text-sm text-gray-700 font-poppins">{t.ceremony} <span className="text-gray-400">— {t.ceremonyTime}</span></span>
                   </div>
                   <div className="flex items-center gap-2">
@@ -58,15 +73,36 @@ const Schedule = () => {
                     <span className="text-sm text-gray-700 font-poppins">{t.dinner} <span className="text-gray-400">— {t.dinnerTime}</span></span>
                   </div>
                   <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-rose-300 flex-shrink-0"></span>
+                    <span className="text-sm text-gray-500 font-poppins italic">{t.dancingNote}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
-                    <span className="text-sm text-gray-700 font-poppins">{t.dancing} <span className="text-gray-400">— {t.dancingTime}</span></span>
+                    <span className="text-sm text-gray-700 font-poppins">{t.mesaDulce} <span className="text-gray-400">— {t.mesaDulceTime}</span></span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
+                    <span className="text-sm text-gray-700 font-poppins">{t.bahon} <span className="text-gray-400">— {t.bahonTime}</span></span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
+                    <span className="text-sm text-gray-700 font-poppins">{t.partyEnd} <span className="text-gray-400">— {t.partyEndTime}</span></span>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="flex items-center gap-3 mt-1">
+            <div className="flex items-start gap-3 mt-1">
               <MapPin size={20} className="text-gray-500 flex-shrink-0" />
-              <p className="text-gray-700 font-poppins">{t.weddingLocation}</p>
+              <p className="text-gray-700 font-poppins">
+                <a
+                  href="https://maps.app.goo.gl/Q1AiCJdcTWeGS8fU6?g_st=ic"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-gray-500"
+                >
+                  {t.weddingLocation}
+                </a>
+              </p>
             </div>
           </div>
         </div>
