@@ -15,14 +15,14 @@ const Schedule = () => {
         </h1>
 
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
-          {/* Header row */}
-          <div className="grid grid-cols-2 bg-wedding-secondary px-6 py-3">
+          {/* Header row - hidden on mobile */}
+          <div className="hidden md:grid grid-cols-2 bg-wedding-secondary px-6 py-3">
             <span className="text-sm font-semibold text-gray-500 uppercase tracking-wide font-poppins">{t.scheduleEventHeader}</span>
             <span className="text-sm font-semibold text-gray-500 uppercase tracking-wide font-poppins">{t.scheduleLocationHeader}</span>
           </div>
 
           {/* Pre-Wedding Row */}
-          <div className="grid grid-cols-[2fr_1fr] items-start px-6 py-5 border-b border-gray-100">
+          <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] items-start px-6 py-5 border-b border-gray-100">
             <div className="flex items-start gap-3">
               <Calendar size={20} className="text-gray-500 flex-shrink-0 mt-1" />
               <div>
@@ -32,7 +32,7 @@ const Schedule = () => {
                 <p className="text-sm text-gray-500 font-poppins mt-1 italic">{t.preWeddingNote}</p>
               </div>
             </div>
-            <div className="flex items-start gap-3 mt-1">
+            <div className="flex items-start gap-3 mt-3 md:mt-1">
               <MapPin size={20} className="text-gray-500 flex-shrink-0" />
               <p className="text-gray-700 font-poppins">
                 <a
@@ -48,7 +48,7 @@ const Schedule = () => {
           </div>
 
           {/* Wedding Row */}
-          <div className="grid grid-cols-[2fr_1fr] items-start px-6 py-5">
+          <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] items-start px-6 py-5">
             <div className="flex items-start gap-3">
               <Calendar size={20} className="text-gray-500 flex-shrink-0 mt-1" />
               <div>
@@ -58,36 +58,36 @@ const Schedule = () => {
                 <div className="mt-3 ml-2 border-l-2 border-gray-200 pl-4 space-y-2">
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
-                    <span className="text-sm text-gray-700 font-poppins">{t.busPickup} <span className="text-gray-400">— {t.busPickupTime}</span></span>
+                    <span className="text-sm text-gray-700 font-poppins whitespace-nowrap">{t.busPickup} <span className="text-gray-400">— {t.busPickupTime}</span></span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
-                    <span className="text-sm text-gray-700 font-poppins">{t.ceremony} <span className="text-gray-400">— {t.ceremonyTime}</span></span>
+                    <span className="text-sm text-gray-700 font-poppins whitespace-nowrap">{t.ceremony} <span className="text-gray-400">— {t.ceremonyTime}</span></span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
-                    <span className="text-sm text-gray-700 font-poppins">{t.cocktailHour} <span className="text-gray-400">— {t.cocktailTime}</span></span>
+                    <span className="text-sm text-gray-700 font-poppins whitespace-nowrap">{t.cocktailHour} <span className="text-gray-400">— {t.cocktailTime}</span></span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
-                    <span className="text-sm text-gray-700 font-poppins">{t.dinner} <span className="text-gray-400">— {t.dinnerTime}</span></span>
+                    <span className="text-sm text-gray-700 font-poppins whitespace-nowrap">{t.dinner} <span className="text-gray-400">— {t.dinnerTime}</span></span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
-                    <span className="text-sm text-gray-700 font-poppins">{t.mesaDulce} <span className="text-gray-400">— {t.mesaDulceTime}</span></span>
+                    <span className="text-sm text-gray-700 font-poppins whitespace-nowrap">{t.mesaDulce} <span className="text-gray-400">— {t.mesaDulceTime}</span></span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
-                    <span className="text-sm text-gray-700 font-poppins">{t.bahon} <span className="text-gray-400">— {t.bahonTime}</span></span>
+                    <span className="text-sm text-gray-700 font-poppins whitespace-nowrap">{t.bahon} <span className="text-gray-400">— {t.bahonTime}</span></span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
-                    <span className="text-sm text-gray-700 font-poppins">{t.partyEnd} <span className="text-gray-400">— {t.partyEndTime}</span></span>
+                    <span className="text-sm text-gray-700 font-poppins whitespace-nowrap">{t.partyEnd} <span className="text-gray-400">— {t.partyEndTime}</span></span>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="flex items-start gap-3 mt-1">
+            <div className="flex items-start gap-3 mt-3 md:mt-1">
               <MapPin size={20} className="text-gray-500 flex-shrink-0" />
               <p className="text-gray-700 font-poppins">
                 <a

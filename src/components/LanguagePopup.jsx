@@ -1,22 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
-
-const POPUP_KEY = 'languagePopupShown';
 
 const LanguagePopup = () => {
   const { language } = useLanguage();
   const t = translations[language];
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    if (!localStorage.getItem(POPUP_KEY)) {
-      setVisible(true);
-    }
-  }, []);
+  const [visible, setVisible] = useState(true);
 
   const handleClose = () => {
-    localStorage.setItem(POPUP_KEY, 'true');
     setVisible(false);
   };
 
