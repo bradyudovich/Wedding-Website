@@ -39,7 +39,7 @@ const Home = () => {
   return (
     <div className="min-h-screen" style={{ WebkitHyphens: 'auto', hyphens: 'auto' }}>
       {/* Hero Section */}
-      <div className="bg-pumice py-20 px-4">
+      <div className="bg-pumice py-10 px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold text-onyx mb-3 font-bodoni">
             {t.coupleNames}
