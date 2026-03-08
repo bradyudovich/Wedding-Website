@@ -105,7 +105,7 @@ const Travel = () => {
           ) : (
             <>
               <p className="text-lg text-gray-800 font-poppins">
-                1 USD = {formatRate(exchangeRate)} ARS (Official Rate)
+                1 USD = {formatRate(exchangeRate)} ARS (Official)
               </p>
               {liveRateUnavailable ? (
                 <p className="text-sm text-amber-600 mt-2 font-poppins">{t.liveRateUnavailable}</p>

@@ -41,9 +41,12 @@ const Home = () => {
       {/* Hero Section */}
       <div className="bg-wedding-secondary py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-800 mb-4 font-bodoni">
-            {t.title}
+          <h1 className="text-5xl md:text-7xl font-bold text-gray-800 mb-3 font-bodoni">
+            {t.coupleNames}
           </h1>
+          <p className="text-base md:text-lg font-manrope tracking-[0.18em] uppercase text-gray-500 mb-4">
+            {t.heroDateLocation}
+          </p>
           <p className="text-xl md:text-2xl text-gray-500 font-light font-manrope tracking-wide">{t.subtitle}</p>
         </div>
       </div>
@@ -61,7 +64,7 @@ const Home = () => {
       </div>
 
       {/* Our Story */}
-      <div className="max-w-4xl mx-auto py-8 px-4">
+      <div id="our-story" className="max-w-4xl mx-auto py-8 px-4">
         <div className="bg-wedding-secondary p-10 rounded-lg shadow-md">
           <h2 className="text-4xl font-bold mb-6 text-gray-800 text-center font-bodoni">
             {t.storyTitle}
@@ -71,7 +74,7 @@ const Home = () => {
       </div>
 
       {/* Photo Gallery — directly beneath Our Story */}
-      <div className="py-4 pb-20">
+      <div id="gallery" className="py-4 pb-20">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-6 font-bodoni">{t.photoGalleryTitle}</h2>
         <PhotoCarousel photos={photos} base={base} />
       </div>

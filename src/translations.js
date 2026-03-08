@@ -10,6 +10,8 @@ export const translations = {
       rsvp: "RSVP"
     },
     home: {
+      coupleNames: "Cami & Brady",
+      heroDateLocation: "April 3, 2027 \u2022 Buenos Aires, Argentina",
       title: "We're Getting Married!",
       subtitle: "Join us as we celebrate our special day",
       date: "Save the Date",
@@ -185,6 +187,8 @@ export const translations = {
       rsvp: "RSVP"
     },
     home: {
+      coupleNames: "Cami & Brady",
+      heroDateLocation: "3 de abril de 2027 \u2022 Buenos Aires, Argentina",
       title: "¡Nos Casamos!",
       subtitle: "Únete a nosotros para celebrar nuestro día especial",
       date: "Guarda la Fecha",
