@@ -174,6 +174,31 @@ export const translations = {
       a7: "Your presence is the greatest gift of all! However, if you wish to give a gift, we have a registry available. Details will be shared in your invitation.",
       q8: "Is there a hashtag for the wedding?",
       a8: "Yes! Please use #CamiAndBrady2027 when sharing photos on social media."
+    },
+    rsvp: {
+      title: "RSVP",
+      intro: "We hope you can join us on our special day! Please fill out the form below.",
+      nameLabel: "Name(s)",
+      namePlaceholder: "Enter your full name(s)",
+      nameRequired: "Please enter your name(s).",
+      attendingLabel: "Will you be attending?",
+      attendingPlaceholder: "Select an option",
+      attendingYes: "Yes, I'll be there!",
+      attendingNo: "Sorry, I can't make it.",
+      attendingRequired: "Please indicate whether you will be attending.",
+      emailLabel: "Email Address",
+      emailPlaceholder: "your@email.com",
+      emailEmpty: "Please enter your email address.",
+      emailInvalid: "Please enter a valid email address.",
+      dietaryLabel: "Dietary Restrictions",
+      dietaryPlaceholder: "e.g. vegetarian, gluten-free, nut allergy…",
+      notesLabel: "Additional Notes",
+      notesPlaceholder: "Anything else you'd like us to know?",
+      submitButton: "Send RSVP",
+      submitting: "Sending…",
+      successTitle: "Thank you!",
+      successMessage: "Your RSVP has been received. We can't wait to celebrate with you!",
+      errorMessage: "Something went wrong. Please try again or contact us directly."
     }
   },
   es: {
@@ -351,6 +376,31 @@ export const translations = {
       a7: "¡Su presencia es el regalo más grande de todos! Sin embargo, si desea dar un regalo, tenemos un registro disponible. Los detalles se compartirán en su invitación.",
       q8: "¿Hay un hashtag para la boda?",
       a8: "¡Sí! Por favor use #CamiAndBrady2027 cuando comparta fotos en las redes sociales."
+    },
+    rsvp: {
+      title: "RSVP",
+      intro: "¡Esperamos que puedas acompañarnos en nuestro día especial! Por favor completa el formulario a continuación.",
+      nameLabel: "Nombre(s)",
+      namePlaceholder: "Ingresa tu(s) nombre(s) completo(s)",
+      nameRequired: "Por favor ingresa tu nombre.",
+      attendingLabel: "¿Asistirás?",
+      attendingPlaceholder: "Selecciona una opción",
+      attendingYes: "¡Sí, estaré ahí!",
+      attendingNo: "Lo siento, no podré ir.",
+      attendingRequired: "Por favor indica si podrás asistir.",
+      emailLabel: "Correo Electrónico",
+      emailPlaceholder: "tu@correo.com",
+      emailEmpty: "Por favor ingresa tu correo electrónico.",
+      emailInvalid: "Por favor ingresa un correo electrónico válido.",
+      dietaryLabel: "Restricciones Alimentarias",
+      dietaryPlaceholder: "ej. vegetariano, sin gluten, alergia a los frutos secos…",
+      notesLabel: "Notas Adicionales",
+      notesPlaceholder: "¿Hay algo más que quieras hacernos saber?",
+      submitButton: "Enviar RSVP",
+      submitting: "Enviando…",
+      successTitle: "¡Gracias!",
+      successMessage: "Hemos recibido tu RSVP. ¡No podemos esperar para celebrar contigo!",
+      errorMessage: "Algo salió mal. Por favor intenta de nuevo o contáctanos directamente."
     }
   }
 };
