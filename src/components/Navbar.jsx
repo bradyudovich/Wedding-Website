@@ -40,8 +40,8 @@ const CompactCountdown = () => {
   const pad = (n) => String(n).padStart(2, '0');
 
   return (
-    <span className="font-bodoni tabular-nums text-sm text-gray-700 tracking-tight">
-      {pad(timeLeft.days)}<span className="text-gray-400 mx-0.5">d</span>{pad(timeLeft.hours)}<span className="text-gray-400 mx-0.5">h</span>{pad(timeLeft.minutes)}<span className="text-gray-400 mx-0.5">m</span>{pad(timeLeft.seconds)}<span className="text-gray-400 mx-0.5">s</span>
+    <span className="font-bodoni tabular-nums text-sm text-burnished-copper tracking-tight">
+      {pad(timeLeft.days)}<span className="text-onyx/50 mx-0.5">d</span>{pad(timeLeft.hours)}<span className="text-onyx/50 mx-0.5">h</span>{pad(timeLeft.minutes)}<span className="text-onyx/50 mx-0.5">m</span>{pad(timeLeft.seconds)}<span className="text-onyx/50 mx-0.5">s</span>
     </span>
   );
 };
@@ -62,11 +62,11 @@ const Navbar = () => {
   return (
     <>
       {/* ── Top navbar (always visible) ─────────────────────────── */}
-      <nav className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
+      <nav className="bg-off-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-3">
           <div className="flex items-center gap-3">
             {/* Brand */}
-            <Link to="/" className="text-xl md:text-2xl font-bold text-gray-800 font-bodoni whitespace-nowrap flex-shrink-0">
+            <Link to="/" className="text-xl md:text-2xl font-bold text-onyx font-bodoni whitespace-nowrap flex-shrink-0">
               Cami & Brady
             </Link>
 
@@ -81,7 +81,7 @@ const Navbar = () => {
                 <Link
                   key={to}
                   to={to}
-                  className="flex items-center gap-1 text-black hover:text-gray-600 transition-colors font-medium font-poppins whitespace-nowrap"
+                  className="flex items-center gap-1 text-onyx hover:text-onyx/60 transition-colors font-medium font-poppins whitespace-nowrap"
                 >
                   {React.cloneElement(icon, { size: 16 })}
                   <span>{label}</span>
@@ -89,7 +89,7 @@ const Navbar = () => {
               ))}
               <button
                 onClick={openRsvpPopup}
-                className="flex items-center gap-1 bg-wedding-accent text-gray-800 px-3 py-1.5 rounded-md hover:bg-gray-300 transition-colors font-medium font-poppins whitespace-nowrap"
+                className="flex items-center gap-1 bg-burnished-copper text-white px-3 py-1.5 rounded-md hover:bg-burnished-copper/90 transition-colors font-medium font-poppins whitespace-nowrap"
               >
                 <Send size={16} />
                 <span>{t.rsvp}</span>
@@ -116,7 +116,7 @@ const Navbar = () => {
       </nav>
 
       {/* ── Fixed bottom nav (mobile only) ──────────────────────── */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-t border-gray-200/60 shadow-[0_-2px_8px_rgba(0,0,0,0.08)]">
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-off-white/80 backdrop-blur-md border-t border-onyx/10 shadow-[0_-2px_8px_rgba(0,0,0,0.08)]">
         <div className="flex items-stretch">
           {navLinks.map(({ to, icon, label }) => {
             const active = location.pathname === to;
@@ -125,10 +125,10 @@ const Navbar = () => {
                 key={to}
                 to={to}
                 className={`flex flex-col items-center justify-center flex-1 py-2 gap-0.5 text-[10px] font-medium font-poppins transition-colors ${
-                  active ? 'text-gray-900' : 'text-gray-400'
+                  active ? 'text-onyx' : 'text-onyx/40'
                 }`}
               >
-                <span className={active ? 'text-gray-900' : 'text-gray-400'}>
+                <span className={active ? 'text-onyx' : 'text-onyx/40'}>
                   {icon}
                 </span>
                 <span className="leading-tight text-center px-0.5">{label}</span>
@@ -138,9 +138,9 @@ const Navbar = () => {
           {/* RSVP button */}
           <button
             onClick={openRsvpPopup}
-            className={`flex flex-col items-center justify-center flex-1 py-2 gap-0.5 text-[10px] font-medium font-poppins transition-colors text-gray-400`}
+            className={`flex flex-col items-center justify-center flex-1 py-2 gap-0.5 text-[10px] font-medium font-poppins transition-colors text-burnished-copper`}
           >
-            <Send size={20} className="text-gray-400" />
+            <Send size={20} className="text-burnished-copper" />
             <span className="leading-tight">{t.rsvp}</span>
           </button>
         </div>

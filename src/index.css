@@ -34,7 +34,8 @@ body {
   font-family: 'Manrope', 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #F9F8F6;
+  background-color: #D1D2D0;
+  color: #353935;
 }
 
 h1, h2, h3, h4, h5, h6 {

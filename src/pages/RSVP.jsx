@@ -10,21 +10,21 @@ const RSVP = () => {
   const t = (translations[language] || translations['en']).rsvp;
 
   return (
-    <div className="min-h-screen bg-wedding-bg py-12 px-4">
+    <div className="min-h-screen bg-pumice py-12 px-4">
       <div className="max-w-2xl mx-auto">
-        <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-4 text-center font-bodoni">
+        <h1 className="text-5xl md:text-6xl font-bold text-onyx mb-4 text-center font-bodoni">
           {t.title}
         </h1>
-        <p className="text-center text-gray-600 font-poppins mb-8 text-lg leading-relaxed">
+        <p className="text-center text-onyx/70 font-poppins mb-8 text-lg leading-relaxed">
           {t.intro}
         </p>
 
-        <div className="bg-white rounded-2xl shadow-lg p-10 text-center">
+        <div className="bg-off-white rounded-2xl shadow-lg p-10 text-center">
           <a
             href={RSVP_FORM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-gray-800 hover:bg-gray-700 text-white font-poppins font-semibold text-lg px-8 py-4 rounded-xl transition-colors"
+            className="inline-block bg-burnished-copper hover:bg-burnished-copper/90 text-white font-poppins font-semibold text-lg px-8 py-4 rounded-xl transition-colors"
           >
             {t.buttonText}
           </a>
