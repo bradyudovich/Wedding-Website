@@ -1,39 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-// ─── Desktop masonry grid ────────────────────────────────────────────────────
-
-const MasonryGallery = ({ photos, base }) => (
-  <div
-    style={{
-      columnCount: 3,
-      columnGap: '12px',
-    }}
-  >
-    {photos.map((photo, i) => (
-      <div
-        key={i}
-        className="overflow-hidden rounded-lg shadow-md mb-3 break-inside-avoid"
-        style={{ display: 'block' }}
-      >
-        <img
-          src={`${base}photos/${photo}`}
-          alt=""
-          className="w-full block object-cover hover:scale-105 transition-transform duration-300"
-          loading="lazy"
-        />
-      </div>
-    ))}
-  </div>
-);
-
-// ─── Mobile centered carousel ─────────────────────────────────────────────────
+// ─── Centered carousel ────────────────────────────────────────────────────────
 
 const SCROLL_THRESHOLD = 5;
 const TOUCH_SWIPE_THRESHOLD = 40;
-const MOBILE_BREAKPOINT = 768;
 
-const MobileCarousel = ({ photos, base }) => {
+const Carousel = ({ photos, base }) => {
   const len = photos.length;
   const cloneCount = Math.min(3, len);
 
@@ -107,15 +79,6 @@ const MobileCarousel = ({ photos, base }) => {
 
   return (
     <div className="relative select-none" style={{ overflow: 'hidden' }}>
-      {/* Left arrow */}
-      <button
-        onClick={() => go(-1)}
-        className="absolute left-1 top-1/2 -translate-y-1/2 z-10 bg-white/75 hover:bg-white rounded-full p-1.5 shadow opacity-70 hover:opacity-100 transition-opacity"
-        aria-label="Previous photo"
-      >
-        <ChevronLeft size={18} className="text-gray-600" />
-      </button>
-
       {/* Strip container — shows peek on both sides */}
       <div
         ref={stripRef}
@@ -161,15 +124,6 @@ const MobileCarousel = ({ photos, base }) => {
         </div>
       </div>
 
-      {/* Right arrow */}
-      <button
-        onClick={() => go(1)}
-        className="absolute right-1 top-1/2 -translate-y-1/2 z-10 bg-white/75 hover:bg-white rounded-full p-1.5 shadow opacity-70 hover:opacity-100 transition-opacity"
-        aria-label="Next photo"
-      >
-        <ChevronRight size={18} className="text-gray-600" />
-      </button>
-
       {/* Dot indicators */}
       <div className="flex justify-center gap-1.5 mt-4">
         {photos.map((_, i) => {
@@ -192,27 +146,12 @@ const MobileCarousel = ({ photos, base }) => {
   );
 };
 
-// ─── Exported component — picks layout by screen size ────────────────────────
+// ─── Exported component ───────────────────────────────────────────────────────
 
 const PhotoCarousel = ({ photos, base }) => {
-  const [isMobile, setIsMobile] = useState(() =>
-    typeof window !== 'undefined' && window.innerWidth < MOBILE_BREAKPOINT
-  );
-
-  useEffect(() => {
-    const mq = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
-    const handler = (e) => setIsMobile(e.matches);
-    mq.addEventListener('change', handler);
-    return () => mq.removeEventListener('change', handler);
-  }, []);
-
   if (photos.length === 0) return null;
 
-  return isMobile ? (
-    <MobileCarousel photos={photos} base={base} />
-  ) : (
-    <MasonryGallery photos={photos} base={base} />
-  );
+  return <Carousel photos={photos} base={base} />;
 };
 
 export default PhotoCarousel;
