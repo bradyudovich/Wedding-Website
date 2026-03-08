@@ -86,7 +86,7 @@ const Carousel = ({ photos, base }) => {
             return (
               <div
                 key={i}
-                className="flex-shrink-0 overflow-hidden rounded-xl shadow-md bg-wedding-secondary"
+                className="flex-shrink-0 overflow-hidden rounded-xl shadow-md bg-transparent"
                 style={{
                   width: centerW,
                   aspectRatio: '4 / 3',
@@ -101,7 +101,7 @@ const Carousel = ({ photos, base }) => {
                 <img
                   src={`${base}photos/${photo}`}
                   alt=""
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-cover"
                   loading="lazy"
                 />
               </div>
