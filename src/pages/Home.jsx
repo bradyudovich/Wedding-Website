@@ -74,8 +74,8 @@ const Home = () => {
       </div>
 
       {/* Photo Gallery — directly beneath Our Story */}
-      <div id="gallery" className="py-4 pb-20">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-6 font-bodoni">{t.photoGalleryTitle}</h2>
+      <div id="gallery" className="pb-20">
+        <h2 className="text-3xl font-bold text-center text-gray-800 py-6 font-bodoni">{t.photoGalleryTitle}</h2>
         <PhotoCarousel photos={photos} base={base} />
       </div>
     </div>
