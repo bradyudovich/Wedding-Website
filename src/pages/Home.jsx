@@ -1,5 +1,5 @@
 // src/pages/Home.jsx
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 import PhotoCarousel from '../components/PhotoCarousel';
@@ -30,12 +30,70 @@ function shuffleArray(arr) {
   return a;
 }
 
+// April 3, 2027 00:00:00 ART (UTC-3) = April 3, 2027 03:00:00 UTC
+const WEDDING_DATE = new Date('2027-04-03T03:00:00Z');
+
+function calcTimeLeft() {
+  const diff = WEDDING_DATE - Date.now();
+  if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  return {
+    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+    minutes: Math.floor((diff / (1000 * 60)) % 60),
+    seconds: Math.floor((diff / 1000) % 60),
+  };
+}
+
+const CountdownTimer = ({ t }) => {
+  const [timeLeft, setTimeLeft] = useState(calcTimeLeft);
+
+  useEffect(() => {
+    const id = setInterval(() => setTimeLeft(calcTimeLeft()), 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  const units = [
+    { label: t.countdownDays, value: timeLeft.days },
+    { label: t.countdownHours, value: timeLeft.hours },
+    { label: t.countdownMinutes, value: timeLeft.minutes },
+    { label: t.countdownSeconds, value: timeLeft.seconds },
+  ];
+
+  return (
+    <div className="mt-8 flex justify-center gap-4 md:gap-8">
+      {units.map(({ label, value }) => (
+        <div key={label} className="flex flex-col items-center">
+          <span className="text-4xl md:text-6xl font-bold text-gray-800 font-bodoni tabular-nums leading-none">
+            {String(value).padStart(2, '0')}
+          </span>
+          <span className="text-xs md:text-sm font-manrope uppercase tracking-widest text-gray-500 mt-2">
+            {label}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const Home = () => {
   const { language } = useLanguage();
   const t = translations[language].home;
   const base = import.meta.env.BASE_URL;
 
   const photos = useMemo(() => shuffleArray(photoList), []);
+
+  // Measure the "Our Story" box height to constrain the gallery on desktop
+  const storyRef = useRef(null);
+  const [storyHeight, setStoryHeight] = useState(null);
+
+  useEffect(() => {
+    const el = storyRef.current;
+    if (!el) return;
+    const obs = new ResizeObserver(() => setStoryHeight(el.offsetHeight));
+    obs.observe(el);
+    setStoryHeight(el.offsetHeight);
+    return () => obs.disconnect();
+  }, []);
 
   return (
     <div className="min-h-screen" style={{ WebkitHyphens: 'auto', hyphens: 'auto' }}>
@@ -45,7 +103,8 @@ const Home = () => {
           <h1 className="text-5xl md:text-7xl font-bold text-gray-800 mb-4 font-bodoni">
             {t.title}
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 font-light">{t.subtitle}</p>
+          <p className="text-xl md:text-2xl text-gray-500 font-light font-manrope tracking-wide">{t.subtitle}</p>
+          <CountdownTimer t={t} />
         </div>
       </div>
 
@@ -61,20 +120,28 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Our Story Section */}
-      <div className="max-w-4xl mx-auto py-8 px-4">
-        <div className="bg-wedding-secondary p-10 rounded-lg shadow-md">
-          <h2 className="text-4xl font-bold mb-6 text-gray-800 text-center font-bodoni">
-            {t.storyTitle}
-          </h2>
-          <p className="text-gray-700 leading-relaxed text-lg" style={{ textAlign: 'justify' }}>{t.storyText}</p>
-        </div>
-      </div>
+      {/* Our Story + Photo Gallery — side by side on desktop */}
+      <div className="max-w-4xl mx-auto py-8 px-4 pb-20">
+        <div className="flex flex-col md:flex-row md:items-start gap-8">
+          {/* Our Story */}
+          <div ref={storyRef} className="md:flex-1 bg-wedding-secondary p-10 rounded-lg shadow-md">
+            <h2 className="text-4xl font-bold mb-6 text-gray-800 text-center font-bodoni">
+              {t.storyTitle}
+            </h2>
+            <p className="text-gray-700 leading-relaxed text-lg" style={{ textAlign: 'justify' }}>{t.storyText}</p>
+          </div>
 
-      {/* Photo Gallery */}
-      <div className="max-w-4xl mx-auto py-12 px-4 pb-20">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8 font-bodoni">{t.photoGalleryTitle}</h2>
-        <PhotoCarousel photos={photos} base={base} />
+          {/* Photo Gallery */}
+          <div
+            className="md:flex-1 flex flex-col"
+            style={{ maxHeight: storyHeight ? `${storyHeight}px` : undefined, overflow: 'hidden' }}
+          >
+            <h2 className="text-3xl font-bold text-center text-gray-800 mb-8 font-bodoni flex-shrink-0">{t.photoGalleryTitle}</h2>
+            <div className="flex-1 overflow-hidden">
+              <PhotoCarousel photos={photos} base={base} />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -37,7 +37,11 @@ export const translations = {
       welcomeTitle: "Welcome to Our Wedding",
       welcomeText: "We are so excited to celebrate this special moment with our family and friends. Your presence means the world to us, and we can't wait to share this beautiful day with you. Please explore our website for all the details about the wedding, travel information, and frequently asked questions.",
       storyTitle: "Our Story",
-      storyText: "From the moment we met, we knew there was something special. Through adventures, laughter, and countless memories, our love has grown stronger every day. Now, we're ready to take the next step together and would be honored to have you witness our union."
+      storyText: "From the moment we met, we knew there was something special. Through adventures, laughter, and countless memories, our love has grown stronger every day. Now, we're ready to take the next step together and would be honored to have you witness our union.",
+      countdownDays: "Days",
+      countdownHours: "Hours",
+      countdownMinutes: "Minutes",
+      countdownSeconds: "Seconds"
     },
     schedule: {
       title: "Schedule",
@@ -207,7 +211,11 @@ export const translations = {
       welcomeTitle: "Bienvenido a Nuestra Boda",
       welcomeText: "Estamos muy emocionados de celebrar este momento especial con nuestra familia y amigos. Su presencia significa el mundo para nosotros, y no podemos esperar para compartir este hermoso día con ustedes. Por favor, explore nuestro sitio web para todos los detalles sobre la boda, información de viaje y preguntas frecuentes.",
       storyTitle: "Nuestra Historia",
-      storyText: "Desde el momento en que nos conocimos, supimos que había algo especial. A través de aventuras, risas e innumerables recuerdos, nuestro amor ha crecido más fuerte cada día. Ahora, estamos listos para dar el siguiente paso juntos y estaríamos honrados de que presencien nuestra unión."
+      storyText: "Desde el momento en que nos conocimos, supimos que había algo especial. A través de aventuras, risas e innumerables recuerdos, nuestro amor ha crecido más fuerte cada día. Ahora, estamos listos para dar el siguiente paso juntos y estaríamos honrados de que presencien nuestra unión.",
+      countdownDays: "Días",
+      countdownHours: "Horas",
+      countdownMinutes: "Minutos",
+      countdownSeconds: "Segundos"
     },
     schedule: {
       title: "Programa",

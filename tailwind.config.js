@@ -10,6 +10,7 @@ export default {
         'poppins': ['Poppins', 'sans-serif'],
         'playfair': ['Playfair Display', 'serif'],
         'bodoni': ['Bodoni Moda', 'serif'],
+        'manrope': ['Manrope', 'sans-serif'],
       },
       colors: {
         'wedding-bg': '#F9F8F6',

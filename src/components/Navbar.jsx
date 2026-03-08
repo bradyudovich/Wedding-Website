@@ -20,7 +20,7 @@ const Navbar = () => {
   return (
     <>
       {/* ── Top navbar (always visible) ─────────────────────────── */}
-      <nav className="bg-white shadow-md sticky top-0 z-50">
+      <nav className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 py-3">
           <div className="flex items-center gap-3">
             {/* Brand */}
@@ -66,7 +66,7 @@ const Navbar = () => {
       </nav>
 
       {/* ── Fixed bottom nav (mobile only) ──────────────────────── */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 shadow-[0_-2px_8px_rgba(0,0,0,0.08)]">
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-t border-gray-200/60 shadow-[0_-2px_8px_rgba(0,0,0,0.08)]">
         <div className="flex items-stretch">
           {navLinks.map(({ to, icon, label }) => {
             const active = location.pathname === to;
