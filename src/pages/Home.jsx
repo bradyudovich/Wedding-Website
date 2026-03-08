@@ -74,7 +74,7 @@ const Home = () => {
       </div>
 
       {/* Photo Gallery — directly beneath Our Story */}
-      <div id="gallery" className="pb-20">
+      <div id="gallery" className="max-w-4xl mx-auto pb-20 overflow-hidden">
         <h2 className="text-3xl font-bold text-center text-gray-800 py-6 font-bodoni">{t.photoGalleryTitle}</h2>
         <PhotoCarousel photos={photos} base={base} />
       </div>
