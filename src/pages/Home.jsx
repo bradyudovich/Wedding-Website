@@ -39,25 +39,25 @@ const Home = () => {
   return (
     <div className="min-h-screen" style={{ WebkitHyphens: 'auto', hyphens: 'auto' }}>
       {/* Hero Section */}
-      <div className="bg-wedding-secondary py-20 px-4">
+      <div className="bg-pumice py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-800 mb-3 font-bodoni">
+          <h1 className="text-5xl md:text-7xl font-bold text-onyx mb-3 font-bodoni">
             {t.coupleNames}
           </h1>
-          <p className="text-base md:text-lg font-manrope tracking-[0.18em] uppercase text-gray-500 mb-4">
+          <p className="text-base md:text-lg font-manrope tracking-[0.18em] uppercase text-onyx/70 mb-4">
             {t.heroDateLocation}
           </p>
-          <p className="text-xl md:text-2xl text-gray-500 font-light font-manrope tracking-wide">{t.subtitle}</p>
+          <p className="text-xl md:text-2xl text-onyx/60 font-light font-manrope tracking-wide">{t.subtitle}</p>
         </div>
       </div>
 
       {/* Welcome Section */}
       <div className="max-w-4xl mx-auto py-8 px-4">
-        <div className="bg-white p-10 rounded-lg shadow-md">
-          <h2 className="text-4xl font-bold mb-6 text-gray-800 text-center font-bodoni">
+        <div className="bg-off-white p-10 rounded-lg shadow-md">
+          <h2 className="text-4xl font-bold mb-6 text-onyx text-center font-bodoni">
             {t.welcomeTitle}
           </h2>
-          <p className="text-gray-700 leading-relaxed text-lg mb-6" style={{ textAlign: 'justify' }}>
+          <p className="text-onyx leading-relaxed text-lg mb-6" style={{ textAlign: 'justify' }}>
             {t.welcomeText}
           </p>
         </div>
@@ -65,17 +65,17 @@ const Home = () => {
 
       {/* Our Story */}
       <div id="our-story" className="max-w-4xl mx-auto py-8 px-4">
-        <div className="bg-wedding-secondary p-10 rounded-lg shadow-md">
-          <h2 className="text-4xl font-bold mb-6 text-gray-800 text-center font-bodoni">
+        <div className="bg-off-white p-10 rounded-lg shadow-md">
+          <h2 className="text-4xl font-bold mb-6 text-onyx text-center font-bodoni">
             {t.storyTitle}
           </h2>
-          <p className="text-gray-700 leading-relaxed text-lg" style={{ textAlign: 'justify' }}>{t.storyText}</p>
+          <p className="text-onyx leading-relaxed text-lg" style={{ textAlign: 'justify' }}>{t.storyText}</p>
         </div>
       </div>
 
       {/* Photo Gallery — directly beneath Our Story */}
       <div id="gallery" className="max-w-4xl mx-auto pb-20 overflow-hidden">
-        <h2 className="text-3xl font-bold text-center text-gray-800 py-6 font-bodoni">{t.photoGalleryTitle}</h2>
+        <h2 className="text-3xl font-bold text-center text-onyx py-6 font-bodoni">{t.photoGalleryTitle}</h2>
         <PhotoCarousel photos={photos} base={base} />
       </div>
     </div>
