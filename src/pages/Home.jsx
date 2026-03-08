@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from 'react';
+import React, { useMemo } from 'react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 import PhotoCarousel from '../components/PhotoCarousel';
@@ -29,51 +29,6 @@ function shuffleArray(arr) {
   return a;
 }
 
-// April 3, 2027 00:00:00 ART (UTC-3) = April 3, 2027 03:00:00 UTC
-const WEDDING_DATE = new Date('2027-04-03T03:00:00Z');
-
-function calcTimeLeft() {
-  const diff = WEDDING_DATE - Date.now();
-  if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-  return {
-    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
-    minutes: Math.floor((diff / (1000 * 60)) % 60),
-    seconds: Math.floor((diff / 1000) % 60),
-  };
-}
-
-const CountdownTimer = ({ t }) => {
-  const [timeLeft, setTimeLeft] = useState(calcTimeLeft);
-
-  useEffect(() => {
-    const id = setInterval(() => setTimeLeft(calcTimeLeft()), 1000);
-    return () => clearInterval(id);
-  }, []);
-
-  const units = [
-    { label: t.countdownDays, value: timeLeft.days },
-    { label: t.countdownHours, value: timeLeft.hours },
-    { label: t.countdownMinutes, value: timeLeft.minutes },
-    { label: t.countdownSeconds, value: timeLeft.seconds },
-  ];
-
-  return (
-    <div className="mt-8 flex justify-center gap-4 md:gap-8">
-      {units.map(({ label, value }) => (
-        <div key={label} className="flex flex-col items-center">
-          <span className="text-4xl md:text-6xl font-bold text-gray-800 font-bodoni tabular-nums leading-none">
-            {String(value).padStart(2, '0')}
-          </span>
-          <span className="text-xs md:text-sm font-manrope uppercase tracking-widest text-gray-500 mt-2">
-            {label}
-          </span>
-        </div>
-      ))}
-    </div>
-  );
-};
-
 const Home = () => {
   const { language } = useLanguage();
   const t = translations[language].home;
@@ -90,7 +45,6 @@ const Home = () => {
             {t.title}
           </h1>
           <p className="text-xl md:text-2xl text-gray-500 font-light font-manrope tracking-wide">{t.subtitle}</p>
-          <CountdownTimer t={t} />
         </div>
       </div>
 

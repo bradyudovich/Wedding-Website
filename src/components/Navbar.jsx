@@ -87,6 +87,11 @@ const Navbar = () => {
               </a>
             </div>
 
+            {/* Compact countdown — desktop only, between nav links and language toggle */}
+            <div className="hidden md:flex items-center flex-shrink-0">
+              <CompactCountdown />
+            </div>
+
             {/* Language Toggle */}
             <button
               onClick={toggleLanguage}
