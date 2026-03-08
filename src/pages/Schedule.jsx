@@ -58,31 +58,31 @@ const Schedule = () => {
                 <div className="mt-3 ml-2 border-l-2 border-gray-200 pl-4 space-y-2">
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
-                    <span className="text-sm text-gray-700 font-poppins whitespace-nowrap">{t.busPickup} <span className="text-gray-400">— {t.busPickupTime}</span></span>
+                    <span className="text-sm text-gray-700 font-poppins">{t.busPickup} <span className="text-gray-400">— {t.busPickupTime}</span></span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
-                    <span className="text-sm text-gray-700 font-poppins whitespace-nowrap">{t.ceremony} <span className="text-gray-400">— {t.ceremonyTime}</span></span>
+                    <span className="text-sm text-gray-700 font-poppins">{t.ceremony} <span className="text-gray-400">— {t.ceremonyTime}</span></span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
-                    <span className="text-sm text-gray-700 font-poppins whitespace-nowrap">{t.cocktailHour} <span className="text-gray-400">— {t.cocktailTime}</span></span>
+                    <span className="text-sm text-gray-700 font-poppins">{t.cocktailHour} <span className="text-gray-400">— {t.cocktailTime}</span></span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
-                    <span className="text-sm text-gray-700 font-poppins whitespace-nowrap">{t.dinner} <span className="text-gray-400">— {t.dinnerTime}</span></span>
+                    <span className="text-sm text-gray-700 font-poppins">{t.dinner} <span className="text-gray-400">— {t.dinnerTime}</span></span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
-                    <span className="text-sm text-gray-700 font-poppins whitespace-nowrap">{t.mesaDulce} <span className="text-gray-400">— {t.mesaDulceTime}</span></span>
+                    <span className="text-sm text-gray-700 font-poppins">{t.mesaDulce} <span className="text-gray-400">— {t.mesaDulceTime}</span></span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
-                    <span className="text-sm text-gray-700 font-poppins whitespace-nowrap">{t.bahon} <span className="text-gray-400">— {t.bahonTime}</span></span>
+                    <span className="text-sm text-gray-700 font-poppins">{t.bahon} <span className="text-gray-400">— {t.bahonTime}</span></span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
-                    <span className="text-sm text-gray-700 font-poppins whitespace-nowrap">{t.partyEnd} <span className="text-gray-400">— {t.partyEndTime}</span></span>
+                    <span className="text-sm text-gray-700 font-poppins">{t.partyEnd} <span className="text-gray-400">— {t.partyEndTime}</span></span>
                   </div>
                 </div>
               </div>
