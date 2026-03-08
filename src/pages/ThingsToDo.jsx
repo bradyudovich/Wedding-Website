@@ -126,7 +126,7 @@ const ThingsToDo = () => {
               <div key={dest.key} className="bg-wedding-secondary rounded-lg overflow-hidden">
                 <div className="w-full h-40 bg-gray-200 flex items-center justify-center">
                   <img
-                    src={`${base}photos/destinations/${dest.key}.jpg`}
+                    src={`${base}photos/${dest.key}.jpg`}
                     alt={t[`${dest.key}Name`]}
                     className="w-full h-full object-cover"
                     onError={(e) => {
