@@ -178,27 +178,12 @@ export const translations = {
     rsvp: {
       title: "RSVP",
       intro: "We hope you can join us on our special day! Please fill out the form below.",
-      nameLabel: "Name(s)",
-      namePlaceholder: "Enter your full name(s)",
-      nameRequired: "Please enter your name(s).",
-      attendingLabel: "Will you be attending?",
-      attendingPlaceholder: "Select an option",
-      attendingYes: "Yes, I'll be there!",
-      attendingNo: "Sorry, I can't make it.",
-      attendingRequired: "Please indicate whether you will be attending.",
-      emailLabel: "Email Address",
-      emailPlaceholder: "your@email.com",
-      emailEmpty: "Please enter your email address.",
-      emailInvalid: "Please enter a valid email address.",
-      dietaryLabel: "Dietary Restrictions",
-      dietaryPlaceholder: "e.g. vegetarian, gluten-free, nut allergy…",
-      notesLabel: "Additional Notes",
-      notesPlaceholder: "Anything else you'd like us to know?",
-      submitButton: "Send RSVP",
-      submitting: "Sending…",
-      successTitle: "Thank you!",
-      successMessage: "Your RSVP has been received. We can't wait to celebrate with you!",
-      errorMessage: "Something went wrong. Please try again or contact us directly."
+      // Shown inside the <iframe> for browsers that block iframes entirely.
+      iframeFallback: "Your browser does not support iframes. Please visit the form directly.",
+      // Shown when no Google Form URL is configured for the active language
+      // (see FORM_URLS in src/pages/RSVP.jsx). Not needed for 'en' since the
+      // English form is always configured, but kept here for completeness.
+      formUnavailable: "The RSVP form is currently only available in English. Please switch to English using the language toggle above."
     }
   },
   es: {
@@ -380,27 +365,12 @@ export const translations = {
     rsvp: {
       title: "RSVP",
       intro: "¡Esperamos que puedas acompañarnos en nuestro día especial! Por favor completa el formulario a continuación.",
-      nameLabel: "Nombre(s)",
-      namePlaceholder: "Ingresa tu(s) nombre(s) completo(s)",
-      nameRequired: "Por favor ingresa tu nombre.",
-      attendingLabel: "¿Asistirás?",
-      attendingPlaceholder: "Selecciona una opción",
-      attendingYes: "¡Sí, estaré ahí!",
-      attendingNo: "Lo siento, no podré ir.",
-      attendingRequired: "Por favor indica si podrás asistir.",
-      emailLabel: "Correo Electrónico",
-      emailPlaceholder: "tu@correo.com",
-      emailEmpty: "Por favor ingresa tu correo electrónico.",
-      emailInvalid: "Por favor ingresa un correo electrónico válido.",
-      dietaryLabel: "Restricciones Alimentarias",
-      dietaryPlaceholder: "ej. vegetariano, sin gluten, alergia a los frutos secos…",
-      notesLabel: "Notas Adicionales",
-      notesPlaceholder: "¿Hay algo más que quieras hacernos saber?",
-      submitButton: "Enviar RSVP",
-      submitting: "Enviando…",
-      successTitle: "¡Gracias!",
-      successMessage: "Hemos recibido tu RSVP. ¡No podemos esperar para celebrar contigo!",
-      errorMessage: "Algo salió mal. Por favor intenta de nuevo o contáctanos directamente."
+      // Shown inside the <iframe> for browsers that block iframes entirely.
+      iframeFallback: "Tu navegador no admite iframes. Por favor visita el formulario directamente.",
+      // Shown when no Google Form URL is configured for the active language
+      // (see FORM_URLS in src/pages/RSVP.jsx).
+      // To add a Spanish form, uncomment and populate the 'es' entry in FORM_URLS.
+      formUnavailable: "El formulario de RSVP está disponible actualmente solo en inglés. Por favor cambia al idioma inglés usando el selector de idioma de arriba."
     }
   }
 };
