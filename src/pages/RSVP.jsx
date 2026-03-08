@@ -1,33 +1,29 @@
-import React from 'react';
-import { useLanguage } from '../LanguageContext';
-import { translations } from '../translations';
+import React from "react";
+import "./RSVPSection.css";
 
-const RSVP = () => {
-  const { language } = useLanguage();
-  const t = translations[language].nav;
+const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSd.../viewform?embedded=true"; // replace with your form's embed URL
 
+function RSVPSection() {
   return (
-    <div className="min-h-screen bg-wedding-bg py-12 px-4">
-      <div className="max-w-3xl mx-auto">
-        <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-8 text-center font-bodoni">
-          {t.rsvp}
-        </h1>
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
-          <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLSfx5AVkAgdBjFCfGELmYfRlCHaAZT67t5P6kQHG2XAjlnyJOw/viewform?embedded=true"
-            width="640"
-            height="1319"
-            frameBorder="0"
-            marginHeight="0"
-            marginWidth="0"
-            title="RSVP Form"
-          >
-            Loading…
-          </iframe>
-        </div>
+    <section className="rsvp-section">
+      <h2 className="rsvp-heading">RSVP</h2>
+      <p className="rsvp-intro">
+        We hope you can join us on our special day!
+        <br />
+        Please fill out the RSVP form below.
+      </p>
+      <div className="rsvp-form-wrapper">
+        <iframe
+          src={GOOGLE_FORM_URL}
+          title="Wedding RSVP"
+          frameBorder="0"
+          allowFullScreen
+        >
+          Loading…
+        </iframe>
       </div>
-    </div>
+    </section>
   );
-};
+}
 
-export default RSVP;
+export default RSVPSection;
