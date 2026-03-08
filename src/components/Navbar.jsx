@@ -4,6 +4,17 @@ import { Home, Plane, Calendar, Map, HelpCircle, Send } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 
+const RSVP_FORM_URL =
+  'https://docs.google.com/forms/d/e/1FAIpQLSfx5AVkAgdBjFCfGELmYfRlCHaAZT67t5P6kQHG2XAjlnyJOw/viewform?usp=dialog';
+
+const openRsvpPopup = () => {
+  window.open(
+    RSVP_FORM_URL,
+    'rsvpPopup',
+    'width=700,height=800,resizable=yes,scrollbars=yes'
+  );
+};
+
 // April 3, 2027 00:00:00 ART (UTC-3) = April 3, 2027 03:00:00 UTC
 const WEDDING_DATE = new Date('2027-04-03T03:00:00Z');
 
@@ -76,13 +87,13 @@ const Navbar = () => {
                   <span>{label}</span>
                 </Link>
               ))}
-              <Link
-                to="/rsvp"
+              <button
+                onClick={openRsvpPopup}
                 className="flex items-center gap-1 bg-wedding-accent text-gray-800 px-3 py-1.5 rounded-md hover:bg-gray-300 transition-colors font-medium font-poppins whitespace-nowrap"
               >
                 <Send size={16} />
                 <span>{t.rsvp}</span>
-              </Link>
+              </button>
             </div>
 
             {/* Compact countdown — desktop only, between nav links and language toggle */}
@@ -125,15 +136,13 @@ const Navbar = () => {
             );
           })}
           {/* RSVP button */}
-          <Link
-            to="/rsvp"
-            className={`flex flex-col items-center justify-center flex-1 py-2 gap-0.5 text-[10px] font-medium font-poppins transition-colors ${
-              location.pathname === '/rsvp' ? 'text-gray-900' : 'text-gray-400'
-            }`}
+          <button
+            onClick={openRsvpPopup}
+            className={`flex flex-col items-center justify-center flex-1 py-2 gap-0.5 text-[10px] font-medium font-poppins transition-colors text-gray-400`}
           >
-            <Send size={20} className={location.pathname === '/rsvp' ? 'text-gray-900' : 'text-gray-400'} />
+            <Send size={20} className="text-gray-400" />
             <span className="leading-tight">{t.rsvp}</span>
-          </Link>
+          </button>
         </div>
       </nav>
     </>
