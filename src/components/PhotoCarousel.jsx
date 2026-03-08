@@ -64,7 +64,7 @@ const Carousel = ({ photos, base }) => {
   const realIndex = ((index - cloneCount) % len + len) % len;
 
   return (
-    <div className="relative select-none" style={{ overflow: 'hidden' }}>
+    <div className="relative select-none" style={{ overflow: 'hidden', maxHeight: '500px' }}>
       {/* Strip container — overflow clips neighbor cards symmetrically */}
       <div
         style={{ overflow: 'hidden' }}
@@ -86,7 +86,7 @@ const Carousel = ({ photos, base }) => {
             return (
               <div
                 key={i}
-                className="flex-shrink-0 overflow-hidden rounded-xl shadow-md bg-transparent"
+                className="flex-shrink-0 overflow-hidden rounded-xl shadow-md bg-gray-100"
                 style={{
                   width: centerW,
                   aspectRatio: '4 / 3',
@@ -101,7 +101,7 @@ const Carousel = ({ photos, base }) => {
                 <img
                   src={`${base}photos/${photo}`}
                   alt=""
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   loading="lazy"
                 />
               </div>

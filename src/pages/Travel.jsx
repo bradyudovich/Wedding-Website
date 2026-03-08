@@ -3,7 +3,7 @@ import { Plane, Hotel, CloudSun, AlertCircle } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 
-const FALLBACK_RATE = 1200;
+const FALLBACK_RATE = 1420;
 
 const Travel = () => {
   const { language } = useLanguage();
@@ -25,7 +25,7 @@ const Travel = () => {
         if (response.ok) {
           const data = await response.json();
           // Prefer venta (sell rate) as it reflects what travellers exchange at
-          const rate = data?.venta ?? data?.compra;
+          const rate = data?.venta;
           if (rate && isMounted) {
             setExchangeRate(rate);
             setLoading(false);
@@ -105,7 +105,7 @@ const Travel = () => {
           ) : (
             <>
               <p className="text-lg text-gray-800 font-poppins">
-                1 USD = {formatRate(exchangeRate)} ARS
+                1 USD = {formatRate(exchangeRate)} ARS (Official Rate)
               </p>
               {liveRateUnavailable ? (
                 <p className="text-sm text-amber-600 mt-2 font-poppins">{t.liveRateUnavailable}</p>
