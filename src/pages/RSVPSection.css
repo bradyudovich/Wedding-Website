@@ -1,0 +1,23 @@
+/* src/pages/RSVPSection.css */
+
+.rsvp-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.rsvp-heading {
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.rsvp-intro {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.rsvp-form-wrapper iframe {
+  width: 100%;
+  min-height: 900px;
+  border: 0;
+}
