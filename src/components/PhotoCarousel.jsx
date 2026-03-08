@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 
 // ─── Centered carousel ────────────────────────────────────────────────────────
 
-const SCROLL_THRESHOLD = 5;
 const TOUCH_SWIPE_THRESHOLD = 40;
 
 const Carousel = ({ photos, base }) => {
@@ -18,7 +17,6 @@ const Carousel = ({ photos, base }) => {
   const [index, setIndex] = useState(cloneCount);
   const [animated, setAnimated] = useState(true);
   const touchStartRef = useRef(null);
-  const stripRef = useRef(null);
 
   useEffect(() => {
     if (!animated) {
@@ -28,20 +26,6 @@ const Carousel = ({ photos, base }) => {
       return () => cancelAnimationFrame(id);
     }
   }, [animated]);
-
-  useEffect(() => {
-    const el = stripRef.current;
-    if (!el) return;
-    const handleWheel = (e) => {
-      const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-      if (Math.abs(delta) < SCROLL_THRESHOLD) return;
-      e.preventDefault();
-      setAnimated(true);
-      setIndex((i) => i + (delta > 0 ? 1 : -1));
-    };
-    el.addEventListener('wheel', handleWheel, { passive: false });
-    return () => el.removeEventListener('wheel', handleWheel);
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (len === 0) return null;
 
@@ -72,16 +56,17 @@ const Carousel = ({ photos, base }) => {
     touchStartRef.current = null;
   };
 
-  // Card widths: center = 76vw, side peek = 12vw each, gap = 8px
-  const centerW = '76vw';
-  const peekW = '12vw';
+  // Card widths: center = 52vw (smaller, less overwhelming), side peek = 8vw each, gap = 8px
+  const centerW = '52vw';
+  const peekW = '8vw';
   const gap = 8;
+
+  const realIndex = ((index - cloneCount) % len + len) % len;
 
   return (
     <div className="relative select-none" style={{ overflow: 'hidden' }}>
       {/* Strip container — shows peek on both sides */}
       <div
-        ref={stripRef}
         style={{ overflow: 'hidden', padding: `0 ${peekW}` }}
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
@@ -103,7 +88,7 @@ const Carousel = ({ photos, base }) => {
                 className="flex-shrink-0 overflow-hidden rounded-xl shadow-md bg-wedding-secondary"
                 style={{
                   width: centerW,
-                  aspectRatio: '1 / 1',
+                  aspectRatio: '4 / 3',
                   transition: 'transform 0.35s ease, box-shadow 0.35s ease, opacity 0.35s ease',
                   transform: isCenter ? 'scale(1)' : 'scale(0.92)',
                   opacity: isCenter ? 1 : 0.55,
@@ -124,23 +109,42 @@ const Carousel = ({ photos, base }) => {
         </div>
       </div>
 
+      {/* Prev/Next arrows — visible only on non-touch/desktop screens */}
+      <button
+        onClick={() => go(-1)}
+        aria-label="Previous photo"
+        className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 items-center justify-center w-8 h-8 rounded-full bg-white/60 hover:bg-white/90 text-gray-600 hover:text-gray-900 transition-all shadow-sm z-10"
+        style={{ backdropFilter: 'blur(2px)' }}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
+      </button>
+      <button
+        onClick={() => go(1)}
+        aria-label="Next photo"
+        className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 items-center justify-center w-8 h-8 rounded-full bg-white/60 hover:bg-white/90 text-gray-600 hover:text-gray-900 transition-all shadow-sm z-10"
+        style={{ backdropFilter: 'blur(2px)' }}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+      </button>
+
       {/* Dot indicators */}
       <div className="flex justify-center gap-1.5 mt-4">
-        {photos.map((_, i) => {
-          const realIndex = ((index - cloneCount) % len + len) % len;
-          return (
-            <button
-              key={i}
-              onClick={() => { setAnimated(true); setIndex(i + cloneCount); }}
-              className={`rounded-full transition-all ${
-                i === realIndex
-                  ? 'w-4 h-2 bg-gray-600'
-                  : 'w-2 h-2 bg-gray-300'
-              }`}
-              aria-label={`Go to photo ${i + 1}`}
-            />
-          );
-        })}
+        {photos.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => { setAnimated(true); setIndex(i + cloneCount); }}
+            className={`rounded-full transition-all ${
+              i === realIndex
+                ? 'w-4 h-2 bg-gray-600'
+                : 'w-2 h-2 bg-gray-300'
+            }`}
+            aria-label={`Go to photo ${i + 1}`}
+          />
+        ))}
       </div>
     </div>
   );
