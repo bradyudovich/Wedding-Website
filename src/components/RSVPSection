@@ -1,0 +1,50 @@
+.rsvp-section {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 2rem 1rem;
+  background: #fffaf6;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.rsvp-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #9b623b;
+}
+
+.rsvp-intro {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #545454;
+}
+
+.rsvp-form-wrapper {
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+  padding: 0.5rem 0;
+}
+
+.rsvp-form-wrapper iframe {
+  width: 100%;
+  min-height: 740px;
+  border: none;
+  display: block;
+  background: transparent;
+}
+
+/* Responsive Design */
+@media (max-width: 800px) {
+  .rsvp-section {
+    margin: 1.5rem 0.5rem;
+    padding: 1rem 0.3rem;
+  }
+
+  .rsvp-form-wrapper iframe {
+    min-height: 900px;
+  }
+}
