@@ -177,13 +177,8 @@ export const translations = {
     },
     rsvp: {
       title: "RSVP",
-      intro: "We hope you can join us on our special day! Please fill out the form below.",
-      // Shown inside the <iframe> for browsers that block iframes entirely.
-      iframeFallback: "Your browser does not support iframes. Please visit the form directly.",
-      // Shown when no Google Form URL is configured for the active language
-      // (see FORM_URLS in src/pages/RSVP.jsx). Not needed for 'en' since the
-      // English form is always configured, but kept here for completeness.
-      formUnavailable: "The RSVP form is currently only available in English. Please switch to English using the language toggle above."
+      intro: "We hope you can join us on our special day! Click the button below to open the RSVP form in a new tab.",
+      buttonText: "Open RSVP Form"
     }
   },
   es: {
@@ -364,13 +359,8 @@ export const translations = {
     },
     rsvp: {
       title: "RSVP",
-      intro: "¡Esperamos que puedas acompañarnos en nuestro día especial! Por favor completa el formulario a continuación.",
-      // Shown inside the <iframe> for browsers that block iframes entirely.
-      iframeFallback: "Tu navegador no admite iframes. Por favor visita el formulario directamente.",
-      // Shown when no Google Form URL is configured for the active language
-      // (see FORM_URLS in src/pages/RSVP.jsx).
-      // To add a Spanish form, uncomment and populate the 'es' entry in FORM_URLS.
-      formUnavailable: "El formulario de RSVP está disponible actualmente solo en inglés. Por favor cambia al idioma inglés usando el selector de idioma de arriba."
+      intro: "¡Esperamos que puedas acompañarnos en nuestro día especial! Haz clic en el botón de abajo para abrir el formulario de RSVP en una nueva pestaña.",
+      buttonText: "Abrir formulario de RSVP"
     }
   }
 };
