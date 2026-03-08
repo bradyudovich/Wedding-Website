@@ -3,6 +3,8 @@ import React, { useState, useRef, useEffect } from 'react';
 // ─── Centered carousel ────────────────────────────────────────────────────────
 
 const TOUCH_SWIPE_THRESHOLD = 40;
+const INACTIVE_OPACITY = 0.5;
+const INACTIVE_GRAYSCALE = 100; // percent
 
 const Carousel = ({ photos, base }) => {
   const len = photos.length;
@@ -64,7 +66,7 @@ const Carousel = ({ photos, base }) => {
   const realIndex = ((index - cloneCount) % len + len) % len;
 
   return (
-    <div className="relative select-none" style={{ overflow: 'hidden', maxHeight: '500px' }}>
+    <div className="relative select-none max-h-[50vh] md:max-h-[70vh] overflow-hidden">
       {/* Strip container — overflow clips neighbor cards symmetrically */}
       <div
         style={{ overflow: 'hidden' }}
@@ -86,13 +88,14 @@ const Carousel = ({ photos, base }) => {
             return (
               <div
                 key={i}
-                className="flex-shrink-0 overflow-hidden rounded-xl shadow-md bg-gray-100"
+                className="flex-shrink-0 overflow-hidden rounded-xl shadow-md bg-stone-100"
                 style={{
                   width: centerW,
                   aspectRatio: '4 / 3',
-                  transition: 'transform 0.35s ease, box-shadow 0.35s ease, opacity 0.35s ease',
+                  transition: 'transform 0.35s ease, box-shadow 0.35s ease, opacity 0.35s ease, filter 0.35s ease',
                   transform: isCenter ? 'scale(1)' : 'scale(0.92)',
-                  opacity: isCenter ? 1 : 0.55,
+                  opacity: isCenter ? 1 : INACTIVE_OPACITY,
+                  filter: isCenter ? 'none' : `grayscale(${INACTIVE_GRAYSCALE}%)`,
                   boxShadow: isCenter
                     ? '0 8px 24px rgba(0,0,0,0.18)'
                     : '0 2px 8px rgba(0,0,0,0.08)',
