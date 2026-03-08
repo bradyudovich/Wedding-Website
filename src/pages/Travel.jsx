@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Car, Hotel, Bus, CloudSun, AlertCircle } from 'lucide-react';
+import { Plane, Hotel, CloudSun, AlertCircle } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 
@@ -25,8 +25,8 @@ const Travel = () => {
           extract: (data) => data?.rates?.ARS,
         },
         {
-          url: 'https://api.frankfurter.app/latest?from=USD&to=ARS',
-          extract: (data) => data?.rates?.ARS,
+          url: 'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json',
+          extract: (data) => data?.usd?.ars,
         },
       ];
 
@@ -129,7 +129,7 @@ const Travel = () => {
         {/* Getting There */}
         <div className="bg-white p-8 rounded-lg shadow-md mb-8">
           <div className="flex items-center mb-4">
-            <Car size={32} className="text-black mr-3" />
+            <Plane size={32} className="text-black mr-3" />
             <h2 className="text-3xl font-semibold text-gray-800 font-bodoni">{t.gettingThereTitle}</h2>
           </div>
           <p className="text-gray-700 leading-relaxed text-lg font-poppins" style={{ textAlign: 'justify', hyphens: 'auto' }}>
@@ -156,17 +156,6 @@ const Travel = () => {
               <p className="text-gray-600 font-poppins">{t.hotel2Details}</p>
             </div>
           </div>
-        </div>
-
-        {/* Transportation */}
-        <div className="bg-white p-8 rounded-lg shadow-md mb-8">
-          <div className="flex items-center mb-4">
-            <Bus size={32} className="text-black mr-3" />
-            <h2 className="text-3xl font-semibold text-gray-800 font-bodoni">{t.transportationTitle}</h2>
-          </div>
-          <p className="text-gray-700 leading-relaxed text-lg font-poppins" style={{ textAlign: 'justify', hyphens: 'auto' }}>
-            {t.transportationText}
-          </p>
         </div>
       </div>
     </div>

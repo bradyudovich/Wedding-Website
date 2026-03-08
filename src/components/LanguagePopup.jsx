@@ -1,16 +1,33 @@
 import React, { useState } from 'react';
 import { translations } from '../translations';
 
+const POPUP_COUNT_KEY = 'languagePopupViewCount';
+const MAX_POPUP_VIEWS = 3;
+
 const LanguagePopup = () => {
   const en = translations.en.schedule;
   const es = translations.es.schedule;
-  const [visible, setVisible] = useState(true);
+
+  const [visible] = useState(() => {
+    try {
+      const count = parseInt(localStorage.getItem(POPUP_COUNT_KEY) || '0', 10);
+      if (count < MAX_POPUP_VIEWS) {
+        localStorage.setItem(POPUP_COUNT_KEY, String(count + 1));
+        return true;
+      }
+      return false;
+    } catch {
+      return true;
+    }
+  });
+
+  const [open, setOpen] = useState(visible);
 
   const handleClose = () => {
-    setVisible(false);
+    setOpen(false);
   };
 
-  if (!visible) return null;
+  if (!open) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
