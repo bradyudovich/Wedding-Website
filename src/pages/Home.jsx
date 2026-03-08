@@ -1,5 +1,4 @@
-// src/pages/Home.jsx
-import React, { useMemo, useState, useEffect, useRef } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 import PhotoCarousel from '../components/PhotoCarousel';
@@ -82,19 +81,6 @@ const Home = () => {
 
   const photos = useMemo(() => shuffleArray(photoList), []);
 
-  // Measure the "Our Story" box height to constrain the gallery on desktop
-  const storyRef = useRef(null);
-  const [storyHeight, setStoryHeight] = useState(null);
-
-  useEffect(() => {
-    const el = storyRef.current;
-    if (!el) return;
-    const obs = new ResizeObserver(() => setStoryHeight(el.offsetHeight));
-    obs.observe(el);
-    setStoryHeight(el.offsetHeight);
-    return () => obs.disconnect();
-  }, []);
-
   return (
     <div className="min-h-screen" style={{ WebkitHyphens: 'auto', hyphens: 'auto' }}>
       {/* Hero Section */}
@@ -120,28 +106,20 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Our Story + Photo Gallery — side by side on desktop */}
-      <div className="max-w-4xl mx-auto py-8 px-4 pb-20">
-        <div className="flex flex-col md:flex-row md:items-start gap-8">
-          {/* Our Story */}
-          <div ref={storyRef} className="md:flex-1 bg-wedding-secondary p-10 rounded-lg shadow-md">
-            <h2 className="text-4xl font-bold mb-6 text-gray-800 text-center font-bodoni">
-              {t.storyTitle}
-            </h2>
-            <p className="text-gray-700 leading-relaxed text-lg" style={{ textAlign: 'justify' }}>{t.storyText}</p>
-          </div>
-
-          {/* Photo Gallery */}
-          <div
-            className="md:flex-1 flex flex-col"
-            style={{ maxHeight: storyHeight ? `${storyHeight}px` : undefined, overflow: 'hidden' }}
-          >
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-8 font-bodoni flex-shrink-0">{t.photoGalleryTitle}</h2>
-            <div className="flex-1 overflow-hidden">
-              <PhotoCarousel photos={photos} base={base} />
-            </div>
-          </div>
+      {/* Our Story */}
+      <div className="max-w-4xl mx-auto py-8 px-4">
+        <div className="bg-wedding-secondary p-10 rounded-lg shadow-md">
+          <h2 className="text-4xl font-bold mb-6 text-gray-800 text-center font-bodoni">
+            {t.storyTitle}
+          </h2>
+          <p className="text-gray-700 leading-relaxed text-lg" style={{ textAlign: 'justify' }}>{t.storyText}</p>
         </div>
+      </div>
+
+      {/* Photo Gallery — directly beneath Our Story */}
+      <div className="py-4 pb-20">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-6 font-bodoni">{t.photoGalleryTitle}</h2>
+        <PhotoCarousel photos={photos} base={base} />
       </div>
     </div>
   );

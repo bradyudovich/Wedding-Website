@@ -1,8 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Home, Plane, Calendar, Map, HelpCircle, Send } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
+
+// April 3, 2027 00:00:00 ART (UTC-3) = April 3, 2027 03:00:00 UTC
+const WEDDING_DATE = new Date('2027-04-03T03:00:00Z');
+
+function calcTimeLeft() {
+  const diff = WEDDING_DATE - Date.now();
+  if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  return {
+    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+    minutes: Math.floor((diff / (1000 * 60)) % 60),
+    seconds: Math.floor((diff / 1000) % 60),
+  };
+}
+
+const CompactCountdown = () => {
+  const [timeLeft, setTimeLeft] = useState(calcTimeLeft);
+
+  useEffect(() => {
+    const id = setInterval(() => setTimeLeft(calcTimeLeft()), 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  const pad = (n) => String(n).padStart(2, '0');
+
+  return (
+    <span className="font-bodoni tabular-nums text-sm text-gray-700 tracking-tight">
+      {pad(timeLeft.days)}<span className="text-gray-400 mx-0.5">d</span>{pad(timeLeft.hours)}<span className="text-gray-400 mx-0.5">h</span>{pad(timeLeft.minutes)}<span className="text-gray-400 mx-0.5">m</span>{pad(timeLeft.seconds)}<span className="text-gray-400 mx-0.5">s</span>
+    </span>
+  );
+};
 
 const Navbar = () => {
   const { language, toggleLanguage } = useLanguage();
@@ -27,6 +58,11 @@ const Navbar = () => {
             <Link to="/" className="text-xl md:text-2xl font-bold text-gray-800 font-bodoni whitespace-nowrap flex-shrink-0">
               Cami & Brady
             </Link>
+
+            {/* Compact countdown — mobile only, between brand and language toggle */}
+            <div className="md:hidden flex-1 flex justify-center">
+              <CompactCountdown />
+            </div>
 
             {/* Navigation Links — hidden on mobile, shown on md+ */}
             <div className="hidden md:flex items-center gap-4 flex-1 justify-center">

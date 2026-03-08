@@ -3,54 +3,42 @@ import { Plane, Hotel, CloudSun, AlertCircle } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 
+const FALLBACK_RATE = 1200;
+
 const Travel = () => {
   const { language } = useLanguage();
   const t = translations[language].travel;
   const [exchangeRate, setExchangeRate] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [liveRateUnavailable, setLiveRateUnavailable] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
     const controller = new AbortController();
 
     const fetchExchangeRate = async () => {
-      const apis = [
-        {
-          url: 'https://open.er-api.com/v6/latest/USD',
-          extract: (data) => data?.rates?.ARS,
-        },
-        {
-          url: 'https://api.exchangerate-api.com/v4/latest/USD',
-          extract: (data) => data?.rates?.ARS,
-        },
-        {
-          url: 'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json',
-          extract: (data) => data?.usd?.ars,
-        },
-      ];
-
-      for (const api of apis) {
-        try {
-          const response = await fetch(api.url, { signal: controller.signal, cache: 'no-store' });
-          if (response.ok) {
-            const data = await response.json();
-            const rate = api.extract(data);
-            if (rate) {
-              if (isMounted) {
-                setExchangeRate(rate);
-                setLoading(false);
-              }
-              return;
-            }
+      try {
+        const response = await fetch('https://dolarapi.com/v1/dolares/oficial', {
+          signal: controller.signal,
+          cache: 'no-store',
+        });
+        if (response.ok) {
+          const data = await response.json();
+          // Prefer venta (sell rate) as it reflects what travellers exchange at
+          const rate = data?.venta ?? data?.compra;
+          if (rate && isMounted) {
+            setExchangeRate(rate);
+            setLoading(false);
+            return;
           }
-        } catch {
-          // Try next API
         }
+      } catch {
+        // fall through to fallback
       }
 
       if (isMounted) {
-        setError(true);
+        setExchangeRate(FALLBACK_RATE);
+        setLiveRateUnavailable(true);
         setLoading(false);
       }
     };
@@ -114,14 +102,16 @@ const Travel = () => {
           <h2 className="text-2xl font-semibold text-gray-800 mb-4 font-bodoni">{t.exchangeRateTitle}</h2>
           {loading ? (
             <p className="text-gray-600 font-poppins">{t.loading}</p>
-          ) : error || !exchangeRate ? (
-            <p className="text-gray-600 font-poppins">{t.notAvailable}</p>
           ) : (
             <>
               <p className="text-lg text-gray-800 font-poppins">
                 1 USD = {formatRate(exchangeRate)} ARS
               </p>
-              <p className="text-sm text-gray-500 mt-2 font-poppins">{t.exchangeNote}</p>
+              {liveRateUnavailable ? (
+                <p className="text-sm text-amber-600 mt-2 font-poppins">{t.liveRateUnavailable}</p>
+              ) : (
+                <p className="text-sm text-gray-500 mt-2 font-poppins">{t.exchangeNote}</p>
+              )}
             </>
           )}
         </div>
