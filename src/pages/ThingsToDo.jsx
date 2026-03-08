@@ -30,10 +30,10 @@ const restaurants = [
 ];
 
 const destinations = [
+  { key: 'iguazu' },
+  { key: 'jujuy' },
   { key: 'mendoza' },
   { key: 'bariloche' },
-  { key: 'jujuy' },
-  { key: 'iguazu' },
 ];
 
 const ThingsToDo = () => {

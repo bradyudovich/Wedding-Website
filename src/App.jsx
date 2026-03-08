@@ -13,7 +13,7 @@ function AppContent() {
   
   return (
     <Router basename="/Wedding-Website">
-      <div className="min-h-screen bg-wedding-bg font-poppins" lang={language}>
+      <div className="min-h-screen bg-wedding-bg font-poppins pb-16 md:pb-0" lang={language}>
         <Navbar />
         <LanguagePopup />
         <Routes>

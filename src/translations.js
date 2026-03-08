@@ -65,6 +65,8 @@ export const translations = {
       bahonTime: "1:30 AM",
       partyEnd: "Party End",
       partyEndTime: "2:00 AM",
+      optionalBuses: "Optional Buses Depart",
+      optionalBusesTime: "2:15 AM",
       languagePopupTitle: "Language Selector",
       languagePopupText: "This website is available in both English and Spanish. You can switch languages using the flag button (🇦🇷/🇺🇸) located in the top-right corner of the navigation bar.",
       languagePopupClose: "Got it!"
@@ -233,6 +235,8 @@ export const translations = {
       bahonTime: "01:30",
       partyEnd: "Fin de Fiesta",
       partyEndTime: "02:00",
+      optionalBuses: "Micros Opcionales (Salida)",
+      optionalBusesTime: "02:15",
       languagePopupTitle: "Selector de Idioma",
       languagePopupText: "Este sitio web está disponible en inglés y español. Puedes cambiar el idioma usando el botón con la bandera (🇦🇷/🇺🇸) ubicado en la esquina superior derecha de la barra de navegación.",
       languagePopupClose: "¡Entendido!"
