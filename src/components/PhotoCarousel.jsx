@@ -4,6 +4,8 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const ITEM_WIDTH = 256;
 const GAP = 12;
 const ITEM_SIZE = ITEM_WIDTH + GAP;
+// Minimum scroll delta to trigger a navigation step (filters out accidental micro-movements)
+const SCROLL_THRESHOLD = 5;
 
 const PhotoCarousel = ({ photos, base }) => {
   const len = photos.length;
@@ -19,6 +21,7 @@ const PhotoCarousel = ({ photos, base }) => {
   const [index, setIndex] = useState(cloneCount);
   const [animated, setAnimated] = useState(true);
   const touchStartRef = useRef(null);
+  const stripRef = useRef(null);
 
   useEffect(() => {
     if (!animated) {
@@ -28,6 +31,22 @@ const PhotoCarousel = ({ photos, base }) => {
       return () => cancelAnimationFrame(id);
     }
   }, [animated]);
+
+  // Mouse/trackpad horizontal scroll support
+  useEffect(() => {
+    const el = stripRef.current;
+    if (!el) return;
+    const handleWheel = (e) => {
+      // Use horizontal delta if available, otherwise map vertical scroll to horizontal
+      const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+      if (Math.abs(delta) < SCROLL_THRESHOLD) return;
+      e.preventDefault();
+      setAnimated(true);
+      setIndex((i) => i + (delta > 0 ? 1 : -1));
+    };
+    el.addEventListener('wheel', handleWheel, { passive: false });
+    return () => el.removeEventListener('wheel', handleWheel);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (len === 0) return null;
 
@@ -71,9 +90,11 @@ const PhotoCarousel = ({ photos, base }) => {
 
       {/* Photos strip */}
       <div
+        ref={stripRef}
         className="overflow-hidden"
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
+        style={{ touchAction: 'pan-y' }}
       >
         <div
           className="flex"
