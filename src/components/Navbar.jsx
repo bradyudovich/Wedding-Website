@@ -76,15 +76,13 @@ const Navbar = () => {
                   <span>{label}</span>
                 </Link>
               ))}
-              <a
-                href="https://docs.google.com/forms/d/1SuwIRRoHyp5-oiN665x-qfgtmp2uD9yQVl_mWvgcuaU/edit"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/rsvp"
                 className="flex items-center gap-1 bg-wedding-accent text-gray-800 px-3 py-1.5 rounded-md hover:bg-gray-300 transition-colors font-medium font-poppins whitespace-nowrap"
               >
                 <Send size={16} />
                 <span>{t.rsvp}</span>
-              </a>
+              </Link>
             </div>
 
             {/* Compact countdown — desktop only, between nav links and language toggle */}
@@ -127,15 +125,15 @@ const Navbar = () => {
             );
           })}
           {/* RSVP button */}
-          <a
-            href="https://docs.google.com/forms/d/1SuwIRRoHyp5-oiN665x-qfgtmp2uD9yQVl_mWvgcuaU/edit"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex flex-col items-center justify-center flex-1 py-2 gap-0.5 text-[10px] font-medium font-poppins text-gray-400 transition-colors"
+          <Link
+            to="/rsvp"
+            className={`flex flex-col items-center justify-center flex-1 py-2 gap-0.5 text-[10px] font-medium font-poppins transition-colors ${
+              location.pathname === '/rsvp' ? 'text-gray-900' : 'text-gray-400'
+            }`}
           >
-            <Send size={20} className="text-gray-400" />
+            <Send size={20} className={location.pathname === '/rsvp' ? 'text-gray-900' : 'text-gray-400'} />
             <span className="leading-tight">{t.rsvp}</span>
-          </a>
+          </Link>
         </div>
       </nav>
     </>

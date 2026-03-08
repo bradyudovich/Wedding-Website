@@ -8,6 +8,7 @@ import Travel from './pages/Travel';
 import Schedule from './pages/Schedule';
 import ThingsToDo from './pages/ThingsToDo';
 import FAQ from './pages/FAQ';
+import RSVP from './pages/RSVP';
 function AppContent() {
   const { language } = useLanguage();
   
@@ -22,6 +23,7 @@ function AppContent() {
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/things-to-do" element={<ThingsToDo />} />
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/rsvp" element={<RSVP />} />
         </Routes>
       </div>
     </Router>
