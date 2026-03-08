@@ -56,18 +56,18 @@ const Carousel = ({ photos, base }) => {
     touchStartRef.current = null;
   };
 
-  // Card widths: center = 52vw (smaller, less overwhelming), side peek = 8vw each, gap = 8px
-  const centerW = '52vw';
-  const peekW = '8vw';
-  const gap = 8;
+  // Card width: 64vw on all screens, properly centered so 18vw of each neighbor peeks in
+  const centerW = '64vw';
+  const halfCenterW = '32vw';
+  const gap = 12;
 
   const realIndex = ((index - cloneCount) % len + len) % len;
 
   return (
     <div className="relative select-none" style={{ overflow: 'hidden' }}>
-      {/* Strip container — shows peek on both sides */}
+      {/* Strip container — overflow clips neighbor cards symmetrically */}
       <div
-        style={{ overflow: 'hidden', padding: `0 ${peekW}` }}
+        style={{ overflow: 'hidden' }}
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
@@ -75,7 +75,8 @@ const Carousel = ({ photos, base }) => {
           className="flex items-center"
           style={{
             gap: `${gap}px`,
-            transform: `translateX(calc(-${index} * (${centerW} + ${gap}px)))`,
+            // Center active card at 50vw: translate = 50vw - halfCenterW - index*(centerW+gap)
+            transform: `translateX(calc(50vw - ${halfCenterW} - ${index} * (${centerW} + ${gap}px)))`,
             transition: animated ? 'transform 0.35s ease-in-out' : 'none',
           }}
           onTransitionEnd={onTransitionEnd}
@@ -100,7 +101,7 @@ const Carousel = ({ photos, base }) => {
                 <img
                   src={`${base}photos/${photo}`}
                   alt=""
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   loading="lazy"
                 />
               </div>
@@ -109,11 +110,11 @@ const Carousel = ({ photos, base }) => {
         </div>
       </div>
 
-      {/* Prev/Next arrows — visible only on non-touch/desktop screens */}
+      {/* Prev/Next arrows — low-profile, visible on all screen sizes */}
       <button
         onClick={() => go(-1)}
         aria-label="Previous photo"
-        className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 items-center justify-center w-8 h-8 rounded-full bg-white/60 hover:bg-white/90 text-gray-600 hover:text-gray-900 transition-all shadow-sm z-10"
+        className="flex absolute left-2 top-1/2 -translate-y-1/2 items-center justify-center w-8 h-8 rounded-full bg-white/60 hover:bg-white/90 text-gray-600 hover:text-gray-900 transition-all shadow-sm z-10"
         style={{ backdropFilter: 'blur(2px)' }}
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
@@ -123,7 +124,7 @@ const Carousel = ({ photos, base }) => {
       <button
         onClick={() => go(1)}
         aria-label="Next photo"
-        className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 items-center justify-center w-8 h-8 rounded-full bg-white/60 hover:bg-white/90 text-gray-600 hover:text-gray-900 transition-all shadow-sm z-10"
+        className="flex absolute right-2 top-1/2 -translate-y-1/2 items-center justify-center w-8 h-8 rounded-full bg-white/60 hover:bg-white/90 text-gray-600 hover:text-gray-900 transition-all shadow-sm z-10"
         style={{ backdropFilter: 'blur(2px)' }}
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
