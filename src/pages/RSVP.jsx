@@ -13,13 +13,7 @@ const RSVP = () => {
           {t.rsvp}
         </h1>
         <div className="bg-white rounded-lg shadow-md overflow-hidden">
-          <iframe
-            src="https://docs.google.com/forms/d/1SuwIRRoHyp5-oiN665x-qfgtmp2uD9yQVl_mWvgcuaU/viewform?embedded=true"
-            width="100%"
-            height="900"
-            title="RSVP Form"
-            style={{ display: 'block', border: 'none' }}
-          >
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfx5AVkAgdBjFCfGELmYfRlCHaAZT67t5P6kQHG2XAjlnyJOw/viewform?embedded=true" width="640" height="1319" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
             Loading…
           </iframe>
         </div>
