@@ -84,6 +84,10 @@ const Schedule = () => {
                     <span className="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
                     <span className="text-sm text-gray-700 font-poppins">{t.partyEnd} <span className="text-gray-400">— {t.partyEndTime}</span></span>
                   </div>
+                  <div className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span>
+                    <span className="text-sm text-gray-700 font-poppins">{t.optionalBuses} <span className="text-gray-400">— {t.optionalBusesTime}</span></span>
+                  </div>
                 </div>
               </div>
             </div>
