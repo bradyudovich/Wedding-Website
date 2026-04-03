@@ -19,6 +19,28 @@ A beautiful, single-page React application that functions as a multi-page weddin
 - 🚀 **Fast**: Built with Vite for optimal performance
 - 🗺️ **Multiple Pages**: Home, Travel Information, FAQ, and RSVP
 
+## Site Lock
+
+The site displays a full-screen overlay with the "Save the Date" image on every visit until unlocked.
+
+### Unlocking the site
+
+1. Visit the site — you will see only the save-the-date overlay.
+2. Click the subtle **"unlock"** text in the **bottom-left corner**.
+3. Enter the password **`2027`** and press Enter (or click **Unlock**).
+4. The overlay disappears and the site is accessible. This is remembered in your browser (`localStorage`), so you won't need to re-enter the password on future visits from the same device.
+
+### Re-locking for testing
+
+**Option A – On-screen button:**  
+Once unlocked, a small **"Lock"** button appears in the bottom-left corner. Click it to re-enable the overlay.
+
+**Option B – Browser console:**
+```js
+localStorage.removeItem('siteUnlocked');
+location.reload();
+```
+
 ## Tech Stack
 
 - **React 18** - UI framework
