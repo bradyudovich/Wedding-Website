@@ -71,7 +71,7 @@ const SiteLock = () => {
           {!showPrompt ? (
             <button
               onClick={() => setShowPrompt(true)}
-              className="text-[9px] text-black/30 hover:text-black/60 transition-colors"
+              className="text-[9px] text-black/[0.075] hover:text-black/[0.15] transition-colors"
               aria-label="Open unlock prompt"
             >
               unlock
@@ -122,7 +122,7 @@ const SiteLock = () => {
         <div className="fixed bottom-4 left-4 z-[200]">
           <button
             onClick={handleLock}
-            className="text-xs text-gray-400 hover:text-gray-600 opacity-40 hover:opacity-100 transition-opacity"
+            className="text-xs text-gray-400 hover:text-gray-600 opacity-10 hover:opacity-25 transition-opacity"
             aria-label="Re-lock site"
           >
             Lock
