@@ -27,12 +27,10 @@
       // - User/Organization Pages (username.github.io): pathSegmentsToKeep = 0
       // - Custom domain: pathSegmentsToKeep = 0
       //
-      // This site uses Project Pages with base path '/Wedding-Website/',
-      // so pathSegmentsToKeep = 1 is correct. This preserves the repo name
-      // in the path while handling client-side routes:
-      // Example: https://username.github.io/Wedding-Website/travel becomes
-      //          https://username.github.io/Wedding-Website/?/travel
-      var pathSegmentsToKeep = 1;
+      // This site uses a custom domain (camiandbrady.com), so 0 is correct.
+      // Example: https://camiandbrady.com/travel becomes
+      //          https://camiandbrady.com/?/travel
+      var pathSegmentsToKeep = 0;
 
       var l = window.location;
       l.replace(
