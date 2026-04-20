@@ -26,6 +26,8 @@ https://bradyudovich.github.io/Wedding-Website/
 
 ### Initial Setup (One-Time)
 
+> ⚠️ **This must be done before the first deployment will succeed.** The workflow will fail with a 404 error until GitHub Pages is configured to use GitHub Actions as its source.
+
 1. **Enable GitHub Pages**:
    - Navigate to your repository on GitHub
    - Go to **Settings** > **Pages** (left sidebar)
@@ -34,7 +36,7 @@ https://bradyudovich.github.io/Wedding-Website/
      - ⚠️ Do NOT use "Deploy from a branch" (legacy method)
    - Click **Save**
 
-2. **Verify Workflow Permissions**:
+2. **Verify Workflow Permissions** (if needed):
    - Go to **Settings** > **Actions** > **General**
    - Scroll to **Workflow permissions**
    - Select **"Read and write permissions"**
@@ -102,7 +104,7 @@ on:
 permissions:
   contents: read      # Read repository content
   pages: write        # Write to GitHub Pages
-  id-token: write     # Write ID token for deployment
+  id-token: write     # OIDC token required by deploy-pages
 
 jobs:
   build:
@@ -110,19 +112,22 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
+
+      - name: Setup Pages          # Configures Pages environment; fails fast
+        uses: actions/configure-pages@v5  # if Pages source is not "GitHub Actions"
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'    # Caches node_modules for faster builds
-      
+
       - name: Install dependencies
         run: npm ci       # Clean install (faster than npm install)
-      
+
       - name: Build the app
         run: npm run build
-      
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -277,6 +282,15 @@ This allows direct navigation and page refreshes to work correctly on all routes
 ## Troubleshooting
 
 ### Deployment Fails in GitHub Actions
+
+**Error: "Failed to create deployment (status: 404)"**
+
+This is the most common error and means GitHub Pages is not enabled with "GitHub Actions" as the source.
+
+1. Go to **Settings** > **Pages**
+2. Under **Build and deployment** > **Source**, select **"GitHub Actions"**
+3. Click **Save**
+4. Re-run the failed workflow from the **Actions** tab
 
 **Error: "npm ci" fails**
 
