@@ -7,7 +7,7 @@ const PLENO_PALERMO_SOHO_MAPS_URL =
   'https://www.google.com/maps/place/Pleno+Palermo+Soho/@-34.5861776,-58.4267193,17z/data=!3m1!4b1!4m9!3m8!1s0x95bcb586c0e9155d:0xe65768f2c8fd000c!5m2!4m1!1i2!8m2!3d-34.586182!4d-58.424139!16s%2Fg%2F11b6d7rhm_?entry=ttu&g_ep=EgoyMDI2MDQyMi4wIKXMDSoASAFQAw%3D%3D';
 
 const LAS_CORTADERAS_MAPS_URL =
-  'https://www.google.com/maps/place/Las+Cortaderas/@-34.4667,-58.8320,17z';
+  'https://www.google.com/maps/search/?api=1&query=Las+Cortaderas+Buenos+Aires+Argentina';
 
 function buildGoogleCalendarUrl({ title, date, location, details }) {
   const params = new URLSearchParams({
