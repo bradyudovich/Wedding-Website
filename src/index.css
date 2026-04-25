@@ -11,7 +11,7 @@
   }
   
   .font-bodoni {
-    font-family: 'Bodoni Moda', serif;
+    font-family: 'Playfair Display', serif;
   }
 }
 
@@ -34,7 +34,7 @@ body {
   font-family: 'Manrope', 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #D1D2D0;
+  background-color: #E5DECA;
   color: #353935;
 }
 

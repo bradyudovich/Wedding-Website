@@ -123,7 +123,11 @@ const Travel = () => {
             <h2 className="text-3xl font-semibold text-gray-800 font-bodoni">{t.gettingThereTitle}</h2>
           </div>
           <p className="text-gray-700 leading-relaxed text-lg font-poppins" style={{ textAlign: 'justify', hyphens: 'auto' }}>
-            {t.gettingThereText}
+            {t.gettingThereTextPart1}{' '}
+            <strong>{t.airport1Name}</strong>
+            {t.gettingThereTextPart2}{' '}
+            <strong>{t.airport2Name}</strong>
+            {t.gettingThereTextPart3}
           </p>
         </div>
 
@@ -138,12 +142,34 @@ const Travel = () => {
           </p>
           <div className="space-y-4">
             <div className="bg-wedding-secondary p-4 rounded-md">
-              <h3 className="font-semibold text-xl text-gray-800 mb-2 font-bodoni">{t.hotel1Name}</h3>
+              <h3 className="font-semibold text-xl text-gray-800 mb-1 font-bodoni">
+                <a
+                  href="https://plenohotels.com/palermosoho/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-gray-500"
+                >
+                  {t.hotel1Name}
+                </a>
+              </h3>
               <p className="text-gray-600 font-poppins">{t.hotel1Details}</p>
             </div>
             <div className="bg-wedding-secondary p-4 rounded-md">
-              <h3 className="font-semibold text-xl text-gray-800 mb-2 font-bodoni">{t.hotel2Name}</h3>
+              <h3 className="font-semibold text-xl text-gray-800 mb-1 font-bodoni">
+                <a
+                  href="https://www.bromeliahotel.com.ar/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-gray-500"
+                >
+                  {t.hotel2Name}
+                </a>
+              </h3>
               <p className="text-gray-600 font-poppins">{t.hotel2Details}</p>
+            </div>
+            <div className="bg-wedding-secondary p-4 rounded-md">
+              <h3 className="font-semibold text-xl text-gray-800 mb-1 font-bodoni">{t.hotel3Name}</h3>
+              <p className="text-gray-600 font-poppins">{t.hotel3Details}</p>
             </div>
           </div>
         </div>
