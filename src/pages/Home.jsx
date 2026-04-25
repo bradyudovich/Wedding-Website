@@ -51,6 +51,11 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Photo Gallery — directly beneath Hero */}
+      <div id="gallery" className="max-w-4xl mx-auto pb-4 overflow-hidden">
+        <PhotoCarousel photos={photos} base={base} />
+      </div>
+
       {/* Welcome Section */}
       <div className="max-w-4xl mx-auto py-8 px-4">
         <div className="bg-off-white p-10 rounded-lg shadow-md">
@@ -71,12 +76,6 @@ const Home = () => {
           </h2>
           <p className="text-onyx leading-relaxed text-lg" style={{ textAlign: 'justify' }}>{t.storyText}</p>
         </div>
-      </div>
-
-      {/* Photo Gallery — directly beneath Our Story */}
-      <div id="gallery" className="max-w-4xl mx-auto pb-20 overflow-hidden">
-        <h2 className="text-3xl font-bold text-center text-onyx py-6 font-bodoni">{t.photoGalleryTitle}</h2>
-        <PhotoCarousel photos={photos} base={base} />
       </div>
     </div>
   );

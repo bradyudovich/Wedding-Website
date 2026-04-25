@@ -31,7 +31,7 @@ const LanguagePopup = () => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
-      <div className="bg-white rounded-lg shadow-xl max-w-lg w-full p-6">
+      <div className="bg-pumice rounded-lg shadow-xl max-w-lg w-full p-6">
         <div className="grid grid-cols-2 divide-x divide-gray-200 gap-0 mb-6">
           {/* English */}
           <div className="pr-4">

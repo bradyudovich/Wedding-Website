@@ -8,13 +8,10 @@ const FAQ = () => {
 
   const faqs = [
     { question: t.q1, answer: t.a1 },
-    { question: t.q2, answer: t.a2 },
-    { question: t.q3, answer: t.a3 },
     { question: t.q4, answer: t.a4 },
-    { question: t.q5, answer: t.a5 },
-    { question: t.q6, answer: t.a6 },
+    { question: t.qKids, answer: t.aKids },
+    { question: t.qTransport, answer: t.aTransport },
     { question: t.q7, answer: t.a7 },
-    { question: t.q8, answer: t.a8 },
   ];
 
   return (
