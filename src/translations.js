@@ -7,7 +7,8 @@ export const translations = {
       thingsToDo: "Things to Do",
       faq: "FAQ",
       recommendations: "Recommendations",
-      rsvp: "RSVP"
+      rsvp: "RSVP",
+      registry: "Registry"
     },
     home: {
       coupleNames: "Cami & Brady",
@@ -180,6 +181,12 @@ export const translations = {
       title: "RSVP",
       intro: "We hope you can join us on our special day! Click the button below to open the RSVP form in a new tab.",
       buttonText: "Open RSVP Form"
+    },
+    registry: {
+      title: "Registry",
+      message: "Your presence at our wedding is the greatest gift of all. However, if you wish to honor us with a gift, a contribution toward our future home and honeymoon would be sincerely appreciated.",
+      buttonText: "Contribute a Gift",
+      nav: "Registry"
     }
   },
   es: {
@@ -190,7 +197,8 @@ export const translations = {
       thingsToDo: "Qué Hacer",
       faq: "Preguntas",
       recommendations: "Recomendaciones",
-      rsvp: "RSVP"
+      rsvp: "RSVP",
+      registry: "Regalos"
     },
     home: {
       coupleNames: "Cami & Brady",
@@ -363,6 +371,12 @@ export const translations = {
       title: "RSVP",
       intro: "¡Esperamos que puedas acompañarnos en nuestro día especial! Haz clic en el botón de abajo para abrir el formulario de RSVP en una nueva pestaña.",
       buttonText: "Abrir formulario de RSVP"
+    },
+    registry: {
+      title: "Regalos",
+      message: "Tu presencia en nuestra boda es el mayor regalo de todos. Sin embargo, si deseas honrarnos con un regalo, una contribución hacia nuestro futuro hogar y luna de miel sería sinceramente apreciada.",
+      buttonText: "Contribuir un Regalo",
+      nav: "Regalos"
     }
   }
 };

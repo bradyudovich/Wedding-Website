@@ -11,7 +11,7 @@
   }
   
   .font-bodoni {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Lora', serif;
   }
 }
 
@@ -34,12 +34,12 @@ body {
   font-family: 'Manrope', 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #E5DECA;
+  background-color: #F9F7F2;
   color: #353935;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Lora', serif;
 }
 
 * {
