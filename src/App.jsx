@@ -11,6 +11,7 @@ import Schedule from './pages/Schedule';
 import ThingsToDo from './pages/ThingsToDo';
 import FAQ from './pages/FAQ';
 import RSVP from './pages/RSVP';
+import Registry from './pages/Registry';
 
 function AppContent() {
   const { language } = useLanguage();
@@ -32,6 +33,7 @@ function AppContent() {
             <Route path="/things-to-do" element={<ThingsToDo />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/rsvp" element={<RSVP />} />
+            <Route path="/registry" element={<Registry />} />
           </Routes>
         </div>
       </Router>

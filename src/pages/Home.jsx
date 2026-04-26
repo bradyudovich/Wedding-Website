@@ -52,7 +52,7 @@ const Home = () => {
       </div>
 
       {/* Photo Gallery — directly beneath Hero */}
-      <div id="gallery" className="max-w-4xl mx-auto pb-4 overflow-hidden">
+      <div id="gallery" className="max-w-4xl mx-auto md:max-w-none md:mx-0 pb-4 overflow-hidden">
         <PhotoCarousel photos={photos} base={base} />
       </div>
 

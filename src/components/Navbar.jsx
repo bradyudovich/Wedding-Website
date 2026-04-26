@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Plane, Calendar, Map, HelpCircle, Send } from 'lucide-react';
+import { Home, Plane, Calendar, Map, HelpCircle, Send, Gift } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 
@@ -40,7 +40,7 @@ const CompactCountdown = () => {
   const pad = (n) => String(n).padStart(2, '0');
 
   return (
-    <span className="font-bodoni tabular-nums text-sm text-burnished-copper tracking-tight">
+    <span className="font-bodoni tabular-nums text-[17.5px] text-burnished-copper tracking-tight">
       {pad(timeLeft.days)}<span className="text-onyx/50 mx-0.5">d</span>{pad(timeLeft.hours)}<span className="text-onyx/50 mx-0.5">h</span>{pad(timeLeft.minutes)}<span className="text-onyx/50 mx-0.5">m</span>{pad(timeLeft.seconds)}<span className="text-onyx/50 mx-0.5">s</span>
     </span>
   );
@@ -57,6 +57,7 @@ const Navbar = () => {
     { to: '/things-to-do', icon: <Map size={20} />, label: t.thingsToDo },
     { to: '/travel', icon: <Plane size={20} />, label: t.travel },
     { to: '/faq', icon: <HelpCircle size={20} />, label: t.faq },
+    { to: '/registry', icon: <Gift size={20} />, label: t.registry },
   ];
 
   return (
