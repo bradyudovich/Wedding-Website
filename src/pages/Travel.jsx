@@ -168,15 +168,18 @@ const Travel = () => {
             </div>
             <div className="bg-wedding-secondary p-4 rounded-md">
               <h3 className="font-semibold text-xl text-gray-800 mb-1 font-bodoni">{t.hotel3Name}</h3>
-              <p className="text-gray-600 font-poppins">{t.hotel3Details}</p>
-              <a
-                href="https://www.airbnb.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center mt-3 text-sm font-medium text-gray-700 underline hover:text-gray-900 transition-colors font-poppins"
-              >
-                {t.airbnbButton}
-              </a>
+              <p className="text-gray-600 font-poppins">
+                {t.hotel3Details}{' '}
+                <a
+                  href="https://www.airbnb.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-gray-500"
+                >
+                  {t.airbnbButton}
+                </a>
+                .
+              </p>
             </div>
           </div>
         </div>
