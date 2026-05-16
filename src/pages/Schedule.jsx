@@ -97,7 +97,7 @@ const Schedule = () => {
                   label={t.addToCalendar}
                 />
                 {/* Nested Wedding Day Timeline */}
-                <div className="mt-3 ml-2 border-l-2 border-onyx/20 pl-4 space-y-2">
+                <div className="mt-3 ml-2 border-l-2 border-wedding-accent pl-4 space-y-2">
                   <div className="flex items-start gap-2">
                     <span className="w-2 h-2 rounded-full bg-onyx/40 flex-shrink-0 mt-1.5"></span>
                     <span className="text-sm text-onyx font-poppins">
