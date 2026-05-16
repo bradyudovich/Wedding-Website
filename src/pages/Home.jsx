@@ -1,7 +1,9 @@
 import React, { useMemo } from 'react';
+import { motion } from 'framer-motion';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 import PhotoCarousel from '../components/PhotoCarousel';
+import WeddingCountdown from '../components/WeddingCountdown';
 
 const photoList = [
   'FullSizeRender.jpeg',
@@ -35,12 +37,20 @@ const Home = () => {
   const base = import.meta.env.BASE_URL;
 
   const photos = useMemo(() => shuffleArray(photoList), []);
+  const sectionMotion = {
+    initial: { opacity: 0, y: 20 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.2 },
+    transition: { duration: 0.45, ease: 'easeOut' },
+  };
 
   return (
     <div className="min-h-screen" style={{ WebkitHyphens: 'auto', hyphens: 'auto' }}>
       {/* Hero Section */}
-      <div className="bg-pumice py-10 px-4">
-        <div className="max-w-4xl mx-auto text-center">
+      <div className="relative overflow-hidden bg-pumice py-12 px-4">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(135,147,114,0.16),_transparent_58%)] pointer-events-none" />
+        <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[420px] h-[420px] rounded-full border border-wedding-accent/60 pointer-events-none" />
+        <div className="relative max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold text-onyx mb-3 font-bodoni">
             {t.coupleNames}
           </h1>
@@ -48,6 +58,7 @@ const Home = () => {
             {t.heroDateLocation}
           </p>
           <p className="text-xl md:text-2xl text-onyx/60 font-light font-manrope tracking-wide">{t.subtitle}</p>
+          <WeddingCountdown variant="hero" />
         </div>
       </div>
 
@@ -57,26 +68,26 @@ const Home = () => {
       </div>
 
       {/* Welcome Section */}
-      <div className="max-w-4xl mx-auto py-8 px-4">
+      <motion.div className="max-w-4xl mx-auto py-8 px-4" {...sectionMotion}>
         <div className="bg-off-white p-10 rounded-lg shadow-md">
           <h2 className="text-4xl font-bold mb-6 text-onyx text-center font-bodoni">
             {t.welcomeTitle}
           </h2>
-          <p className="text-onyx leading-relaxed text-lg mb-6" style={{ textAlign: 'justify' }}>
+          <p className="text-onyx leading-relaxed text-lg mb-6 md:text-justify">
             {t.welcomeText}
           </p>
         </div>
-      </div>
+      </motion.div>
 
       {/* Our Story */}
-      <div id="our-story" className="max-w-4xl mx-auto py-8 px-4">
+      <motion.div id="our-story" className="max-w-4xl mx-auto py-8 px-4" {...sectionMotion}>
         <div className="bg-off-white p-10 rounded-lg shadow-md">
           <h2 className="text-4xl font-bold mb-6 text-onyx text-center font-bodoni">
             {t.storyTitle}
           </h2>
-          <p className="text-onyx leading-relaxed text-lg" style={{ textAlign: 'justify' }}>{t.storyText}</p>
+          <p className="text-onyx leading-relaxed text-lg md:text-justify">{t.storyText}</p>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

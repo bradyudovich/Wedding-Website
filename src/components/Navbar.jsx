@@ -1,48 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Home, Plane, Calendar, Map, HelpCircle, Send, Gift } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
-
-const RSVP_FORM_URL =
-  'https://docs.google.com/forms/d/e/1FAIpQLSfx5AVkAgdBjFCfGELmYfRlCHaAZT67t5P6kQHG2XAjlnyJOw/viewform?usp=dialog';
+import { RSVP_FORM_URL } from '../constants/links';
+import WeddingCountdown from './WeddingCountdown';
 
 const openRsvpPopup = () => {
   window.open(
     RSVP_FORM_URL,
     'rsvpPopup',
     'width=700,height=800,resizable=yes,scrollbars=yes'
-  );
-};
-
-// April 3, 2027 00:00:00 ART (UTC-3) = April 3, 2027 03:00:00 UTC
-const WEDDING_DATE = new Date('2027-04-03T03:00:00Z');
-
-function calcTimeLeft() {
-  const diff = WEDDING_DATE - Date.now();
-  if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-  return {
-    days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-    hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
-    minutes: Math.floor((diff / (1000 * 60)) % 60),
-    seconds: Math.floor((diff / 1000) % 60),
-  };
-}
-
-const CompactCountdown = () => {
-  const [timeLeft, setTimeLeft] = useState(calcTimeLeft);
-
-  useEffect(() => {
-    const id = setInterval(() => setTimeLeft(calcTimeLeft()), 1000);
-    return () => clearInterval(id);
-  }, []);
-
-  const pad = (n) => String(n).padStart(2, '0');
-
-  return (
-    <span className="font-bodoni tabular-nums text-[17.5px] text-burnished-copper tracking-tight">
-      {pad(timeLeft.days)}<span className="text-onyx/50 mx-0.5">d</span>{pad(timeLeft.hours)}<span className="text-onyx/50 mx-0.5">h</span>{pad(timeLeft.minutes)}<span className="text-onyx/50 mx-0.5">m</span>{pad(timeLeft.seconds)}<span className="text-onyx/50 mx-0.5">s</span>
-    </span>
   );
 };
 
@@ -73,7 +41,7 @@ const Navbar = () => {
 
             {/* Compact countdown — mobile only, between brand and language toggle */}
             <div className="md:hidden flex-1 flex justify-center">
-              <CompactCountdown />
+              <WeddingCountdown />
             </div>
 
             {/* Navigation Links — hidden on mobile, shown on md+ */}
@@ -82,7 +50,11 @@ const Navbar = () => {
                 <Link
                   key={to}
                   to={to}
-                  className="flex items-center gap-1 text-onyx hover:text-onyx/60 transition-colors font-medium font-poppins whitespace-nowrap"
+                  className={`flex items-center gap-1 px-2.5 py-1.5 rounded-full border transition-colors font-medium font-poppins whitespace-nowrap ${
+                    location.pathname === to
+                      ? 'text-onyx border-burnished-copper bg-wedding-secondary'
+                      : 'text-onyx border-transparent hover:text-onyx/60 hover:bg-wedding-secondary/60'
+                  }`}
                 >
                   {React.cloneElement(icon, { size: 16 })}
                   <span>{label}</span>
@@ -99,7 +71,7 @@ const Navbar = () => {
 
             {/* Compact countdown — desktop only, between nav links and language toggle */}
             <div className="hidden md:flex items-center flex-shrink-0">
-              <CompactCountdown />
+              <WeddingCountdown />
             </div>
 
             {/* Language Toggle */}

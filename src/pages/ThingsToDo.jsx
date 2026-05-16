@@ -48,34 +48,34 @@ const ThingsToDo = () => {
   return (
     <div className="min-h-screen bg-wedding-bg py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-8 text-center font-bodoni">
+        <h1 className="text-5xl md:text-6xl font-bold text-onyx mb-8 text-center font-bodoni">
           {t.title}
         </h1>
 
         {/* Explorer message box */}
         <div className="bg-wedding-secondary p-8 rounded-lg shadow-md mb-10">
-          <p className="text-gray-700 leading-relaxed text-lg font-poppins text-center italic">
+          <p className="text-onyx leading-relaxed text-lg font-poppins text-center italic">
             {t.explorerMessage}
           </p>
         </div>
 
         {/* Buenos Aires */}
-        <div className="bg-white p-8 rounded-lg shadow-md mb-8">
+        <div className="bg-off-white p-8 rounded-lg shadow-md mb-8">
           <div className="flex items-center mb-4">
-            <Globe size={32} className="text-black mr-3" />
-            <h2 className="text-3xl font-semibold text-gray-800 font-bodoni">{t.buenosAiresTitle}</h2>
+            <Globe size={32} className="text-onyx mr-3" />
+            <h2 className="text-3xl font-semibold text-onyx font-bodoni">{t.buenosAiresTitle}</h2>
           </div>
-          <p className="text-gray-700 leading-relaxed text-lg mb-6 font-poppins" style={{ textAlign: 'justify' }}>
+          <p className="text-onyx leading-relaxed text-lg mb-6 font-poppins md:text-justify">
             {t.buenosAiresSubtitle}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {buenosAiresActivities.map((activity) => (
               <div key={activity.key} className="bg-wedding-secondary rounded-lg overflow-hidden">
                 <div className="p-5">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2 font-bodoni">
+                  <h3 className="text-xl font-semibold text-onyx mb-2 font-bodoni">
                     {t[`${activity.key}Name`]}
                   </h3>
-                  <p className="text-gray-700 leading-relaxed font-poppins text-sm" style={{ textAlign: 'justify' }}>
+                  <p className="text-onyx leading-relaxed font-poppins text-sm md:text-justify">
                     {t[`${activity.key}Description`]}
                   </p>
                   {activity.url ? (
@@ -83,7 +83,7 @@ const ThingsToDo = () => {
                       href={activity.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors font-poppins mt-3"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-onyx hover:text-onyx/70 transition-colors font-poppins mt-3"
                     >
                       <ExternalLink size={14} />
                       {t.hopOnHopOffLink}
@@ -96,27 +96,27 @@ const ThingsToDo = () => {
         </div>
 
         {/* Restaurants */}
-        <div className="bg-white p-8 rounded-lg shadow-md mb-8">
+        <div className="bg-off-white p-8 rounded-lg shadow-md mb-8">
           <div className="flex items-center mb-4">
-            <MapPin size={32} className="text-black mr-3" />
-            <h2 className="text-3xl font-semibold text-gray-800 font-bodoni">{t.restaurantsTitle}</h2>
+            <MapPin size={32} className="text-onyx mr-3" />
+            <h2 className="text-3xl font-semibold text-onyx font-bodoni">{t.restaurantsTitle}</h2>
           </div>
-          <p className="text-gray-700 leading-relaxed text-lg mb-6 font-poppins" style={{ textAlign: 'justify' }}>{t.subtitle}</p>
+          <p className="text-onyx leading-relaxed text-lg mb-6 font-poppins md:text-justify">{t.subtitle}</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {restaurants.map((restaurant) => (
               <div key={restaurant.key} className="bg-wedding-secondary rounded-lg overflow-hidden">
                 <div className="p-5">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2 font-bodoni">
+                  <h3 className="text-xl font-semibold text-onyx mb-2 font-bodoni">
                     {t[`${restaurant.key}Name`]}
                   </h3>
-                  <p className="text-gray-700 leading-relaxed font-poppins mb-3 text-sm" style={{ textAlign: 'justify' }}>
+                  <p className="text-onyx leading-relaxed font-poppins mb-3 text-sm md:text-justify">
                     {t[`${restaurant.key}Description`]}
                   </p>
                   <a
                     href={restaurant.mapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors font-poppins"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-onyx hover:text-onyx/70 transition-colors font-poppins"
                   >
                     <ExternalLink size={14} />
                     {t.viewOnMaps}
@@ -128,18 +128,18 @@ const ThingsToDo = () => {
         </div>
 
         {/* Argentina Destinations */}
-        <div className="bg-white p-8 rounded-lg shadow-md mb-8">
+        <div className="bg-off-white p-8 rounded-lg shadow-md mb-8">
           <div className="flex items-center mb-4">
-            <Mountain size={32} className="text-black mr-3" />
-            <h2 className="text-3xl font-semibold text-gray-800 font-bodoni">{t.destinationsTitle}</h2>
+            <Mountain size={32} className="text-onyx mr-3" />
+            <h2 className="text-3xl font-semibold text-onyx font-bodoni">{t.destinationsTitle}</h2>
           </div>
-          <p className="text-gray-700 leading-relaxed text-lg mb-6 font-poppins" style={{ textAlign: 'justify' }}>
+          <p className="text-onyx leading-relaxed text-lg mb-6 font-poppins md:text-justify">
             {t.destinationsSubtitle}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {destinations.map((dest) => (
               <div key={dest.key} className="bg-wedding-secondary rounded-lg overflow-hidden">
-                <div className="w-full h-40 bg-gray-200 flex items-center justify-center">
+                <div className="w-full h-40 bg-wedding-accent flex items-center justify-center">
                   <img
                     src={`${base}photos/${dest.key}.jpg`}
                     alt={t[`${dest.key}Name`]}
@@ -151,14 +151,14 @@ const ThingsToDo = () => {
                     }}
                   />
                   <div className="hidden w-full h-full items-center justify-center bg-wedding-secondary">
-                    <Mountain size={48} className="text-gray-400" />
+                    <Mountain size={48} className="text-onyx/30" />
                   </div>
                 </div>
                 <div className="p-5">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2 font-bodoni">
+                  <h3 className="text-xl font-semibold text-onyx mb-2 font-bodoni">
                     {t[`${dest.key}Name`]}
                   </h3>
-                  <p className="text-gray-700 leading-relaxed font-poppins text-sm" style={{ textAlign: 'justify' }}>
+                  <p className="text-onyx leading-relaxed font-poppins text-sm md:text-justify">
                     {t[`${dest.key}Description`]}
                   </p>
                 </div>
