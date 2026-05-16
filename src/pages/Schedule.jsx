@@ -102,6 +102,49 @@ const AddToCalendarLink = ({ title, date, location, details, label }) => {
 const Schedule = () => {
   const { language } = useLanguage();
   const t = translations[language].schedule;
+  const timelineItems = [
+    {
+      key: 'pre-wedding',
+      time: t.preWeddingTime,
+      title: t.preWeddingEvent,
+      detail: t.preWeddingDate,
+      locationLabel: t.preWeddingLocation,
+      locationUrl: 'https://maps.app.goo.gl/qo4p5QoEbnxorbcA6?g_st=ic',
+      calendar: {
+        title: t.preWeddingEvent,
+        date: '20270401',
+        location: 'Darsena, Buenos Aires',
+        details: t.preWeddingEvent,
+      },
+    },
+    {
+      key: 'wedding-day',
+      time: t.dateDetails,
+      title: t.weddingEventTitle,
+      locationLabel: t.weddingLocation,
+      locationUrl: LAS_CORTADERAS_MAPS_URL,
+      calendar: {
+        title: t.weddingEventTitle,
+        date: '20270403',
+        location: 'Las Cortaderas, Buenos Aires',
+        details: t.weddingEventTitle,
+      },
+    },
+    {
+      key: 'bus-pickup',
+      time: t.busPickupTime,
+      title: t.busPickup,
+      locationLabel: t.busPickupLocation,
+      locationUrl: PLENO_PALERMO_SOHO_MAPS_URL,
+    },
+    { key: 'ceremony', time: t.ceremonyTime, title: t.ceremony },
+    { key: 'cocktail', time: t.cocktailTime, title: t.cocktailHour },
+    { key: 'dinner', time: t.dinnerTime, title: t.dinner },
+    { key: 'mesa-dulce', time: t.mesaDulceTime, title: t.mesaDulce },
+    { key: 'bahon', time: t.bahonTime, title: t.bahon },
+    { key: 'party-end', time: t.partyEndTime, title: t.partyEnd },
+    { key: 'optional-buses', time: t.optionalBusesTime, title: t.optionalBuses },
+  ];
 
   return (
     <div className="min-h-screen py-12 px-4">
@@ -110,122 +153,64 @@ const Schedule = () => {
           {t.title}
         </h1>
 
-        <div className="bg-off-white rounded-lg shadow-md overflow-hidden border border-wedding-accent">
-          {/* Header row - hidden on mobile */}
-          <div className="hidden md:grid grid-cols-2 bg-pumice px-6 py-3">
-            <span className="text-sm font-semibold text-onyx uppercase tracking-wide font-poppins">{t.scheduleEventHeader}</span>
-            <span className="text-sm font-semibold text-onyx uppercase tracking-wide font-poppins">{t.scheduleLocationHeader}</span>
-          </div>
-
-          {/* Pre-Wedding Row */}
-          <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] items-start px-6 py-5 border-b border-wedding-accent">
-            <div className="flex items-start gap-3">
-              <Calendar size={20} className="text-onyx/60 flex-shrink-0 mt-1" />
-              <div>
-                <p className="font-semibold text-onyx font-bodoni text-lg">{t.preWeddingEvent}</p>
-                <p className="text-sm text-onyx/60 font-poppins">{t.preWeddingDate}</p>
-                <p className="text-sm text-onyx/60 font-poppins">{t.preWeddingTime}</p>
-                <AddToCalendarLink
-                  title={t.preWeddingEvent}
-                  date="20270401"
-                  location="Darsena, Buenos Aires"
-                  details={t.preWeddingEvent}
-                  label={t.addToCalendar}
-                />
-              </div>
-            </div>
-            <div className="flex items-start gap-3 mt-3 md:mt-1">
-              <MapPin size={20} className="text-onyx/60 flex-shrink-0" />
-              <p className="text-onyx font-poppins">
-                <a
-                  href="https://maps.app.goo.gl/qo4p5QoEbnxorbcA6?g_st=ic"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline hover:text-gray-500"
+        <div className="bg-off-white rounded-lg shadow-md border border-wedding-accent px-5 md:px-8 py-8">
+          <div className="relative">
+            {timelineItems.map((item, index) => {
+              const isLast = index === timelineItems.length - 1;
+              return (
+                <div
+                  key={item.key}
+                  className="grid grid-cols-[90px_22px_1fr] md:grid-cols-[140px_28px_1fr] gap-3 md:gap-4 pb-7 last:pb-0"
                 >
-                  {t.preWeddingLocation}
-                </a>
-              </p>
-            </div>
-          </div>
+                  <div className="text-right">
+                    <p className="text-sm md:text-base text-onyx font-bodoni">{item.time}</p>
+                    {item.detail ? (
+                      <p className="text-[11px] md:text-xs uppercase tracking-[0.12em] text-onyx/55 font-poppins mt-1">
+                        {item.detail}
+                      </p>
+                    ) : null}
+                  </div>
 
-          {/* Wedding Row */}
-          <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] items-start px-6 py-5">
-            <div className="flex items-start gap-3">
-              <Calendar size={20} className="text-onyx/60 flex-shrink-0 mt-1" />
-              <div>
-                <p className="font-semibold text-onyx font-bodoni text-lg">{t.weddingEventTitle}</p>
-                <p className="text-sm text-onyx/60 font-poppins">{t.dateDetails}</p>
-                <AddToCalendarLink
-                  title={t.weddingEventTitle}
-                  date="20270403"
-                  location="Las Cortaderas, Buenos Aires"
-                  details={t.weddingEventTitle}
-                  label={t.addToCalendar}
-                />
-                {/* Nested Wedding Day Timeline */}
-                <div className="mt-3 ml-2 border-l-2 border-wedding-accent pl-4 space-y-2">
-                  <div className="flex items-start gap-2">
-                    <span className="w-2 h-2 rounded-full bg-onyx/40 flex-shrink-0 mt-1.5"></span>
-                    <span className="text-sm text-onyx font-poppins">
-                      {t.busPickup}{' '}
-                      <span className="text-onyx/50">— {t.busPickupTime}</span>
-                      {' '}(
-                      <a
-                        href={PLENO_PALERMO_SOHO_MAPS_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline hover:text-gray-500"
-                      >
-                        {t.busPickupLocation}
-                      </a>
-                      )
-                    </span>
+                  <div className="relative flex justify-center">
+                    {!isLast ? (
+                      <span className="absolute top-3 bottom-[-28px] w-px bg-wedding-accent" />
+                    ) : null}
+                    <span className="mt-2 h-3 w-3 rounded-full bg-burnished-copper border-2 border-off-white shadow-[0_0_0_1px_rgba(135,147,114,0.35)]" />
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-onyx/40 flex-shrink-0"></span>
-                    <span className="text-sm text-onyx font-poppins">{t.ceremony} <span className="text-onyx/50">— {t.ceremonyTime}</span></span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-onyx/40 flex-shrink-0"></span>
-                    <span className="text-sm text-onyx font-poppins">{t.cocktailHour} <span className="text-onyx/50">— {t.cocktailTime}</span></span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-onyx/40 flex-shrink-0"></span>
-                    <span className="text-sm text-onyx font-poppins">{t.dinner} <span className="text-onyx/50">— {t.dinnerTime}</span></span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-onyx/40 flex-shrink-0"></span>
-                    <span className="text-sm text-onyx font-poppins">{t.mesaDulce} <span className="text-onyx/50">— {t.mesaDulceTime}</span></span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-onyx/40 flex-shrink-0"></span>
-                    <span className="text-sm text-onyx font-poppins">{t.bahon} <span className="text-onyx/50">— {t.bahonTime}</span></span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-onyx/40 flex-shrink-0"></span>
-                    <span className="text-sm text-onyx font-poppins">{t.partyEnd} <span className="text-onyx/50">— {t.partyEndTime}</span></span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-onyx/40 flex-shrink-0"></span>
-                    <span className="text-sm text-onyx font-poppins">{t.optionalBuses} <span className="text-onyx/50">— {t.optionalBusesTime}</span></span>
+
+                  <div>
+                    <div className="flex items-start gap-2">
+                      {index < 2 ? <Calendar size={16} className="text-onyx/60 mt-[2px] flex-shrink-0" /> : null}
+                      <p className="text-base md:text-lg font-semibold text-onyx font-bodoni">{item.title}</p>
+                    </div>
+                    {item.locationLabel ? (
+                      <div className="mt-1 flex items-start gap-2">
+                        <MapPin size={15} className="text-onyx/55 mt-[2px] flex-shrink-0" />
+                        <p className="text-sm text-onyx font-poppins">
+                          <a
+                            href={item.locationUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline hover:text-onyx/70"
+                          >
+                            {item.locationLabel}
+                          </a>
+                        </p>
+                      </div>
+                    ) : null}
+                    {item.calendar ? (
+                      <AddToCalendarLink
+                        title={item.calendar.title}
+                        date={item.calendar.date}
+                        location={item.calendar.location}
+                        details={item.calendar.details}
+                        label={t.addToCalendar}
+                      />
+                    ) : null}
                   </div>
                 </div>
-              </div>
-            </div>
-            <div className="flex items-start gap-3 mt-3 md:mt-1">
-              <MapPin size={20} className="text-onyx/60 flex-shrink-0" />
-              <p className="text-onyx font-poppins">
-                <a
-                  href={LAS_CORTADERAS_MAPS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline hover:text-gray-500"
-                >
-                  {t.weddingLocation}
-                </a>
-              </p>
-            </div>
+              );
+            })}
           </div>
         </div>
       </div>

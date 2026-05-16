@@ -1,5 +1,5 @@
 import React, { useRef, useLayoutEffect, useState, useEffect } from 'react';
-import { X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 const PhotoCarousel = ({ photos, base }) => {
   const containerRef = useRef(null);
@@ -33,6 +33,13 @@ const PhotoCarousel = ({ photos, base }) => {
     }
   };
 
+  const scrollByDirection = (direction) => {
+    const el = containerRef.current;
+    if (!el) return;
+    const amount = Math.max(el.clientWidth * 0.78, 260);
+    el.scrollBy({ left: direction * amount, behavior: 'smooth' });
+  };
+
   useEffect(() => {
     if (!lightboxPhoto) return undefined;
     const onKeyDown = (e) => {
@@ -44,45 +51,54 @@ const PhotoCarousel = ({ photos, base }) => {
 
   return (
     <>
-      <div
-        ref={containerRef}
-        onScroll={handleScroll}
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          overflowX: 'auto',
-          scrollBehavior: 'auto',
-          WebkitOverflowScrolling: 'touch',
-          gap: 4,
-          padding: '0 4px',
-          margin: 0,
-        }}
-      >
-        {tripled.map(({ photo, key }) => (
-          <button
-            key={key}
-            type="button"
-            onClick={() => setLightboxPhoto(photo)}
-            style={{
-              flex: '0 0 auto',
-              height: 'min(280px, 60vw)',
-              width: 'min(280px, 60vw)',
-              overflow: 'hidden',
-              borderRadius: 8,
-              border: 'none',
-              padding: 0,
-              background: 'transparent',
-              cursor: 'zoom-in',
-            }}
-          >
-            <img
-              src={`${base}photos/${photo}`}
-              alt=""
-              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-              loading="lazy"
-            />
-          </button>
-        ))}
+      <div className="relative">
+        <div
+          ref={containerRef}
+          onScroll={handleScroll}
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            overflowX: 'auto',
+            scrollBehavior: 'auto',
+            WebkitOverflowScrolling: 'touch',
+            gap: 8,
+            padding: '0 8px',
+            margin: 0,
+          }}
+        >
+          {tripled.map(({ photo, key }) => (
+            <button
+              key={key}
+              type="button"
+              onClick={() => setLightboxPhoto(photo)}
+              className="flex-none w-[72vw] max-w-[360px] md:w-[320px] lg:w-[360px] aspect-[4/3] overflow-hidden rounded-[10px] border-0 p-0 bg-transparent cursor-zoom-in"
+            >
+              <img
+                src={`${base}photos/${photo}`}
+                alt=""
+                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                loading="lazy"
+              />
+            </button>
+          ))}
+        </div>
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-pumice/90 to-transparent md:hidden" />
+        <button
+          type="button"
+          aria-label="Previous photos"
+          onClick={() => scrollByDirection(-1)}
+          className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-off-white/90 text-onyx border border-wedding-accent shadow-sm hover:bg-off-white"
+        >
+          <ChevronLeft size={18} />
+        </button>
+        <button
+          type="button"
+          aria-label="Next photos"
+          onClick={() => scrollByDirection(1)}
+          className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 h-10 w-10 items-center justify-center rounded-full bg-off-white/90 text-onyx border border-wedding-accent shadow-sm hover:bg-off-white"
+        >
+          <ChevronRight size={18} />
+        </button>
       </div>
       {lightboxPhoto ? (
         <div
