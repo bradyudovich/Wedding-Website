@@ -8,6 +8,10 @@ const buenosAiresActivities = [
   { key: 'laBoca' },
   { key: 'tangoShow' },
   { key: 'palermo' },
+  {
+    key: 'hopOnHopOff',
+    url: 'https://www.hop-on-hop-off-bus-tours.com/city/buenos-aires-bus-tours?gad_source=1&gad_campaignid=20940768125&gbraid=0AAAAAoTfqyymgIiO3NBfdKXsoPg719sC0&gclid=CjwKCAjwwdbPBhBgEiwAxBRA4V3PMsnx36qcxZdhgSbz34E2g2NrIvfw7wNgnvJDdRxqH20ICDJMPxoC9r4QAvD_BwE',
+  },
 ];
 
 const restaurants = [
@@ -74,6 +78,17 @@ const ThingsToDo = () => {
                   <p className="text-gray-700 leading-relaxed font-poppins text-sm" style={{ textAlign: 'justify' }}>
                     {t[`${activity.key}Description`]}
                   </p>
+                  {activity.url ? (
+                    <a
+                      href={activity.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors font-poppins mt-3"
+                    >
+                      <ExternalLink size={14} />
+                      {t.hopOnHopOffLink}
+                    </a>
+                  ) : null}
                 </div>
               </div>
             ))}
