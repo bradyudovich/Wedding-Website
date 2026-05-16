@@ -1,9 +1,7 @@
 import React from 'react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
-
-const RSVP_FORM_URL =
-  'https://docs.google.com/forms/d/e/1FAIpQLSfx5AVkAgdBjFCfGELmYfRlCHaAZT67t5P6kQHG2XAjlnyJOw/viewform?usp=dialog';
+import { RSVP_FORM_URL } from '../constants/links';
 
 const RSVP = () => {
   const { language } = useLanguage();

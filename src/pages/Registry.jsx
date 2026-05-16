@@ -16,18 +16,13 @@ const Registry = () => {
 
         <div className="bg-off-white rounded-lg shadow-md p-10 text-center border border-wedding-accent">
           <Gift size={56} className="text-burnished-copper mx-auto mb-6" />
-          <p className="text-onyx leading-relaxed text-lg mb-8 max-w-2xl mx-auto text-justify">
+          <p className="text-onyx leading-relaxed text-lg mb-6 max-w-2xl mx-auto md:text-justify">
             {t.message}
           </p>
-          <button
-            type="button"
-            disabled
-            aria-disabled="true"
-            className="inline-flex items-center gap-2 bg-burnished-copper text-white px-6 py-3 rounded-[8px] opacity-60 cursor-not-allowed transition-colors font-medium font-poppins text-base"
-          >
+          <p className="inline-flex items-center gap-2 text-burnished-copper font-medium font-poppins text-base bg-wedding-secondary px-5 py-3 rounded-[8px]">
             <Gift size={18} />
-            {t.buttonText}
-          </button>
+            Registry coming soon — check back closer to the date!
+          </p>
         </div>
       </div>
     </div>
