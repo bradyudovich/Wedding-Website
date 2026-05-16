@@ -9,7 +9,7 @@ export const useSiteLock = () => useContext(SiteLockContext);
 export const SiteLockProvider = ({ children }) => {
   const [unlocked, setUnlocked] = useState(() => {
     try {
-      return localStorage.getItem(STORAGE_KEY) === 'true';
+      return sessionStorage.getItem(STORAGE_KEY) === 'true';
     } catch {
       return false;
     }
@@ -17,14 +17,14 @@ export const SiteLockProvider = ({ children }) => {
 
   const unlock = () => {
     try {
-      localStorage.setItem(STORAGE_KEY, 'true');
+      sessionStorage.setItem(STORAGE_KEY, 'true');
     } catch {}
     setUnlocked(true);
   };
 
   const lock = () => {
     try {
-      localStorage.removeItem(STORAGE_KEY);
+      sessionStorage.removeItem(STORAGE_KEY);
     } catch {}
     setUnlocked(false);
   };
