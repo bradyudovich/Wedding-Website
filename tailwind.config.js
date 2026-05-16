@@ -16,7 +16,7 @@ export default {
       colors: {
         'wedding-bg': '#F9F8F6',
         'wedding-secondary': '#F2F6EC',
-        'wedding-accent': '#f0f2ed',
+        'wedding-accent': '#f0f1ee',
         'pumice': '#F9F7F2',
         'onyx': '#353935',
         'burnished-copper': '#6e785d',
