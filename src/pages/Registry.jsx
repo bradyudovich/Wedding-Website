@@ -3,8 +3,6 @@ import { Gift } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 
-const REGISTRY_URL = 'https://www.paypal.com/paypalme/bradyudovich';
-
 const Registry = () => {
   const { language } = useLanguage();
   const t = translations[language].registry;
@@ -21,15 +19,15 @@ const Registry = () => {
           <p className="text-onyx leading-relaxed text-lg mb-8 max-w-2xl mx-auto text-justify">
             {t.message}
           </p>
-          <a
-            href={REGISTRY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-burnished-copper text-white px-6 py-3 rounded-[8px] hover:bg-burnished-copper-hover transition-colors font-medium font-poppins text-base"
+          <button
+            type="button"
+            disabled
+            aria-disabled="true"
+            className="inline-flex items-center gap-2 bg-burnished-copper text-white px-6 py-3 rounded-[8px] opacity-60 cursor-not-allowed transition-colors font-medium font-poppins text-base"
           >
             <Gift size={18} />
             {t.buttonText}
-          </a>
+          </button>
         </div>
       </div>
     </div>

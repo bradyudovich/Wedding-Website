@@ -18,14 +18,13 @@ const Travel = () => {
 
     const fetchExchangeRate = async () => {
       try {
-        const response = await fetch('https://dolarapi.com/v1/dolares/oficial', {
+        const response = await fetch('https://api.frankfurter.app/latest?from=USD&to=ARS', {
           signal: controller.signal,
           cache: 'no-store',
         });
         if (response.ok) {
           const data = await response.json();
-          // Prefer venta (sell rate) as it reflects what travellers exchange at
-          const rate = data?.venta;
+          const rate = data?.rates?.ARS;
           if (rate && isMounted) {
             setExchangeRate(rate);
             setLoading(false);
@@ -82,7 +81,7 @@ const Travel = () => {
           <p className="text-gray-700 leading-relaxed text-lg mb-4 font-poppins text-center">
             {t.weatherDescription}
           </p>
-          <div className="grid grid-cols-3 gap-4 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
             <div className="bg-wedding-secondary p-4 rounded-md">
               <p className="text-sm text-gray-500 font-poppins">{t.weatherHighLabel}</p>
               <p className="text-xl font-semibold text-gray-800 font-bodoni">{t.weatherHigh}</p>
@@ -91,8 +90,8 @@ const Travel = () => {
               <p className="text-sm text-gray-500 font-poppins">{t.weatherLowLabel}</p>
               <p className="text-xl font-semibold text-gray-800 font-bodoni">{t.weatherLow}</p>
             </div>
-            <div className="bg-wedding-secondary p-4 rounded-md flex flex-col items-center justify-center">
-              <p className="text-base font-semibold text-gray-700 font-poppins text-center">{t.weatherRain}</p>
+            <div className="bg-wedding-secondary p-4 rounded-md flex flex-col items-center justify-center min-w-0">
+              <p className="text-base font-semibold text-gray-700 font-poppins text-center break-words">{t.weatherRain}</p>
             </div>
           </div>
         </div>
@@ -170,6 +169,14 @@ const Travel = () => {
             <div className="bg-wedding-secondary p-4 rounded-md">
               <h3 className="font-semibold text-xl text-gray-800 mb-1 font-bodoni">{t.hotel3Name}</h3>
               <p className="text-gray-600 font-poppins">{t.hotel3Details}</p>
+              <a
+                href="https://www.airbnb.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center mt-3 text-sm font-medium text-gray-700 underline hover:text-gray-900 transition-colors font-poppins"
+              >
+                {t.airbnbButton}
+              </a>
             </div>
           </div>
         </div>

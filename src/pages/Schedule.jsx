@@ -9,28 +9,95 @@ const PLENO_PALERMO_SOHO_MAPS_URL =
 const LAS_CORTADERAS_MAPS_URL =
   'https://www.google.com/maps/search/?api=1&query=Las+Cortaderas+Buenos+Aires+Argentina';
 
-function buildGoogleCalendarUrl({ title, date, location, details }) {
-  const params = new URLSearchParams({
-    action: 'TEMPLATE',
-    text: title,
-    dates: `${date}/${date}`,
-    location: location || '',
-    details: details || '',
-  });
-  return `https://calendar.google.com/calendar/render?${params.toString()}`;
-}
+const escapeIcsText = (text = '') =>
+  text
+    .replace(/\\/g, '\\\\')
+    .replace(/\n/g, '\\n')
+    .replace(/,/g, '\\,')
+    .replace(/;/g, '\\;');
 
-const AddToCalendarLink = ({ title, date, location, details, label }) => (
-  <a
-    href={buildGoogleCalendarUrl({ title, date, location, details })}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-flex items-center gap-1 text-xs text-burnished-copper underline hover:text-burnished-copper-hover mt-1"
-  >
-    <CalendarPlus size={13} />
-    {label}
-  </a>
-);
+const getUtcTimestamp = (date = new Date()) => {
+  const year = date.getUTCFullYear();
+  const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+  const day = String(date.getUTCDate()).padStart(2, '0');
+  const hours = String(date.getUTCHours()).padStart(2, '0');
+  const minutes = String(date.getUTCMinutes()).padStart(2, '0');
+  const seconds = String(date.getUTCSeconds()).padStart(2, '0');
+  return `${year}${month}${day}T${hours}${minutes}${seconds}Z`;
+};
+
+const getNextDateString = (yyyymmdd) => {
+  const year = Number(yyyymmdd.slice(0, 4));
+  const month = Number(yyyymmdd.slice(4, 6)) - 1;
+  const day = Number(yyyymmdd.slice(6, 8));
+  const date = new Date(Date.UTC(year, month, day));
+  date.setUTCDate(date.getUTCDate() + 1);
+  const nextYear = date.getUTCFullYear();
+  const nextMonth = String(date.getUTCMonth() + 1).padStart(2, '0');
+  const nextDay = String(date.getUTCDate()).padStart(2, '0');
+  return `${nextYear}${nextMonth}${nextDay}`;
+};
+
+const getSafeFilename = (title, date) => {
+  const normalized = title
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+  return `${normalized || 'event'}-${date}.ics`;
+};
+
+const buildIcsContent = ({ title, date, location, details }) => {
+  const uid = `${date}-${title.replace(/\s+/g, '-').toLowerCase()}@wedding-website`;
+  const dtStamp = getUtcTimestamp();
+  const dtEndDate = getNextDateString(date);
+
+  return [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//Wedding Website//EN',
+    'CALSCALE:GREGORIAN',
+    'METHOD:PUBLISH',
+    'BEGIN:VEVENT',
+    `UID:${escapeIcsText(uid)}`,
+    `DTSTAMP:${dtStamp}`,
+    `DTSTART;VALUE=DATE:${date}`,
+    `DTEND;VALUE=DATE:${dtEndDate}`,
+    `SUMMARY:${escapeIcsText(title)}`,
+    `LOCATION:${escapeIcsText(location || '')}`,
+    `DESCRIPTION:${escapeIcsText(details || '')}`,
+    'END:VEVENT',
+    'END:VCALENDAR',
+    '',
+  ].join('\r\n');
+};
+
+const AddToCalendarLink = ({ title, date, location, details, label }) => {
+  const handleDownload = () => {
+    const icsContent = buildIcsContent({ title, date, location, details });
+    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.download = getSafeFilename(title, date);
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+    URL.revokeObjectURL(url);
+  };
+
+  return (
+    <button
+      type="button"
+      onClick={handleDownload}
+      className="inline-flex items-center gap-1 text-xs text-burnished-copper underline hover:text-burnished-copper-hover mt-1 bg-transparent border-0 p-0 cursor-pointer"
+    >
+      <CalendarPlus size={13} />
+      {label}
+    </button>
+  );
+};
 
 const Schedule = () => {
   const { language } = useLanguage();
