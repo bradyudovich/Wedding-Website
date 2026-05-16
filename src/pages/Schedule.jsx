@@ -25,7 +25,7 @@ const AddToCalendarLink = ({ title, date, location, details, label }) => (
     href={buildGoogleCalendarUrl({ title, date, location, details })}
     target="_blank"
     rel="noopener noreferrer"
-    className="inline-flex items-center gap-1 text-xs text-burnished-copper underline hover:text-burnished-copper/70 mt-1"
+    className="inline-flex items-center gap-1 text-xs text-burnished-copper underline hover:text-burnished-copper-hover mt-1"
   >
     <CalendarPlus size={13} />
     {label}
@@ -43,7 +43,7 @@ const Schedule = () => {
           {t.title}
         </h1>
 
-        <div className="bg-off-white rounded-lg shadow-md overflow-hidden">
+        <div className="bg-off-white rounded-lg shadow-md overflow-hidden border border-wedding-accent">
           {/* Header row - hidden on mobile */}
           <div className="hidden md:grid grid-cols-2 bg-pumice px-6 py-3">
             <span className="text-sm font-semibold text-onyx uppercase tracking-wide font-poppins">{t.scheduleEventHeader}</span>
@@ -51,7 +51,7 @@ const Schedule = () => {
           </div>
 
           {/* Pre-Wedding Row */}
-          <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] items-start px-6 py-5 border-b border-gray-100">
+          <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] items-start px-6 py-5 border-b border-wedding-accent">
             <div className="flex items-start gap-3">
               <Calendar size={20} className="text-onyx/60 flex-shrink-0 mt-1" />
               <div>
