@@ -19,12 +19,12 @@ const RSVP = () => {
           {t.intro}
         </p>
 
-        <div className="bg-off-white rounded-2xl shadow-lg p-10 text-center">
+        <div className="bg-off-white rounded-2xl shadow-lg p-10 text-center border border-wedding-accent">
           <a
             href={RSVP_FORM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-burnished-copper hover:bg-burnished-copper/90 text-white font-poppins font-semibold text-lg px-8 py-4 rounded-xl transition-colors"
+            className="inline-block bg-burnished-copper hover:bg-burnished-copper-hover text-white font-poppins font-semibold text-lg px-8 py-4 rounded-[8px] transition-colors"
           >
             {t.buttonText}
           </a>
@@ -35,4 +35,3 @@ const RSVP = () => {
 };
 
 export default RSVP;
-
