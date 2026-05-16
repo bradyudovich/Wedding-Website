@@ -90,7 +90,7 @@ const Navbar = () => {
               ))}
               <button
                 onClick={openRsvpPopup}
-                className="flex items-center gap-1 bg-burnished-copper text-white px-3 py-1.5 rounded-md hover:bg-burnished-copper/90 transition-colors font-medium font-poppins whitespace-nowrap"
+                className="flex items-center gap-1 bg-burnished-copper text-white px-3 py-1.5 rounded-[8px] hover:bg-burnished-copper-hover transition-colors font-medium font-poppins whitespace-nowrap"
               >
                 <Send size={16} />
                 <span>{t.rsvp}</span>
@@ -117,7 +117,7 @@ const Navbar = () => {
       </nav>
 
       {/* ── Fixed bottom nav (mobile only) ──────────────────────── */}
-      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-off-white/80 backdrop-blur-md border-t border-onyx/10 shadow-[0_-2px_8px_rgba(0,0,0,0.08)]">
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-off-white/80 backdrop-blur-md border-t border-wedding-accent shadow-[0_-2px_8px_rgba(0,0,0,0.08)]">
         <div className="flex items-stretch">
           {navLinks.map(({ to, icon, label }) => {
             const active = location.pathname === to;
@@ -139,9 +139,9 @@ const Navbar = () => {
           {/* RSVP button */}
           <button
             onClick={openRsvpPopup}
-            className={`flex flex-col items-center justify-center flex-1 py-2 gap-0.5 text-[10px] font-medium font-poppins transition-colors text-burnished-copper`}
+            className="flex flex-col items-center justify-center flex-1 py-2 gap-0.5 text-[10px] font-medium font-poppins transition-colors bg-burnished-copper text-white hover:bg-burnished-copper-hover rounded-[8px] mx-1 my-1"
           >
-            <Send size={20} className="text-burnished-copper" />
+            <Send size={20} className="text-white" />
             <span className="leading-tight">{t.rsvp}</span>
           </button>
         </div>

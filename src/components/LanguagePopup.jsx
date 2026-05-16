@@ -31,7 +31,7 @@ const LanguagePopup = () => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
-      <div className="bg-pumice rounded-lg shadow-xl max-w-lg w-full p-6">
+      <div className="bg-pumice rounded-lg shadow-xl max-w-lg w-full p-6 border border-wedding-accent">
         <div className="grid grid-cols-2 divide-x divide-gray-200 gap-0 mb-6">
           {/* English */}
           <div className="pr-4">
@@ -54,7 +54,7 @@ const LanguagePopup = () => {
         </div>
         <button
           onClick={handleClose}
-          className="w-full bg-wedding-accent hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-md transition-colors font-poppins"
+          className="w-full bg-burnished-copper hover:bg-burnished-copper-hover text-white font-medium py-2 px-4 rounded-[8px] transition-colors font-poppins"
         >
           {en.languagePopupClose} / {es.languagePopupClose}
         </button>

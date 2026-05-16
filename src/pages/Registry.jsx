@@ -16,7 +16,7 @@ const Registry = () => {
           {t.title}
         </h1>
 
-        <div className="bg-off-white rounded-lg shadow-md p-10 text-center">
+        <div className="bg-off-white rounded-lg shadow-md p-10 text-center border border-wedding-accent">
           <Gift size={56} className="text-burnished-copper mx-auto mb-6" />
           <p className="text-onyx leading-relaxed text-lg mb-8 max-w-2xl mx-auto text-justify">
             {t.message}
@@ -25,7 +25,7 @@ const Registry = () => {
             href={REGISTRY_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-burnished-copper text-white px-6 py-3 rounded-md hover:bg-burnished-copper/90 transition-colors font-medium font-poppins text-base"
+            className="inline-flex items-center gap-2 bg-burnished-copper text-white px-6 py-3 rounded-[8px] hover:bg-burnished-copper-hover transition-colors font-medium font-poppins text-base"
           >
             <Gift size={18} />
             {t.buttonText}

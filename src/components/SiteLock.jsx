@@ -77,7 +77,7 @@ const SiteLock = () => {
               unlock
             </button>
           ) : (
-            <div className="bg-white rounded-lg shadow-xl border border-gray-100 p-2 flex flex-col gap-1 w-36">
+            <div className="bg-white rounded-lg shadow-xl border border-wedding-accent p-2 flex flex-col gap-1 w-36">
               <input
                 type="password"
                 value={password}
@@ -88,7 +88,7 @@ const SiteLock = () => {
                 onKeyDown={handlePromptKeyDown}
                 placeholder="Enter password"
                 autoFocus
-                className="border border-gray-300 rounded px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-wedding-accent"
+                className="border border-wedding-accent rounded px-2 py-1 text-xs focus:outline-none focus:ring-2 focus:ring-wedding-accent"
               />
               {error && (
                 <p className="text-red-500 text-[10px]">Incorrect password</p>
@@ -96,7 +96,7 @@ const SiteLock = () => {
               <div className="flex gap-1">
                 <button
                   onClick={handleUnlock}
-                  className="flex-1 bg-wedding-accent hover:bg-gray-300 text-gray-800 text-[10px] py-0.5 px-2 rounded transition-colors"
+                  className="flex-1 bg-burnished-copper hover:bg-burnished-copper-hover text-white text-[10px] py-0.5 px-2 rounded-[8px] transition-colors"
                 >
                   Unlock
                 </button>
