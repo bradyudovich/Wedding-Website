@@ -48,7 +48,7 @@ const Home = () => {
     <div className="min-h-screen" style={{ WebkitHyphens: 'auto', hyphens: 'auto' }}>
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-pumice py-12 px-4">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(135,147,114,0.16),_transparent_58%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(92,112,85,0.16),_transparent_58%)] pointer-events-none" />
         <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[420px] h-[420px] rounded-full border border-wedding-accent/60 pointer-events-none" />
         <div className="relative max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold text-onyx mb-3 font-bodoni">
@@ -58,13 +58,17 @@ const Home = () => {
             {t.heroDateLocation}
           </p>
           <p className="text-xl md:text-2xl text-onyx/60 font-light font-manrope tracking-wide">{t.subtitle}</p>
-          <WeddingCountdown variant="hero" />
         </div>
       </div>
 
       {/* Photo Gallery — directly beneath Hero */}
       <div id="gallery" className="max-w-4xl mx-auto md:max-w-none md:mx-0 pb-4 overflow-hidden">
         <PhotoCarousel photos={photos} base={base} />
+      </div>
+
+      {/* Countdown — directly below gallery */}
+      <div className="max-w-4xl mx-auto px-4 pb-4">
+        <WeddingCountdown variant="hero" />
       </div>
 
       {/* Welcome Section */}

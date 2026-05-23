@@ -40,9 +40,11 @@ const Navbar = () => {
             </Link>
 
             {/* Compact countdown — mobile only, between brand and language toggle */}
-            <div className="md:hidden flex-1 flex justify-center">
-              <WeddingCountdown />
-            </div>
+            {location.pathname !== '/' && (
+              <div className="md:hidden flex-1 flex justify-center">
+                <WeddingCountdown />
+              </div>
+            )}
 
             {/* Navigation Links — hidden on mobile, shown on md+ */}
             <div className="hidden md:flex items-center gap-4 flex-1 justify-center">
@@ -70,9 +72,11 @@ const Navbar = () => {
             </div>
 
             {/* Compact countdown — desktop only, between nav links and language toggle */}
-            <div className="hidden md:flex items-center flex-shrink-0">
-              <WeddingCountdown />
-            </div>
+            {location.pathname !== '/' && (
+              <div className="hidden md:flex items-center flex-shrink-0">
+                <WeddingCountdown />
+              </div>
+            )}
 
             {/* Language Toggle */}
             <button

@@ -76,7 +76,7 @@ const PhotoCarousel = ({ photos, base }) => {
               <img
                 src={`${base}photos/${photo}`}
                 alt=""
-                style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top center', display: 'block' }}
                 loading="lazy"
               />
             </button>
