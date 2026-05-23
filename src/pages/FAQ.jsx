@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 
@@ -11,10 +12,10 @@ const FAQ = () => {
 
   const faqs = [
     { question: t.q1, answer: t.a1 },
-    { question: t.q4, answer: t.a4 },
+    { question: t.q4, answer: t.a4, link: { to: '/schedule', label: language === 'en' ? 'View Schedule →' : 'Ver Programa →' } },
     { question: t.qKids, answer: t.aKids },
-    { question: t.qTransport, answer: t.aTransport },
-    { question: t.q7, answer: t.a7 },
+    { question: t.qTransport, answer: t.aTransport, link: { to: '/schedule', label: language === 'en' ? 'View Schedule →' : 'Ver Programa →' } },
+    { question: t.q7, answer: t.a7, link: { to: '/registry', label: language === 'en' ? 'View Registry →' : 'Ver Regalos →' } },
   ];
 
   return (
@@ -48,9 +49,19 @@ const FAQ = () => {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.22, ease: 'easeOut' }}
                   >
-                    <p className="px-6 pb-6 text-onyx leading-relaxed md:text-justify">
-                      {faq.answer}
-                    </p>
+                    <div className="px-6 pb-6">
+                      <p className="text-onyx leading-relaxed md:text-justify">
+                        {faq.answer}
+                      </p>
+                      {faq.link && (
+                        <Link
+                          to={faq.link.to}
+                          className="inline-block mt-3 text-sm font-medium text-burnished-copper underline hover:text-burnished-copper-hover font-poppins"
+                        >
+                          {faq.link.label}
+                        </Link>
+                      )}
+                    </div>
                   </motion.div>
                 ) : null}
               </AnimatePresence>

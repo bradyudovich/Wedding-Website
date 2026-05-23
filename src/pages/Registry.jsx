@@ -10,19 +10,32 @@ const Registry = () => {
   return (
     <div className="min-h-screen py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-5xl md:text-6xl font-bold text-onyx mb-8 text-center font-bodoni">
+        <h1 className="text-5xl md:text-6xl font-bold text-onyx mb-4 text-center font-bodoni">
           {t.title}
         </h1>
 
-        <div className="bg-off-white rounded-lg shadow-md p-10 text-center border border-wedding-accent">
-          <Gift size={56} className="text-burnished-copper mx-auto mb-6" />
-          <p className="text-onyx leading-relaxed text-lg mb-6 max-w-2xl mx-auto md:text-justify">
-            {t.message}
-          </p>
-          <p className="inline-flex items-center gap-2 text-burnished-copper font-medium font-poppins text-base bg-wedding-secondary px-5 py-3 rounded-[8px]">
-            <Gift size={18} />
-            Registry coming soon — check back closer to the date!
-          </p>
+        <p className="text-onyx/70 leading-relaxed text-lg mb-10 max-w-2xl mx-auto text-center font-poppins">
+          {t.message}
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Column 1: Brady's Venmo */}
+          <div className="bg-off-white rounded-lg shadow-md p-8 border border-wedding-accent flex flex-col items-center text-center">
+            <Gift size={44} className="text-burnished-copper mb-4" />
+            <h2 className="text-2xl font-bold text-onyx mb-1 font-bodoni">{t.bradyTitle}</h2>
+            <p className="text-sm uppercase tracking-widest text-onyx/50 font-poppins mb-4">{t.bradyMethod}</p>
+            <p className="text-2xl font-semibold text-burnished-copper font-bodoni mb-3">{t.bradyHandle}</p>
+            <p className="text-sm text-onyx/60 font-poppins leading-relaxed">{t.bradyNote}</p>
+          </div>
+
+          {/* Column 2: Cami's Bank Transfer */}
+          <div className="bg-off-white rounded-lg shadow-md p-8 border border-wedding-accent flex flex-col items-center text-center">
+            <Gift size={44} className="text-burnished-copper mb-4" />
+            <h2 className="text-2xl font-bold text-onyx mb-1 font-bodoni">{t.camiTitle}</h2>
+            <p className="text-sm uppercase tracking-widest text-onyx/50 font-poppins mb-4">{t.camiMethod}</p>
+            <p className="text-2xl font-semibold text-burnished-copper font-bodoni mb-3">{t.camiAccountName}</p>
+            <p className="text-sm text-onyx/60 font-poppins leading-relaxed">{t.camiAccountNote}</p>
+          </div>
         </div>
       </div>
     </div>

@@ -33,7 +33,7 @@ const WeddingCountdown = ({ variant = 'compact' }) => {
 
     return (
       <div className="mt-8 max-w-2xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
+        <div className="grid grid-cols-4 gap-3 md:gap-4">
           {units.map(({ label, value }) => (
             <div key={label} className="bg-off-white/90 border border-wedding-accent rounded-xl py-4 md:py-5 shadow-sm">
               <div className="font-lora text-4xl md:text-5xl text-onyx tabular-nums leading-none">

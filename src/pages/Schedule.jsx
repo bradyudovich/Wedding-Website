@@ -119,7 +119,8 @@ const Schedule = () => {
     },
     {
       key: 'wedding-day',
-      time: t.dateDetails,
+      time: t.weddingTime,
+      detail: t.dateDetails,
       title: t.weddingEventTitle,
       locationLabel: t.weddingLocation,
       locationUrl: LAS_CORTADERAS_MAPS_URL,
@@ -175,7 +176,7 @@ const Schedule = () => {
                     {!isLast ? (
                       <span className="absolute top-3 bottom-[-28px] w-px bg-wedding-accent" />
                     ) : null}
-                    <span className="mt-2 h-3 w-3 rounded-full bg-burnished-copper border-2 border-off-white shadow-[0_0_0_1px_rgba(135,147,114,0.35)]" />
+                    <span className="mt-2 h-3 w-3 rounded-full bg-burnished-copper border-2 border-off-white shadow-[0_0_0_1px_rgba(92,112,85,0.35)]" />
                   </div>
 
                   <div>
