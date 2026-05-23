@@ -42,7 +42,6 @@ const Home = () => {
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-pumice py-12 px-4">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(92,112,85,0.16),_transparent_58%)] pointer-events-none" />
-        <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[420px] h-[420px] rounded-full border border-wedding-accent/60 pointer-events-none" />
         <div className="relative max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold text-onyx mb-3 font-bodoni">
             {t.coupleNames}
@@ -66,6 +65,9 @@ const Home = () => {
 
       <div className="max-w-4xl mx-auto py-8 px-4">
         <div className="bg-off-white p-10 rounded-lg shadow-md">
+          <h2 className="text-3xl md:text-4xl font-bold text-onyx mb-5 text-center font-bodoni">
+            Welcome to Our Wedding
+          </h2>
           <p className="text-onyx leading-relaxed text-lg md:text-justify">{t.bodyText}</p>
         </div>
       </div>
