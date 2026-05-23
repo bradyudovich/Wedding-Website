@@ -1,13 +1,10 @@
 import React from 'react';
-import { MapPin, CalendarPlus } from 'lucide-react';
+import { CalendarPlus } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 
 const PLENO_PALERMO_SOHO_MAPS_URL =
   'https://www.google.com/maps/place/Pleno+Palermo+Soho/@-34.5861776,-58.4267193,17z/data=!3m1!4b1!4m9!3m8!1s0x95bcb586c0e9155d:0xe65768f2c8fd000c!5m2!4m1!1i2!8m2!3d-34.586182!4d-58.424139!16s%2Fg%2F11b6d7rhm_?entry=ttu&g_ep=EgoyMDI2MDQyMi4wIKXMDSoASAFQAw%3D%3D';
-
-const LAS_CORTADERAS_MAPS_URL =
-  'https://www.google.com/maps/search/?api=1&query=Las+Cortaderas+Buenos+Aires+Argentina';
 
 const DARSENA_MAPS_URL =
   'https://www.google.com/maps/search/?api=1&query=Jos%C3%A9+A.+Cabrera+4354,+Palermo,+Buenos+Aires';
@@ -118,9 +115,6 @@ const Schedule = () => {
       key: 'guest-arrive',
       time: t.guestsArriveTime,
       title: t.guestsArrive,
-      venueName: t.weddingLocation,
-      venueAddress: t.weddingAddress,
-      venueUrl: LAS_CORTADERAS_MAPS_URL,
     },
     { key: 'ceremony', time: t.ceremonyTime, title: t.ceremony },
     { key: 'cocktail', time: t.cocktailTime, title: t.cocktailHour },
@@ -163,47 +157,56 @@ const Schedule = () => {
         />
       </div>
 
-      <div className="min-w-0">
-        <div className="flex flex-wrap items-center gap-2">
-          <p className="text-base md:text-lg font-semibold text-onyx font-bodoni leading-tight">{item.title}</p>
-          {item.optional ? (
-            <span className="inline-flex items-center rounded-full bg-wedding-secondary px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-burnished-copper font-poppins">
-              {t.optionalBadge}
-            </span>
-          ) : null}
-        </div>
-        {item.note ? (
-          <p className="mt-1 text-sm leading-relaxed font-poppins text-onyx/80">{item.note}</p>
-        ) : null}
-        {item.venueName || item.venueAddress ? (
-          <div className="mt-1.5 min-w-0">
-            {item.venueName ? (
-              <p className="text-sm font-semibold text-onyx font-poppins">
-                {t.venueLabel} {item.venueName}
-              </p>
-            ) : null}
-            {item.venueAddress ? (
-              <p className="text-sm text-onyx/80 font-poppins break-words">
-                {t.addressLabel} {item.venueAddress}
-              </p>
+      <div className="min-w-0 grid grid-cols-1 md:grid-cols-[minmax(0,220px)_minmax(0,1fr)] gap-y-1 md:gap-x-4">
+        <div className="min-w-0">
+          <div className="flex flex-wrap items-center gap-2">
+            <p className="text-base md:text-lg font-semibold text-onyx font-bodoni leading-tight">{item.title}</p>
+            {item.optional ? (
+              <span className="inline-flex items-center rounded-full bg-wedding-secondary px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-burnished-copper font-poppins">
+                {t.optionalBadge}
+              </span>
             ) : null}
           </div>
-        ) : null}
-        {item.locationLabel ? (
-          <div className="mt-1 flex items-start gap-2 min-w-0">
-            <MapPin size={15} className="text-burnished-copper mt-[2px] flex-shrink-0" />
-            <p className="min-w-0 text-sm text-burnished-copper font-semibold font-poppins leading-relaxed break-words">
+        </div>
+
+        <div className="min-w-0 md:pt-0.5">
+          {item.note ? (
+            <p className="text-sm leading-relaxed font-poppins text-onyx/75">{item.note}</p>
+          ) : null}
+          {item.locationLabel ? (
+            <p className="text-sm font-poppins text-onyx/75 leading-relaxed break-words">
               <a
                 href={item.locationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:text-burnished-copper-hover break-words"
+                className="underline hover:text-onyx break-words"
               >
                 {item.locationLabel}
               </a>
             </p>
-          </div>
-        ) : null}
+          ) : null}
+        </div>
+      </div>
+    </div>
+  );
+
+  const renderVenueTransitionRow = () => (
+    <div className="grid grid-cols-[88px_22px_minmax(0,1fr)] md:grid-cols-[128px_28px_minmax(0,1fr)] gap-3 md:gap-4 pb-7">
+      <div className="pt-0.5 text-right">
+        <span className="block h-5" aria-hidden="true" />
+      </div>
+
+      <div className="relative flex justify-center">
+        <span className="absolute top-0 bottom-[-28px] w-[2px] bg-wedding-accent/80" />
+      </div>
+
+      <div className="rounded-xl border border-wedding-accent/55 bg-wedding-secondary/20 px-4 py-3">
+        <p className="text-xs md:text-[13px] font-semibold uppercase tracking-[0.14em] text-onyx font-poppins">
+          {t.venueTransitionTitle}
+        </p>
+        <p className="mt-1 text-sm md:text-[15px] text-onyx/80 font-poppins break-words leading-relaxed">
+          {t.addressLabel} {t.weddingAddress}
+        </p>
       </div>
     </div>
   );
@@ -220,24 +223,17 @@ const Schedule = () => {
             <p className="text-4xl md:text-5xl font-black text-onyx font-bodoni leading-tight md:whitespace-nowrap">
               {t.preWeddingDate}
             </p>
-            <p className="mt-2 text-lg md:text-2xl text-onyx font-bodoni">{t.preWeddingTime}</p>
-            <p className="mt-1 text-base md:text-lg text-onyx font-bodoni">{t.preWeddingEvent}</p>
-            <p className="mt-3 text-sm md:text-base text-onyx/80 font-poppins leading-relaxed break-words">
-              {t.preWeddingDetails}
+            <p className="mt-3 text-lg md:text-2xl text-onyx font-bodoni">{t.preWeddingEvent} — {t.preWeddingTime}</p>
+            <p className="mt-2 min-w-0 text-sm md:text-base text-onyx/75 font-poppins leading-relaxed break-words">
+              <a
+                href={DARSENA_MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-onyx break-words"
+              >
+                {t.preWeddingLocation}
+              </a>
             </p>
-            <div className="mt-2 flex items-start gap-2 min-w-0">
-              <MapPin size={15} className="text-onyx/55 mt-[2px] flex-shrink-0" />
-              <p className="min-w-0 text-sm md:text-base text-onyx font-poppins leading-relaxed break-words">
-                <a
-                  href={DARSENA_MAPS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline hover:text-onyx/70 break-words"
-                >
-                  {t.preWeddingLocation}
-                </a>
-              </p>
-            </div>
             <AddToCalendarLink
               title={t.preWeddingEvent}
               date="20270401"
@@ -262,11 +258,14 @@ const Schedule = () => {
             </div>
 
             <div className="px-5 md:px-8 py-7 md:py-8">
-              {saturdayTimelineItems.map((item, index) =>
-                renderTimelineRow(item, {
-                  isLast: index === saturdayTimelineItems.length - 1,
-                })
-              )}
+              {saturdayTimelineItems.map((item, index) => (
+                <React.Fragment key={item.key}>
+                  {renderTimelineRow(item, {
+                    isLast: index === saturdayTimelineItems.length - 1,
+                  })}
+                  {item.key === 'bus-pickup' ? renderVenueTransitionRow() : null}
+                </React.Fragment>
+              ))}
             </div>
           </section>
         </div>
