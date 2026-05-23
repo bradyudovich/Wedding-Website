@@ -135,26 +135,28 @@ const Schedule = () => {
       key: 'bus-pickup',
       time: t.busPickupTime,
       title: t.busPickup,
+      note: t.busPickupNote,
       locationLabel: t.busPickupLocation,
       locationUrl: PLENO_PALERMO_SOHO_MAPS_URL,
     },
+    { key: 'guest-arrive', time: t.guestsArriveTime, title: t.guestsArrive },
     { key: 'ceremony', time: t.ceremonyTime, title: t.ceremony },
     { key: 'cocktail', time: t.cocktailTime, title: t.cocktailHour },
     { key: 'dinner', time: t.dinnerTime, title: t.dinner },
     { key: 'mesa-dulce', time: t.mesaDulceTime, title: t.mesaDulce },
-    { key: 'bahon', time: t.bahonTime, title: t.bahon },
+    { key: 'bajon', time: t.bajonTime, title: t.bajon },
     { key: 'party-end', time: t.partyEndTime, title: t.partyEnd },
     { key: 'optional-buses', time: t.optionalBusesTime, title: t.optionalBuses },
   ];
 
   return (
-    <div className="min-h-screen py-12 px-4">
+    <div id="schedule-section" className="min-h-screen py-12 px-4">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-5xl md:text-6xl font-bold text-onyx mb-8 text-center font-bodoni">
           {t.title}
         </h1>
 
-        <div className="bg-off-white rounded-lg shadow-md border border-wedding-accent px-5 md:px-8 py-8">
+        <div id="schedule-timeline" className="bg-off-white rounded-lg shadow-md border border-wedding-accent px-5 md:px-8 py-8">
           <div className="relative">
             {timelineItems.map((item, index) => {
               const isLast = index === timelineItems.length - 1;
@@ -164,11 +166,13 @@ const Schedule = () => {
                   className="grid grid-cols-[90px_22px_1fr] md:grid-cols-[140px_28px_1fr] gap-3 md:gap-4 pb-7 last:pb-0"
                 >
                   <div className="text-right">
-                    <p className="text-sm md:text-base text-onyx font-bodoni">{item.time}</p>
                     {item.detail ? (
-                      <p className="text-[11px] md:text-xs uppercase tracking-[0.12em] text-onyx/55 font-poppins mt-1">
+                      <p className="text-base md:text-2xl font-bold text-onyx font-bodoni leading-tight">
                         {item.detail}
                       </p>
+                    ) : null}
+                    {item.time ? (
+                      <p className="text-sm md:text-base text-onyx font-bodoni mt-1">{item.time}</p>
                     ) : null}
                   </div>
 
@@ -184,6 +188,9 @@ const Schedule = () => {
                       {index < 2 ? <Calendar size={16} className="text-onyx/60 mt-[2px] flex-shrink-0" /> : null}
                       <p className="text-base md:text-lg font-semibold text-onyx font-bodoni">{item.title}</p>
                     </div>
+                    {item.note ? (
+                      <p className="text-sm text-onyx/70 mt-1 font-poppins">{item.note}</p>
+                    ) : null}
                     {item.locationLabel ? (
                       <div className="mt-1 flex items-start gap-2">
                         <MapPin size={15} className="text-onyx/55 mt-[2px] flex-shrink-0" />

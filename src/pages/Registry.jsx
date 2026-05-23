@@ -18,7 +18,7 @@ const Registry = () => {
           {t.message}
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div id="registry-details" className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Column 1: Brady's Venmo */}
           <div className="bg-off-white rounded-lg shadow-md p-8 border border-wedding-accent flex flex-col items-center text-center">
             <Gift size={44} className="text-burnished-copper mb-4" />
