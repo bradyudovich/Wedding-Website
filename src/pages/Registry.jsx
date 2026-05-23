@@ -1,11 +1,15 @@
-import React from 'react';
-import { Gift } from 'lucide-react';
+import React, { useState } from 'react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 
 const Registry = () => {
   const { language } = useLanguage();
   const t = translations[language].registry;
+  const [openPanel, setOpenPanel] = useState(null);
+
+  const togglePanel = (panel) => {
+    setOpenPanel((current) => (current === panel ? null : panel));
+  };
 
   return (
     <div className="min-h-screen py-12 px-4">
@@ -18,24 +22,62 @@ const Registry = () => {
           {t.message}
         </p>
 
-        <div id="registry-details" className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Column 1: Brady's Venmo */}
-          <div className="bg-off-white rounded-lg shadow-md p-8 border border-wedding-accent flex flex-col items-center text-center">
-            <Gift size={44} className="text-burnished-copper mb-4" />
-            <h2 className="text-2xl font-bold text-onyx mb-1 font-bodoni">{t.bradyTitle}</h2>
-            <p className="text-sm uppercase tracking-widest text-onyx/50 font-poppins mb-4">{t.bradyMethod}</p>
-            <p className="text-2xl font-semibold text-burnished-copper font-bodoni mb-3">{t.bradyHandle}</p>
-            <p className="text-sm text-onyx/60 font-poppins leading-relaxed">{t.bradyNote}</p>
+        <div id="registry-details" className="bg-off-white rounded-lg shadow-md p-6 md:p-8 border border-wedding-accent">
+          <div className="grid grid-cols-2 gap-3 md:gap-4">
+            <button
+              type="button"
+              onClick={() => togglePanel('us')}
+              className={`rounded-lg border px-4 py-4 text-center transition-colors ${
+                openPanel === 'us' ? 'border-burnished-copper bg-wedding-secondary' : 'border-wedding-accent bg-white hover:bg-wedding-secondary/60'
+              }`}
+              aria-expanded={openPanel === 'us'}
+              aria-controls="registry-us-details"
+            >
+              <div className="text-4xl leading-none">🇺🇸</div>
+              <p className="mt-2 text-sm md:text-base font-semibold text-onyx font-poppins">US</p>
+            </button>
+            <button
+              type="button"
+              onClick={() => togglePanel('ar')}
+              className={`rounded-lg border px-4 py-4 text-center transition-colors ${
+                openPanel === 'ar' ? 'border-burnished-copper bg-wedding-secondary' : 'border-wedding-accent bg-white hover:bg-wedding-secondary/60'
+              }`}
+              aria-expanded={openPanel === 'ar'}
+              aria-controls="registry-ar-details"
+            >
+              <div className="text-4xl leading-none">🇦🇷</div>
+              <p className="mt-2 text-sm md:text-base font-semibold text-onyx font-poppins">Argentina</p>
+            </button>
           </div>
 
-          {/* Column 2: Cami's Bank Transfer */}
-          <div className="bg-off-white rounded-lg shadow-md p-8 border border-wedding-accent flex flex-col items-center text-center">
-            <Gift size={44} className="text-burnished-copper mb-4" />
-            <h2 className="text-2xl font-bold text-onyx mb-1 font-bodoni">{t.camiTitle}</h2>
-            <p className="text-sm uppercase tracking-widest text-onyx/50 font-poppins mb-4">{t.camiMethod}</p>
-            <p className="text-2xl font-semibold text-burnished-copper font-bodoni mb-3">{t.camiAccountName}</p>
-            <p className="text-sm text-onyx/60 font-poppins leading-relaxed">{t.camiAccountNote}</p>
-          </div>
+          {openPanel === 'us' ? (
+            <div id="registry-us-details" className="mt-6 border border-wedding-accent rounded-lg p-5 md:p-6">
+              <h2 className="text-2xl font-bold text-onyx mb-1 font-bodoni">{t.bradyTitle}</h2>
+              <p className="text-sm uppercase tracking-widest text-onyx/50 font-poppins mb-4">{t.bradyMethod}</p>
+              <p className="text-2xl font-semibold text-burnished-copper font-bodoni mb-3">{t.bradyHandle}</p>
+              <p className="text-sm text-onyx/60 font-poppins leading-relaxed">{t.bradyNote}</p>
+            </div>
+          ) : null}
+
+          {openPanel === 'ar' ? (
+            <div id="registry-ar-details" className="mt-6 border border-wedding-accent rounded-lg p-5 md:p-6 space-y-6">
+              <div>
+                <p className="text-lg font-semibold text-onyx font-bodoni">Banco Galicia - Caja Ahorro Pesos</p>
+                <p className="text-sm text-onyx/80 font-poppins mt-2">Número de cuenta: 4032920-7 010-8</p>
+                <p className="text-sm text-onyx/80 font-poppins">CBU: 00700108 30004032920780</p>
+                <p className="text-sm text-onyx/80 font-poppins">DNI: 38795271</p>
+                <p className="text-sm text-onyx/80 font-poppins">Alias de CBU: BLANCOCAMI</p>
+              </div>
+
+              <div>
+                <p className="text-lg font-semibold text-onyx font-bodoni">Banco Galicia - Caja Ahorro Dólares</p>
+                <p className="text-sm text-onyx/80 font-poppins mt-2">Número de cuenta: 4014920-9 010-5</p>
+                <p className="text-sm text-onyx/80 font-poppins">CBU: 00700108 31004014920950</p>
+                <p className="text-sm text-onyx/80 font-poppins">DNI: 38795271</p>
+                <p className="text-sm text-onyx/80 font-poppins">Alias de CBU: BLANCOCAMIUSD</p>
+              </div>
+            </div>
+          ) : null}
         </div>
       </div>
     </div>

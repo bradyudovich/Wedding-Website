@@ -118,20 +118,6 @@ const Schedule = () => {
       },
     },
     {
-      key: 'wedding-day',
-      time: t.weddingTime,
-      detail: t.dateDetails,
-      title: t.weddingEventTitle,
-      locationLabel: t.weddingLocation,
-      locationUrl: LAS_CORTADERAS_MAPS_URL,
-      calendar: {
-        title: t.weddingEventTitle,
-        date: '20270403',
-        location: 'Las Cortaderas, Buenos Aires',
-        details: t.weddingEventTitle,
-      },
-    },
-    {
       key: 'bus-pickup',
       time: t.busPickupTime,
       title: t.busPickup,
@@ -157,9 +143,36 @@ const Schedule = () => {
         </h1>
 
         <div id="schedule-timeline" className="bg-off-white rounded-lg shadow-md border border-wedding-accent px-5 md:px-8 py-8">
+          <div className="mb-8 pb-6 border-b border-wedding-accent/60">
+            <p className="text-xl md:text-3xl font-black text-onyx font-bodoni leading-tight">
+              {t.dateDetails}
+            </p>
+            <p className="text-lg md:text-2xl text-onyx mt-2 font-bodoni">{t.weddingTime}</p>
+            <div className="mt-2 flex items-start gap-2">
+              <MapPin size={15} className="text-onyx/55 mt-[2px] flex-shrink-0" />
+              <p className="text-sm md:text-base text-onyx font-poppins">
+                <a
+                  href={LAS_CORTADERAS_MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-onyx/70"
+                >
+                  {t.weddingLocation}
+                </a>
+              </p>
+            </div>
+            <AddToCalendarLink
+              title={t.weddingEventTitle}
+              date="20270403"
+              location="Las Cortaderas, Buenos Aires"
+              details={t.weddingEventTitle}
+              label={t.addToCalendar}
+            />
+          </div>
           <div className="relative">
             {timelineItems.map((item, index) => {
               const isLast = index === timelineItems.length - 1;
+              const isOptionalBus = item.key === 'bus-pickup' || item.key === 'optional-buses';
               return (
                 <div
                   key={item.key}
@@ -167,7 +180,7 @@ const Schedule = () => {
                 >
                   <div className="text-right">
                     {item.detail ? (
-                      <p className="text-base md:text-2xl font-bold text-onyx font-bodoni leading-tight">
+                      <p className="text-xl md:text-3xl font-black text-onyx font-bodoni leading-tight">
                         {item.detail}
                       </p>
                     ) : null}
@@ -185,11 +198,11 @@ const Schedule = () => {
 
                   <div>
                     <div className="flex items-start gap-2">
-                      {index < 2 ? <Calendar size={16} className="text-onyx/60 mt-[2px] flex-shrink-0" /> : null}
+                      {index < 1 ? <Calendar size={16} className="text-onyx/60 mt-[2px] flex-shrink-0" /> : null}
                       <p className="text-base md:text-lg font-semibold text-onyx font-bodoni">{item.title}</p>
                     </div>
                     {item.note ? (
-                      <p className="text-sm text-onyx/70 mt-1 font-poppins">{item.note}</p>
+                      <p className={`text-sm mt-1 font-poppins ${isOptionalBus ? 'text-burnished-copper font-semibold' : 'text-onyx/70'}`}>{item.note}</p>
                     ) : null}
                     {item.locationLabel ? (
                       <div className="mt-1 flex items-start gap-2">

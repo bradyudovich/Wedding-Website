@@ -61,8 +61,8 @@ const PhotoCarousel = ({ photos, base }) => {
             overflowX: 'auto',
             scrollBehavior: 'auto',
             WebkitOverflowScrolling: 'touch',
-            gap: 8,
-            padding: '0 8px',
+            gap: 4,
+            padding: '0 4px',
             margin: 0,
           }}
         >
