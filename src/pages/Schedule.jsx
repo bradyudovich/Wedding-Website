@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, MapPin, CalendarPlus } from 'lucide-react';
+import { MapPin, CalendarPlus } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 
@@ -102,21 +102,17 @@ const AddToCalendarLink = ({ title, date, location, details, label }) => {
 const Schedule = () => {
   const { language } = useLanguage();
   const t = translations[language].schedule;
-  const timelineItems = [
-    {
-      key: 'pre-wedding',
-      time: t.preWeddingTime,
-      title: t.preWeddingEvent,
-      detail: t.preWeddingDate,
-      locationLabel: t.preWeddingLocation,
-      locationUrl: 'https://maps.app.goo.gl/qo4p5QoEbnxorbcA6?g_st=ic',
-      calendar: {
-        title: t.preWeddingEvent,
-        date: '20270401',
-        location: 'Darsena, Buenos Aires',
-        details: t.preWeddingEvent,
-      },
-    },
+  const weddingTimelineItems = [
+    { key: 'guest-arrive', time: t.guestsArriveTime, title: t.guestsArrive },
+    { key: 'ceremony', time: t.ceremonyTime, title: t.ceremony },
+    { key: 'cocktail', time: t.cocktailTime, title: t.cocktailHour },
+    { key: 'dinner', time: t.dinnerTime, title: t.dinner },
+    { key: 'mesa-dulce', time: t.mesaDulceTime, title: t.mesaDulce },
+    { key: 'bajon', time: t.bajonTime, title: t.bajon },
+    { key: 'party-end', time: t.partyEndTime, title: t.partyEnd },
+  ];
+
+  const optionalTravelItems = [
     {
       key: 'bus-pickup',
       time: t.busPickupTime,
@@ -125,15 +121,74 @@ const Schedule = () => {
       locationLabel: t.busPickupLocation,
       locationUrl: PLENO_PALERMO_SOHO_MAPS_URL,
     },
-    { key: 'guest-arrive', time: t.guestsArriveTime, title: t.guestsArrive },
-    { key: 'ceremony', time: t.ceremonyTime, title: t.ceremony },
-    { key: 'cocktail', time: t.cocktailTime, title: t.cocktailHour },
-    { key: 'dinner', time: t.dinnerTime, title: t.dinner },
-    { key: 'mesa-dulce', time: t.mesaDulceTime, title: t.mesaDulce },
-    { key: 'bajon', time: t.bajonTime, title: t.bajon },
-    { key: 'party-end', time: t.partyEndTime, title: t.partyEnd },
-    { key: 'optional-buses', time: t.optionalBusesTime, title: t.optionalBuses },
+    {
+      key: 'optional-buses',
+      time: t.optionalBusesTime,
+      title: t.optionalBuses,
+      note: t.optionalBusesNote,
+      locationLabel: t.optionalBusesLocation,
+      locationUrl: PLENO_PALERMO_SOHO_MAPS_URL,
+    },
   ];
+
+  const renderTimelineRow = (item, { isLast = false, optional = false } = {}) => (
+    <div
+      key={item.key}
+      className="grid grid-cols-[92px_24px_minmax(0,1fr)] md:grid-cols-[128px_28px_minmax(0,1fr)] gap-3 md:gap-4 pb-6 last:pb-0"
+    >
+      <div className="pt-0.5 text-right">
+        {item.time ? (
+          <p className="text-sm md:text-base font-semibold text-onyx font-bodoni leading-tight">{item.time}</p>
+        ) : (
+          <span className="block h-5" aria-hidden="true" />
+        )}
+      </div>
+
+      <div className="relative flex justify-center">
+        {!isLast ? (
+          <span
+            className={`absolute top-3 bottom-[-24px] w-px ${optional ? 'bg-wedding-accent/35' : 'bg-wedding-accent/80'}`}
+          />
+        ) : null}
+        <span
+          className={`mt-1.5 h-3.5 w-3.5 rounded-full border-2 border-off-white shadow-[0_0_0_1px_rgba(63,91,66,0.18)] ${
+            optional ? 'bg-off-white border-burnished-copper' : 'bg-burnished-copper'
+          }`}
+        />
+      </div>
+
+      <div className="min-w-0">
+        <div className="flex flex-wrap items-center gap-2">
+          <p className="text-base md:text-lg font-semibold text-onyx font-bodoni leading-tight">{item.title}</p>
+          {optional ? (
+            <span className="inline-flex items-center rounded-full bg-wedding-secondary px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-burnished-copper font-poppins">
+              {t.optionalBadge}
+            </span>
+          ) : null}
+        </div>
+        {item.note ? (
+          <p className={`mt-1 text-sm leading-relaxed font-poppins ${optional ? 'text-burnished-copper font-medium' : 'text-onyx/70'}`}>
+            {item.note}
+          </p>
+        ) : null}
+        {item.locationLabel ? (
+          <div className="mt-1 flex items-start gap-2 min-w-0">
+            <MapPin size={15} className="text-onyx/55 mt-[2px] flex-shrink-0" />
+            <p className="min-w-0 text-sm text-onyx font-poppins leading-relaxed">
+              <a
+                href={item.locationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-onyx/70 break-words"
+              >
+                {item.locationLabel}
+              </a>
+            </p>
+          </div>
+        ) : null}
+      </div>
+    </div>
+  );
 
   return (
     <div id="schedule-section" className="min-h-screen py-12 px-4">
@@ -142,97 +197,70 @@ const Schedule = () => {
           {t.title}
         </h1>
 
-        <div id="schedule-timeline" className="bg-off-white rounded-lg shadow-md border border-wedding-accent px-5 md:px-8 py-8">
-          <div className="mb-8 pb-6 border-b border-wedding-accent/60">
-            <p className="text-xl md:text-3xl font-black text-onyx font-bodoni leading-tight">
-              {t.dateDetails}
+        <div className="space-y-6">
+          <section className="bg-off-white rounded-2xl shadow-md border border-wedding-accent px-5 md:px-8 py-7 md:py-8">
+            <p className="text-3xl md:text-5xl font-black text-onyx font-bodoni leading-tight">
+              {t.preWeddingDate}
             </p>
-            <p className="text-lg md:text-2xl text-onyx mt-2 font-bodoni">{t.weddingTime}</p>
-            <div className="mt-2 flex items-start gap-2">
-              <MapPin size={15} className="text-onyx/55 mt-[2px] flex-shrink-0" />
-              <p className="text-sm md:text-base text-onyx font-poppins">
-                <a
-                  href={LAS_CORTADERAS_MAPS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline hover:text-onyx/70"
-                >
-                  {t.weddingLocation}
-                </a>
-              </p>
-            </div>
+            <p className="mt-2 text-lg md:text-2xl text-onyx font-bodoni">{t.preWeddingTime}</p>
+            <p className="mt-3 text-sm md:text-base text-onyx/80 font-poppins leading-relaxed">
+              {t.preWeddingDetails}
+            </p>
             <AddToCalendarLink
-              title={t.weddingEventTitle}
-              date="20270403"
-              location="Las Cortaderas, Buenos Aires"
-              details={t.weddingEventTitle}
+              title={t.preWeddingEvent}
+              date="20270401"
+              location="TBD"
+              details={t.preWeddingDetails}
               label={t.addToCalendar}
             />
-          </div>
-          <div className="relative">
-            {timelineItems.map((item, index) => {
-              const isLast = index === timelineItems.length - 1;
-              const isOptionalBus = item.key === 'bus-pickup' || item.key === 'optional-buses';
-              return (
-                <div
-                  key={item.key}
-                  className="grid grid-cols-[90px_22px_1fr] md:grid-cols-[140px_28px_1fr] gap-3 md:gap-4 pb-7 last:pb-0"
-                >
-                  <div className="text-right">
-                    {item.detail ? (
-                      <p className="text-xl md:text-3xl font-black text-onyx font-bodoni leading-tight">
-                        {item.detail}
-                      </p>
-                    ) : null}
-                    {item.time ? (
-                      <p className="text-sm md:text-base text-onyx font-bodoni mt-1">{item.time}</p>
-                    ) : null}
-                  </div>
+          </section>
 
-                  <div className="relative flex justify-center">
-                    {!isLast ? (
-                      <span className="absolute top-3 bottom-[-28px] w-px bg-wedding-accent" />
-                    ) : null}
-                    <span className="mt-2 h-3 w-3 rounded-full bg-burnished-copper border-2 border-off-white shadow-[0_0_0_1px_rgba(92,112,85,0.35)]" />
-                  </div>
+          <section id="schedule-timeline" className="bg-off-white rounded-2xl shadow-md border border-wedding-accent overflow-hidden">
+            <div className="px-5 md:px-8 py-7 md:py-8 border-b border-wedding-accent/60 bg-wedding-secondary/30">
+              <p className="text-3xl md:text-5xl font-black text-onyx font-bodoni leading-tight">
+                {t.weddingDate}
+              </p>
+              <p className="mt-2 text-lg md:text-2xl text-onyx font-bodoni">{t.weddingTime}</p>
+              <div className="mt-2 flex items-start gap-2 min-w-0">
+                <MapPin size={15} className="text-onyx/55 mt-[2px] flex-shrink-0" />
+                <p className="min-w-0 text-sm md:text-base text-onyx font-poppins leading-relaxed">
+                  <a
+                    href={LAS_CORTADERAS_MAPS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-onyx/70 break-words"
+                  >
+                    {t.weddingLocation}
+                  </a>
+                </p>
+              </div>
+              <AddToCalendarLink
+                title={t.weddingEventTitle}
+                date="20270403"
+                location="Las Cortaderas, Buenos Aires"
+                details={`${t.weddingDate} • ${t.weddingTime} • ${t.weddingLocation}`}
+                label={t.addToCalendar}
+              />
+            </div>
 
-                  <div>
-                    <div className="flex items-start gap-2">
-                      {index < 1 ? <Calendar size={16} className="text-onyx/60 mt-[2px] flex-shrink-0" /> : null}
-                      <p className="text-base md:text-lg font-semibold text-onyx font-bodoni">{item.title}</p>
-                    </div>
-                    {item.note ? (
-                      <p className={`text-sm mt-1 font-poppins ${isOptionalBus ? 'text-burnished-copper font-semibold' : 'text-onyx/70'}`}>{item.note}</p>
-                    ) : null}
-                    {item.locationLabel ? (
-                      <div className="mt-1 flex items-start gap-2">
-                        <MapPin size={15} className="text-onyx/55 mt-[2px] flex-shrink-0" />
-                        <p className="text-sm text-onyx font-poppins">
-                          <a
-                            href={item.locationUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="underline hover:text-onyx/70"
-                          >
-                            {item.locationLabel}
-                          </a>
-                        </p>
-                      </div>
-                    ) : null}
-                    {item.calendar ? (
-                      <AddToCalendarLink
-                        title={item.calendar.title}
-                        date={item.calendar.date}
-                        location={item.calendar.location}
-                        details={item.calendar.details}
-                        label={t.addToCalendar}
-                      />
-                    ) : null}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+            <div className="px-5 md:px-8 py-7 md:py-8">
+              <div className="pb-6">
+                {renderTimelineRow(optionalTravelItems[0], { optional: true, isLast: true })}
+              </div>
+
+              <div className="border-t border-wedding-accent/40 pt-6">
+                {weddingTimelineItems.map((item, index) =>
+                  renderTimelineRow(item, {
+                    isLast: index === weddingTimelineItems.length - 1,
+                  })
+                )}
+              </div>
+
+              <div className="border-t border-wedding-accent/40 pt-6 mt-6">
+                {renderTimelineRow(optionalTravelItems[1], { optional: true, isLast: true })}
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </div>
