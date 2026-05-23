@@ -190,27 +190,6 @@ const Schedule = () => {
     </div>
   );
 
-  const renderVenueTransitionRow = () => (
-    <div className="grid grid-cols-[88px_22px_minmax(0,1fr)] md:grid-cols-[128px_28px_minmax(0,1fr)] gap-3 md:gap-4 pb-7">
-      <div className="pt-0.5 text-right">
-        <span className="block h-5" aria-hidden="true" />
-      </div>
-
-      <div className="relative flex justify-center">
-        <span className="absolute top-0 bottom-[-28px] w-[2px] bg-wedding-accent/80" />
-      </div>
-
-      <div className="rounded-xl border border-wedding-accent/55 bg-wedding-secondary/20 px-4 py-3">
-        <p className="text-xs md:text-[13px] font-semibold uppercase tracking-[0.14em] text-onyx font-poppins">
-          {t.venueTransitionTitle}
-        </p>
-        <p className="mt-1 text-sm md:text-[15px] text-onyx/80 font-poppins break-words leading-relaxed">
-          {t.addressLabel} {t.weddingAddress}
-        </p>
-      </div>
-    </div>
-  );
-
   return (
     <div id="schedule-section" className="min-h-screen py-12 px-4">
       <div className="max-w-4xl mx-auto">
@@ -221,18 +200,26 @@ const Schedule = () => {
         <div className="space-y-6">
           <section className="bg-off-white rounded-2xl shadow-md border border-wedding-accent px-5 md:px-8 py-7 md:py-8">
             <p className="text-4xl md:text-5xl font-black text-onyx font-bodoni leading-tight md:whitespace-nowrap">
-              {t.preWeddingDate}
+              {t.preWeddingEvent}
             </p>
-            <p className="mt-3 text-lg md:text-2xl text-onyx font-bodoni">{t.preWeddingEvent} — {t.preWeddingTime}</p>
+            <p className="mt-3 text-lg md:text-2xl text-onyx font-bodoni">{t.preWeddingDate} | {t.preWeddingTime}</p>
+            <div className="mt-3 rounded-xl border border-wedding-accent/55 bg-wedding-secondary/20 px-4 py-3">
+              <p className="text-xs md:text-[13px] font-semibold uppercase tracking-[0.14em] text-onyx font-poppins">
+                {t.venueLabel} {t.preWeddingVenueName}
+              </p>
+              <p className="mt-1 min-w-0 text-sm md:text-[15px] text-onyx/80 font-poppins leading-relaxed break-words">
+                <a
+                  href={DARSENA_MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-onyx break-words"
+                >
+                  {t.addressLabel} {t.preWeddingVenueAddress}
+                </a>
+              </p>
+            </div>
             <p className="mt-2 min-w-0 text-sm md:text-base text-onyx/75 font-poppins leading-relaxed break-words">
-              <a
-                href={DARSENA_MAPS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-onyx break-words"
-              >
-                {t.preWeddingLocation}
-              </a>
+              {t.preWeddingLocation}
             </p>
             <AddToCalendarLink
               title={t.preWeddingEvent}
@@ -246,13 +233,22 @@ const Schedule = () => {
           <section id="schedule-timeline" className="bg-off-white rounded-2xl shadow-md border border-wedding-accent overflow-hidden">
             <div className="px-5 md:px-8 py-7 md:py-8 bg-wedding-secondary/30">
               <p className="text-4xl md:text-5xl font-black text-onyx font-bodoni leading-tight">
-                {t.weddingDate} | {t.weddingTime}
+                {t.weddingHeadline}
               </p>
+              <p className="mt-3 text-lg md:text-2xl text-onyx font-bodoni">{t.weddingDate} | {t.weddingCeremonyStartTime}</p>
+              <div className="mt-3 rounded-xl border border-wedding-accent/55 bg-wedding-secondary/20 px-4 py-3">
+                <p className="text-xs md:text-[13px] font-semibold uppercase tracking-[0.14em] text-onyx font-poppins">
+                  {t.venueLabel} {t.weddingLocation}
+                </p>
+                <p className="mt-1 min-w-0 text-sm md:text-[15px] text-onyx/80 font-poppins leading-relaxed break-words">
+                  {t.addressLabel} {t.weddingAddress}
+                </p>
+              </div>
               <AddToCalendarLink
                 title={t.weddingEventTitle}
                 date="20270403"
                 location={`${t.weddingLocation}, ${t.weddingAddress}`}
-                details={`${t.weddingDate} • ${t.weddingTime} • ${t.venueLabel} ${t.weddingLocation} • ${t.addressLabel} ${t.weddingAddress}`}
+                details={`${t.weddingDate} • ${t.weddingCeremonyStartTime} • ${t.venueLabel} ${t.weddingLocation} • ${t.addressLabel} ${t.weddingAddress}`}
                 label={t.addToCalendar}
               />
             </div>
@@ -263,7 +259,6 @@ const Schedule = () => {
                   {renderTimelineRow(item, {
                     isLast: index === saturdayTimelineItems.length - 1,
                   })}
-                  {item.key === 'bus-pickup' ? renderVenueTransitionRow() : null}
                 </React.Fragment>
               ))}
             </div>

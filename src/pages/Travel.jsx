@@ -73,9 +73,9 @@ const Travel = () => {
         </div>
 
         {/* April Weather in Buenos Aires */}
-        <div className="bg-off-white p-8 rounded-lg shadow-md mb-8">
+        <div className="bg-off-white p-8 rounded-lg shadow-md mb-8 border border-wedding-accent">
           <div className="flex items-center justify-center mb-4">
-            <CloudSun size={32} className="text-onyx mr-3" />
+            <CloudSun size={32} className="text-burnished-copper mr-3" />
             <h2 className="text-3xl font-semibold text-onyx font-bodoni">{t.weatherTitle}</h2>
           </div>
           <p className="text-onyx leading-relaxed text-lg mb-4 font-poppins text-center">
@@ -97,7 +97,7 @@ const Travel = () => {
         </div>
 
         {/* Exchange Rate Display */}
-        <div className="bg-off-white p-6 rounded-lg shadow-md mb-8">
+        <div className="bg-off-white p-6 rounded-lg shadow-md mb-8 border border-wedding-accent">
           <h2 className="text-2xl font-semibold text-onyx mb-4 font-bodoni">{t.exchangeRateTitle}</h2>
           {loading ? (
             <p className="text-onyx/70 font-poppins">{t.loading}</p>
@@ -116,9 +116,9 @@ const Travel = () => {
         </div>
 
         {/* Getting There */}
-        <div className="bg-off-white p-8 rounded-lg shadow-md mb-8">
+        <div className="bg-off-white p-8 rounded-lg shadow-md mb-8 border border-wedding-accent">
           <div className="flex items-center mb-4">
-            <Plane size={32} className="text-onyx mr-3" />
+            <Plane size={32} className="text-burnished-copper mr-3" />
             <h2 className="text-3xl font-semibold text-onyx font-bodoni">{t.gettingThereTitle}</h2>
           </div>
           <p className="text-onyx leading-relaxed text-lg font-poppins md:text-justify">
@@ -131,9 +131,9 @@ const Travel = () => {
         </div>
 
         {/* Accommodations */}
-        <div className="bg-off-white p-8 rounded-lg shadow-md mb-8">
+        <div className="bg-off-white p-8 rounded-lg shadow-md mb-8 border border-wedding-accent">
           <div className="flex items-center mb-4">
-            <Hotel size={32} className="text-onyx mr-3" />
+            <Hotel size={32} className="text-burnished-copper mr-3" />
             <h2 className="text-3xl font-semibold text-onyx font-bodoni">{t.accommodationsTitle}</h2>
           </div>
           <p className="text-onyx leading-relaxed text-lg mb-6 font-poppins md:text-justify">

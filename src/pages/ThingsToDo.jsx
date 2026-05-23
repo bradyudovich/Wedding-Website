@@ -53,16 +53,16 @@ const ThingsToDo = () => {
         </h1>
 
         {/* Explorer message box */}
-        <div className="bg-wedding-secondary p-8 rounded-lg shadow-md mb-10">
+        <div className="bg-wedding-secondary p-8 rounded-lg shadow-md mb-10 border border-wedding-accent">
           <p className="text-onyx leading-relaxed text-lg font-poppins text-center italic">
             {t.explorerMessage}
           </p>
         </div>
 
         {/* Buenos Aires */}
-        <div className="bg-off-white p-8 rounded-lg shadow-md mb-8">
+        <div className="bg-off-white p-8 rounded-lg shadow-md mb-8 border border-wedding-accent">
           <div className="flex items-center mb-4">
-            <Globe size={32} className="text-onyx mr-3" />
+            <Globe size={32} className="text-burnished-copper mr-3" />
             <h2 className="text-3xl font-semibold text-onyx font-bodoni">{t.buenosAiresTitle}</h2>
           </div>
           <p className="text-onyx leading-relaxed text-lg mb-6 font-poppins md:text-justify">
@@ -96,9 +96,9 @@ const ThingsToDo = () => {
         </div>
 
         {/* Restaurants */}
-        <div className="bg-off-white p-8 rounded-lg shadow-md mb-8">
+        <div className="bg-off-white p-8 rounded-lg shadow-md mb-8 border border-wedding-accent">
           <div className="flex items-center mb-4">
-            <MapPin size={32} className="text-onyx mr-3" />
+            <MapPin size={32} className="text-burnished-copper mr-3" />
             <h2 className="text-3xl font-semibold text-onyx font-bodoni">{t.restaurantsTitle}</h2>
           </div>
           <p className="text-onyx leading-relaxed text-lg mb-6 font-poppins md:text-justify">{t.subtitle}</p>
@@ -128,9 +128,9 @@ const ThingsToDo = () => {
         </div>
 
         {/* Argentina Destinations */}
-        <div className="bg-off-white p-8 rounded-lg shadow-md mb-8">
+        <div className="bg-off-white p-8 rounded-lg shadow-md mb-8 border border-wedding-accent">
           <div className="flex items-center mb-4">
-            <Mountain size={32} className="text-onyx mr-3" />
+            <Mountain size={32} className="text-burnished-copper mr-3" />
             <h2 className="text-3xl font-semibold text-onyx font-bodoni">{t.destinationsTitle}</h2>
           </div>
           <p className="text-onyx leading-relaxed text-lg mb-6 font-poppins md:text-justify">
