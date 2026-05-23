@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import { motion } from 'framer-motion';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 import PhotoCarousel from '../components/PhotoCarousel';
@@ -37,12 +36,6 @@ const Home = () => {
   const base = import.meta.env.BASE_URL;
 
   const photos = useMemo(() => shuffleArray(photoList), []);
-  const sectionMotion = {
-    initial: { opacity: 0, y: 20 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, amount: 0.2 },
-    transition: { duration: 0.45, ease: 'easeOut' },
-  };
 
   return (
     <div className="min-h-screen" style={{ WebkitHyphens: 'auto', hyphens: 'auto' }}>
@@ -71,27 +64,11 @@ const Home = () => {
         <WeddingCountdown variant="hero" />
       </div>
 
-      {/* Welcome Section */}
-      <motion.div className="max-w-4xl mx-auto py-8 px-4" {...sectionMotion}>
+      <div className="max-w-4xl mx-auto py-8 px-4">
         <div className="bg-off-white p-10 rounded-lg shadow-md">
-          <h2 className="text-4xl font-bold mb-6 text-onyx text-center font-bodoni">
-            {t.welcomeTitle}
-          </h2>
-          <p className="text-onyx leading-relaxed text-lg mb-6 md:text-justify">
-            {t.welcomeText}
-          </p>
+          <p className="text-onyx leading-relaxed text-lg md:text-justify">{t.bodyText}</p>
         </div>
-      </motion.div>
-
-      {/* Our Story */}
-      <motion.div id="our-story" className="max-w-4xl mx-auto py-8 px-4" {...sectionMotion}>
-        <div className="bg-off-white p-10 rounded-lg shadow-md">
-          <h2 className="text-4xl font-bold mb-6 text-onyx text-center font-bodoni">
-            {t.storyTitle}
-          </h2>
-          <p className="text-onyx leading-relaxed text-lg md:text-justify">{t.storyText}</p>
-        </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

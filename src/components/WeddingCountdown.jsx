@@ -32,14 +32,14 @@ const WeddingCountdown = ({ variant = 'compact' }) => {
     ];
 
     return (
-      <div className="mt-8 max-w-2xl mx-auto">
-        <div className="grid grid-cols-4 gap-3 md:gap-4">
+      <div className="mt-8 max-w-2xl mx-auto overflow-x-auto">
+        <div className="grid grid-cols-4 gap-2 md:gap-4 min-w-[312px]">
           {units.map(({ label, value }) => (
-            <div key={label} className="bg-off-white/90 border border-wedding-accent rounded-xl py-4 md:py-5 shadow-sm">
-              <div className="font-lora text-4xl md:text-5xl text-onyx tabular-nums leading-none">
+            <div key={label} className="bg-off-white/90 border border-wedding-accent rounded-xl py-4 md:py-5 shadow-sm text-center">
+              <div className="font-lora text-3xl md:text-5xl text-onyx tabular-nums leading-none">
                 {value}
               </div>
-              <div className="mt-2 text-xs md:text-sm uppercase tracking-[0.2em] text-onyx/60 font-manrope">
+              <div className="mt-2 text-[10px] md:text-sm uppercase tracking-[0.2em] text-onyx/60 font-manrope text-center">
                 {label}
               </div>
             </div>
