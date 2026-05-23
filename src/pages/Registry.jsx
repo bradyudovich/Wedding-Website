@@ -34,7 +34,7 @@ const Registry = () => {
               aria-controls="registry-us-details"
             >
               <div className="text-4xl leading-none">🇺🇸</div>
-              <p className="mt-2 text-sm md:text-base font-semibold text-onyx font-poppins">US</p>
+              <p className="mt-2 text-sm md:text-base font-semibold text-onyx font-poppins">{t.usLabel}</p>
             </button>
             <button
               type="button"
@@ -46,7 +46,7 @@ const Registry = () => {
               aria-controls="registry-ar-details"
             >
               <div className="text-4xl leading-none">🇦🇷</div>
-              <p className="mt-2 text-sm md:text-base font-semibold text-onyx font-poppins">Argentina</p>
+              <p className="mt-2 text-sm md:text-base font-semibold text-onyx font-poppins">{t.argentinaLabel}</p>
             </button>
           </div>
 
