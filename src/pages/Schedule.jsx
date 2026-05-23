@@ -9,6 +9,9 @@ const PLENO_PALERMO_SOHO_MAPS_URL =
 const LAS_CORTADERAS_MAPS_URL =
   'https://www.google.com/maps/search/?api=1&query=Las+Cortaderas+Buenos+Aires+Argentina';
 
+const DARSENA_MAPS_URL =
+  'https://www.google.com/maps/search/?api=1&query=Jos%C3%A9+A.+Cabrera+4354,+Palermo,+Buenos+Aires';
+
 const escapeIcsText = (text = '') =>
   text
     .replace(/\\/g, '\\\\')
@@ -102,39 +105,44 @@ const AddToCalendarLink = ({ title, date, location, details, label }) => {
 const Schedule = () => {
   const { language } = useLanguage();
   const t = translations[language].schedule;
-  const weddingTimelineItems = [
-    { key: 'guest-arrive', time: t.guestsArriveTime, title: t.guestsArrive },
+  const saturdayTimelineItems = [
+    {
+      key: 'bus-pickup',
+      time: t.busPickupTime,
+      title: t.busPickup,
+      optional: true,
+      locationLabel: t.busPickupLocation,
+      locationUrl: PLENO_PALERMO_SOHO_MAPS_URL,
+    },
+    {
+      key: 'guest-arrive',
+      time: t.guestsArriveTime,
+      title: t.guestsArrive,
+      venueName: t.weddingLocation,
+      venueAddress: t.weddingAddress,
+      venueUrl: LAS_CORTADERAS_MAPS_URL,
+    },
     { key: 'ceremony', time: t.ceremonyTime, title: t.ceremony },
     { key: 'cocktail', time: t.cocktailTime, title: t.cocktailHour },
     { key: 'dinner', time: t.dinnerTime, title: t.dinner },
     { key: 'mesa-dulce', time: t.mesaDulceTime, title: t.mesaDulce },
     { key: 'bajon', time: t.bajonTime, title: t.bajon },
     { key: 'party-end', time: t.partyEndTime, title: t.partyEnd },
-  ];
-
-  const optionalTravelItems = [
-    {
-      key: 'bus-pickup',
-      time: t.busPickupTime,
-      title: t.busPickup,
-      note: t.busPickupNote,
-      locationLabel: t.busPickupLocation,
-      locationUrl: PLENO_PALERMO_SOHO_MAPS_URL,
-    },
     {
       key: 'optional-buses',
       time: t.optionalBusesTime,
       title: t.optionalBuses,
+      optional: true,
       note: t.optionalBusesNote,
       locationLabel: t.optionalBusesLocation,
       locationUrl: PLENO_PALERMO_SOHO_MAPS_URL,
     },
   ];
 
-  const renderTimelineRow = (item, { isLast = false, optional = false } = {}) => (
+  const renderTimelineRow = (item, { isLast = false } = {}) => (
     <div
       key={item.key}
-      className="grid grid-cols-[92px_24px_minmax(0,1fr)] md:grid-cols-[128px_28px_minmax(0,1fr)] gap-3 md:gap-4 pb-6 last:pb-0"
+      className="grid grid-cols-[88px_22px_minmax(0,1fr)] md:grid-cols-[128px_28px_minmax(0,1fr)] gap-3 md:gap-4 pb-7 last:pb-0"
     >
       <div className="pt-0.5 text-right">
         {item.time ? (
@@ -147,39 +155,49 @@ const Schedule = () => {
       <div className="relative flex justify-center">
         {!isLast ? (
           <span
-            className={`absolute top-3 bottom-[-24px] w-px ${optional ? 'bg-wedding-accent/35' : 'bg-wedding-accent/80'}`}
+            className="absolute top-3 bottom-[-28px] w-[2px] bg-wedding-accent/80"
           />
         ) : null}
         <span
-          className={`mt-1.5 h-3.5 w-3.5 rounded-full border-2 border-off-white shadow-[0_0_0_1px_rgba(63,91,66,0.18)] ${
-            optional ? 'bg-off-white border-burnished-copper' : 'bg-burnished-copper'
-          }`}
+          className="mt-1.5 h-3.5 w-3.5 rounded-full border-2 border-off-white bg-wedding-accent shadow-[0_0_0_1px_rgba(63,91,66,0.18)]"
         />
       </div>
 
       <div className="min-w-0">
         <div className="flex flex-wrap items-center gap-2">
           <p className="text-base md:text-lg font-semibold text-onyx font-bodoni leading-tight">{item.title}</p>
-          {optional ? (
+          {item.optional ? (
             <span className="inline-flex items-center rounded-full bg-wedding-secondary px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-burnished-copper font-poppins">
               {t.optionalBadge}
             </span>
           ) : null}
         </div>
         {item.note ? (
-          <p className={`mt-1 text-sm leading-relaxed font-poppins ${optional ? 'text-burnished-copper font-medium' : 'text-onyx/70'}`}>
-            {item.note}
-          </p>
+          <p className="mt-1 text-sm leading-relaxed font-poppins text-onyx/80">{item.note}</p>
+        ) : null}
+        {item.venueName || item.venueAddress ? (
+          <div className="mt-1.5 min-w-0">
+            {item.venueName ? (
+              <p className="text-sm font-semibold text-onyx font-poppins">
+                {t.venueLabel} {item.venueName}
+              </p>
+            ) : null}
+            {item.venueAddress ? (
+              <p className="text-sm text-onyx/80 font-poppins break-words">
+                {t.addressLabel} {item.venueAddress}
+              </p>
+            ) : null}
+          </div>
         ) : null}
         {item.locationLabel ? (
           <div className="mt-1 flex items-start gap-2 min-w-0">
-            <MapPin size={15} className="text-onyx/55 mt-[2px] flex-shrink-0" />
-            <p className="min-w-0 text-sm text-onyx font-poppins leading-relaxed">
+            <MapPin size={15} className="text-burnished-copper mt-[2px] flex-shrink-0" />
+            <p className="min-w-0 text-sm text-burnished-copper font-semibold font-poppins leading-relaxed break-words">
               <a
                 href={item.locationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline hover:text-onyx/70 break-words"
+                className="underline hover:text-burnished-copper-hover break-words"
               >
                 {item.locationLabel}
               </a>
@@ -199,66 +217,56 @@ const Schedule = () => {
 
         <div className="space-y-6">
           <section className="bg-off-white rounded-2xl shadow-md border border-wedding-accent px-5 md:px-8 py-7 md:py-8">
-            <p className="text-3xl md:text-5xl font-black text-onyx font-bodoni leading-tight">
+            <p className="text-4xl md:text-5xl font-black text-onyx font-bodoni leading-tight md:whitespace-nowrap">
               {t.preWeddingDate}
             </p>
             <p className="mt-2 text-lg md:text-2xl text-onyx font-bodoni">{t.preWeddingTime}</p>
-            <p className="mt-3 text-sm md:text-base text-onyx/80 font-poppins leading-relaxed">
+            <p className="mt-1 text-base md:text-lg text-onyx font-bodoni">{t.preWeddingEvent}</p>
+            <p className="mt-3 text-sm md:text-base text-onyx/80 font-poppins leading-relaxed break-words">
               {t.preWeddingDetails}
             </p>
+            <div className="mt-2 flex items-start gap-2 min-w-0">
+              <MapPin size={15} className="text-onyx/55 mt-[2px] flex-shrink-0" />
+              <p className="min-w-0 text-sm md:text-base text-onyx font-poppins leading-relaxed break-words">
+                <a
+                  href={DARSENA_MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-onyx/70 break-words"
+                >
+                  {t.preWeddingLocation}
+                </a>
+              </p>
+            </div>
             <AddToCalendarLink
               title={t.preWeddingEvent}
               date="20270401"
-              location="TBD"
+              location={`${t.preWeddingVenueName}, ${t.preWeddingVenueAddress}`}
               details={t.preWeddingDetails}
               label={t.addToCalendar}
             />
           </section>
 
           <section id="schedule-timeline" className="bg-off-white rounded-2xl shadow-md border border-wedding-accent overflow-hidden">
-            <div className="px-5 md:px-8 py-7 md:py-8 border-b border-wedding-accent/60 bg-wedding-secondary/30">
-              <p className="text-3xl md:text-5xl font-black text-onyx font-bodoni leading-tight">
-                {t.weddingDate}
+            <div className="px-5 md:px-8 py-7 md:py-8 bg-wedding-secondary/30">
+              <p className="text-4xl md:text-5xl font-black text-onyx font-bodoni leading-tight">
+                {t.weddingDate} | {t.weddingTime}
               </p>
-              <p className="mt-2 text-lg md:text-2xl text-onyx font-bodoni">{t.weddingTime}</p>
-              <div className="mt-2 flex items-start gap-2 min-w-0">
-                <MapPin size={15} className="text-onyx/55 mt-[2px] flex-shrink-0" />
-                <p className="min-w-0 text-sm md:text-base text-onyx font-poppins leading-relaxed">
-                  <a
-                    href={LAS_CORTADERAS_MAPS_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="underline hover:text-onyx/70 break-words"
-                  >
-                    {t.weddingLocation}
-                  </a>
-                </p>
-              </div>
               <AddToCalendarLink
                 title={t.weddingEventTitle}
                 date="20270403"
-                location="Las Cortaderas, Buenos Aires"
-                details={`${t.weddingDate} • ${t.weddingTime} • ${t.weddingLocation}`}
+                location={`${t.weddingLocation}, ${t.weddingAddress}`}
+                details={`${t.weddingDate} • ${t.weddingTime} • ${t.venueLabel} ${t.weddingLocation} • ${t.addressLabel} ${t.weddingAddress}`}
                 label={t.addToCalendar}
               />
             </div>
 
             <div className="px-5 md:px-8 py-7 md:py-8">
-              <div className="pb-6">
-                {renderTimelineRow(optionalTravelItems[0], { optional: true, isLast: true })}
-              </div>
-
-              <div className="border-t border-wedding-accent/40 pt-6">
-                {weddingTimelineItems.map((item, index) =>
-                  renderTimelineRow(item, {
-                    isLast: index === weddingTimelineItems.length - 1,
-                  })
-                )}
-              </div>
-
-              <div className="border-t border-wedding-accent/40 pt-6 mt-6">
-                {renderTimelineRow(optionalTravelItems[1], { optional: true, isLast: true })}
-              </div>
+              {saturdayTimelineItems.map((item, index) =>
+                renderTimelineRow(item, {
+                  isLast: index === saturdayTimelineItems.length - 1,
+                })
+              )}
             </div>
           </section>
         </div>
