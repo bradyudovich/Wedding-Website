@@ -62,7 +62,7 @@ const Travel = () => {
         </h1>
 
         {/* Passport Reminder */}
-        <div className="bg-wedding-secondary p-6 rounded-lg shadow-md mb-8 border-l-4 border-burnished-copper">
+        <div className="bg-wedding-secondary/30 p-6 rounded-lg shadow-md mb-8 border-l-4 border-burnished-copper">
           <div className="flex items-start gap-3">
             <AlertCircle size={28} className="text-burnished-copper mt-1 flex-shrink-0" />
             <div>
@@ -82,15 +82,15 @@ const Travel = () => {
             {t.weatherDescription}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-            <div className="bg-wedding-secondary p-4 rounded-md">
+            <div className="bg-wedding-secondary/30 p-4 rounded-md">
               <p className="text-sm text-onyx/60 font-poppins">{t.weatherHighLabel}</p>
               <p className="text-xl font-semibold text-onyx font-bodoni">{t.weatherHigh}</p>
             </div>
-            <div className="bg-wedding-secondary p-4 rounded-md">
+            <div className="bg-wedding-secondary/30 p-4 rounded-md">
               <p className="text-sm text-onyx/60 font-poppins">{t.weatherLowLabel}</p>
               <p className="text-xl font-semibold text-onyx font-bodoni">{t.weatherLow}</p>
             </div>
-            <div className="bg-wedding-secondary p-4 rounded-md flex flex-col items-center justify-center min-w-0">
+            <div className="bg-wedding-secondary/30 p-4 rounded-md flex flex-col items-center justify-center min-w-0">
               <p className="text-base font-semibold text-onyx font-poppins text-center break-words">{t.weatherRain}</p>
             </div>
           </div>
@@ -140,7 +140,7 @@ const Travel = () => {
             {t.accommodationsText}
           </p>
           <div className="space-y-4">
-            <div className="bg-wedding-secondary p-4 rounded-md">
+            <div className="bg-wedding-secondary/30 p-4 rounded-md">
               <h3 className="font-semibold text-xl text-onyx mb-1 font-bodoni">
                 <a
                   href="https://plenohotels.com/palermosoho/"
@@ -153,7 +153,7 @@ const Travel = () => {
               </h3>
               <p className="text-onyx/80 font-poppins">{t.hotel1Details}</p>
             </div>
-            <div className="bg-wedding-secondary p-4 rounded-md">
+            <div className="bg-wedding-secondary/30 p-4 rounded-md">
               <h3 className="font-semibold text-xl text-onyx mb-1 font-bodoni">
                 <a
                   href="https://www.bromeliahotel.com.ar/"
@@ -166,20 +166,18 @@ const Travel = () => {
               </h3>
               <p className="text-onyx/80 font-poppins">{t.hotel2Details}</p>
             </div>
-            <div className="bg-wedding-secondary p-4 rounded-md">
-              <h3 className="font-semibold text-xl text-onyx mb-1 font-bodoni">{t.hotel3Name}</h3>
-              <p className="text-onyx/80 font-poppins">
-                {t.hotel3Details}{' '}
+            <div className="bg-wedding-secondary/30 p-4 rounded-md">
+              <h3 className="font-semibold text-xl text-onyx mb-1 font-bodoni">
                 <a
                   href="https://www.airbnb.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline hover:text-onyx/60"
                 >
-                  {t.airbnbButton}
+                  {t.hotel3Name}
                 </a>
-                .
-              </p>
+              </h3>
+              <p className="text-onyx/80 font-poppins">{t.hotel3Details}</p>
             </div>
           </div>
         </div>
