@@ -218,9 +218,6 @@ const Schedule = () => {
                 </a>
               </p>
             </div>
-            <p className="mt-2 min-w-0 text-sm md:text-base text-onyx/75 font-poppins leading-relaxed break-words">
-              {t.preWeddingLocation}
-            </p>
             <AddToCalendarLink
               title={t.preWeddingEvent}
               date="20270401"

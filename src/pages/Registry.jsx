@@ -52,7 +52,6 @@ const Registry = () => {
 
           {openPanel === 'us' ? (
             <div id="registry-us-details" className="mt-6 border border-wedding-accent rounded-lg p-5 md:p-6">
-              <h2 className="text-2xl font-bold text-onyx mb-1 font-bodoni">{t.bradyTitle}</h2>
               <p className="text-sm uppercase tracking-widest text-onyx/50 font-poppins mb-4">{t.bradyMethod}</p>
               <p className="text-2xl font-semibold text-burnished-copper font-bodoni mb-3">{t.bradyHandle}</p>
               <p className="text-sm text-onyx/60 font-poppins leading-relaxed">{t.bradyNote}</p>
