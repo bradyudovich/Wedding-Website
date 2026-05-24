@@ -61,8 +61,8 @@ const PhotoCarousel = ({ photos, base }) => {
             overflowX: 'auto',
             scrollBehavior: 'auto',
             WebkitOverflowScrolling: 'touch',
-            gap: 6,
-            padding: '0 4px',
+            gap: 8,
+            padding: '0 6px',
             margin: 0,
           }}
         >
@@ -71,12 +71,12 @@ const PhotoCarousel = ({ photos, base }) => {
               key={key}
               type="button"
               onClick={() => setLightboxPhoto(photo)}
-              className="flex-none w-[72vw] max-w-[360px] md:w-[320px] lg:w-[360px] aspect-[4/3] overflow-hidden rounded-[10px] border-0 p-0 bg-off-white cursor-zoom-in"
+              className="flex-none w-[68vw] max-w-[320px] sm:w-[48vw] md:w-[280px] lg:w-[300px] aspect-[4/5] md:aspect-[5/6] overflow-hidden rounded-2xl border-0 p-0 bg-off-white shadow-sm cursor-zoom-in"
             >
               <img
                 src={`${base}photos/${photo}`}
                 alt=""
-                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 22%', display: 'block' }}
                 loading="lazy"
               />
             </button>
@@ -118,7 +118,7 @@ const PhotoCarousel = ({ photos, base }) => {
           <img
             src={`${base}photos/${lightboxPhoto}`}
             alt=""
-            className="max-h-[88vh] max-w-[92vw] rounded-lg object-contain"
+            className="max-h-[88vh] max-w-[92vw] rounded-2xl object-contain"
             onClick={(e) => e.stopPropagation()}
           />
         </div>

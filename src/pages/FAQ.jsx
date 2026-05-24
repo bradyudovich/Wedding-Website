@@ -20,15 +20,15 @@ const FAQ = () => {
   ];
 
   return (
-    <div className="min-h-screen py-12 px-4">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen py-10 md:py-12 px-4 md:px-6">
+      <div className="max-w-5xl mx-auto">
         <h1 className="text-5xl md:text-6xl font-bold text-onyx mb-12 text-center font-bodoni">
           {t.title}
         </h1>
 
         <div className="space-y-6">
           {faqs.map((faq, index) => (
-            <div key={index} className="bg-off-white rounded-lg shadow-md overflow-hidden">
+            <div key={index} className="bg-off-white rounded-2xl shadow-md border border-wedding-accent overflow-hidden">
               <button
                 type="button"
                 onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
@@ -57,8 +57,6 @@ const FAQ = () => {
                       {faq.link && (
                         <Link
                           to={faq.link.to}
-                          target="_blank"
-                          rel="noopener noreferrer"
                           className="inline-block mt-3 text-sm font-medium text-burnished-copper underline hover:text-burnished-copper-hover font-poppins"
                         >
                           {faq.link.label}

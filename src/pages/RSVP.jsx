@@ -8,8 +8,8 @@ const RSVP = () => {
   const t = (translations[language] || translations['en']).rsvp;
 
   return (
-    <div className="min-h-screen bg-pumice py-12 px-4">
-      <div className="max-w-2xl mx-auto">
+    <div className="min-h-screen bg-pumice py-10 md:py-12 px-4 md:px-6">
+      <div className="max-w-3xl mx-auto">
         <h1 className="text-5xl md:text-6xl font-bold text-onyx mb-4 text-center font-bodoni">
           {t.title}
         </h1>
@@ -20,8 +20,6 @@ const RSVP = () => {
         <div className="bg-off-white rounded-2xl shadow-lg p-10 text-center border border-wedding-accent">
           <a
             href={RSVP_FORM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-block bg-burnished-copper hover:bg-burnished-copper-hover text-white font-poppins font-semibold text-lg px-8 py-4 rounded-[8px] transition-colors"
           >
             {t.buttonText}

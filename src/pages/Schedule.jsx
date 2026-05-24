@@ -178,8 +178,6 @@ const Schedule = () => {
               {item.locationUrl ? (
                 <a
                   href={item.locationUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="underline hover:text-onyx break-words"
                 >
                   {item.locationLabel}
@@ -195,8 +193,8 @@ const Schedule = () => {
   );
 
   return (
-    <div id="schedule-section" className="min-h-screen py-12 px-4">
-      <div className="max-w-4xl mx-auto">
+    <div id="schedule-section" className="min-h-screen py-10 md:py-12 px-4 md:px-6">
+      <div className="max-w-5xl mx-auto">
         <h1 className="text-5xl md:text-6xl font-bold text-onyx mb-8 text-center font-bodoni">
           {t.title}
         </h1>
@@ -214,11 +212,9 @@ const Schedule = () => {
               <p className="mt-1 min-w-0 text-sm md:text-[15px] text-onyx/80 font-poppins leading-relaxed break-words">
                 <a
                   href={DARSENA_MAPS_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="underline hover:text-onyx break-words"
                 >
-                  {t.addressLabel} {t.preWeddingVenueAddress}
+                  {t.preWeddingVenueAddress}
                 </a>
               </p>
             </div>
@@ -244,11 +240,9 @@ const Schedule = () => {
                 <p className="mt-1 min-w-0 text-sm md:text-[15px] text-onyx/80 font-poppins leading-relaxed break-words">
                   <a
                     href={LAS_CORTADERAS_MAPS_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="underline hover:text-onyx break-words"
                   >
-                    {t.addressLabel} {t.weddingAddress}
+                    {t.weddingAddress}
                   </a>
                 </p>
               </div>
@@ -256,7 +250,7 @@ const Schedule = () => {
                 title={t.weddingEventTitle}
                 date="20270403"
                 location={`${t.weddingLocation}, ${t.weddingAddress}`}
-                details={`${t.weddingDate} • ${t.weddingCeremonyStartTime} • ${t.venueLabel} ${t.weddingLocation} • ${t.addressLabel} ${t.weddingAddress}`}
+                details={`${t.weddingDate} • ${t.weddingCeremonyStartTime} • ${t.venueLabel} ${t.weddingLocation} • ${t.weddingAddress}`}
                 label={t.addToCalendar}
               />
             </div>

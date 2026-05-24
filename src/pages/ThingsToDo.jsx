@@ -46,21 +46,21 @@ const ThingsToDo = () => {
   const base = import.meta.env.BASE_URL;
 
   return (
-    <div className="min-h-screen bg-wedding-bg py-12 px-4">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen bg-wedding-bg py-10 md:py-12 px-4 md:px-6">
+      <div className="max-w-5xl mx-auto">
         <h1 className="text-5xl md:text-6xl font-bold text-onyx mb-8 text-center font-bodoni">
           {t.title}
         </h1>
 
         {/* Explorer message box */}
-        <div className="bg-wedding-secondary/30 p-8 rounded-lg shadow-md mb-10 border border-wedding-accent">
+        <div className="bg-wedding-secondary/30 p-8 rounded-2xl shadow-md mb-10 border border-wedding-accent">
           <p className="text-onyx leading-relaxed text-lg font-poppins text-center italic">
             {t.explorerMessage}
           </p>
         </div>
 
         {/* Buenos Aires */}
-        <div className="bg-off-white p-8 rounded-lg shadow-md mb-8 border border-wedding-accent">
+        <div className="bg-off-white p-8 rounded-2xl shadow-md mb-8 border border-wedding-accent">
           <div className="flex items-center mb-4">
             <Globe size={32} className="text-burnished-copper mr-3" />
             <h2 className="text-3xl font-semibold text-onyx font-bodoni">{t.buenosAiresTitle}</h2>
@@ -70,7 +70,7 @@ const ThingsToDo = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {buenosAiresActivities.map((activity) => (
-              <div key={activity.key} className="bg-wedding-secondary/30 rounded-lg overflow-hidden">
+              <div key={activity.key} className="bg-wedding-secondary/30 rounded-xl overflow-hidden">
                 <div className="p-5">
                   <h3 className="text-xl font-semibold text-onyx mb-2 font-bodoni">
                     {t[`${activity.key}Name`]}
@@ -81,8 +81,6 @@ const ThingsToDo = () => {
                   {activity.url ? (
                     <a
                       href={activity.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 text-sm font-medium text-onyx hover:text-onyx/70 transition-colors font-poppins mt-3"
                     >
                       <ExternalLink size={14} />
@@ -96,7 +94,7 @@ const ThingsToDo = () => {
         </div>
 
         {/* Restaurants */}
-        <div className="bg-off-white p-8 rounded-lg shadow-md mb-8 border border-wedding-accent">
+        <div className="bg-off-white p-8 rounded-2xl shadow-md mb-8 border border-wedding-accent">
           <div className="flex items-center mb-4">
             <MapPin size={32} className="text-burnished-copper mr-3" />
             <h2 className="text-3xl font-semibold text-onyx font-bodoni">{t.restaurantsTitle}</h2>
@@ -104,7 +102,7 @@ const ThingsToDo = () => {
           <p className="text-onyx leading-relaxed text-lg mb-6 font-poppins md:text-justify">{t.subtitle}</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {restaurants.map((restaurant) => (
-              <div key={restaurant.key} className="bg-wedding-secondary/30 rounded-lg overflow-hidden">
+              <div key={restaurant.key} className="bg-wedding-secondary/30 rounded-xl overflow-hidden">
                 <div className="p-5">
                   <h3 className="text-xl font-semibold text-onyx mb-2 font-bodoni">
                     {t[`${restaurant.key}Name`]}
@@ -114,8 +112,6 @@ const ThingsToDo = () => {
                   </p>
                   <a
                     href={restaurant.mapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-sm font-medium text-onyx hover:text-onyx/70 transition-colors font-poppins"
                   >
                     <ExternalLink size={14} />
@@ -128,7 +124,7 @@ const ThingsToDo = () => {
         </div>
 
         {/* Argentina Destinations */}
-        <div className="bg-off-white p-8 rounded-lg shadow-md mb-8 border border-wedding-accent">
+        <div className="bg-off-white p-8 rounded-2xl shadow-md mb-8 border border-wedding-accent">
           <div className="flex items-center mb-4">
             <Mountain size={32} className="text-burnished-copper mr-3" />
             <h2 className="text-3xl font-semibold text-onyx font-bodoni">{t.destinationsTitle}</h2>
@@ -138,7 +134,7 @@ const ThingsToDo = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {destinations.map((dest) => (
-              <div key={dest.key} className="bg-wedding-secondary/30 rounded-lg overflow-hidden">
+              <div key={dest.key} className="bg-wedding-secondary/30 rounded-xl overflow-hidden">
                 <div className="w-full h-40 bg-wedding-secondary/30 flex items-center justify-center">
                   <img
                     src={`${base}photos/${dest.key}.jpg`}
