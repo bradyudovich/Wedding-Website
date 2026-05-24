@@ -2,6 +2,7 @@ import React from 'react';
 import { MapPin, ExternalLink, Mountain, Globe } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
+import WebsiteLink from '../components/WebsiteLink';
 
 const buenosAiresActivities = [
   { key: 'sanTelmo' },
@@ -30,6 +31,22 @@ const restaurants = [
   {
     key: 'restaurant4',
     mapsUrl: 'https://maps.google.com/?q=El+Preferido+de+Palermo+Buenos+Aires',
+  },
+  {
+    key: 'restaurant5',
+    mapsUrl: 'https://www.google.com/maps?vet=10CAAQoqAOahcKEwjAmaTu_dKUAxUAAAAAHQAAAAAQCQ..i&sca_esv=c2ae7bdc94c3d893&client=safari&hs=BMc&pvq=Cg0vZy8xMWcwdHM0MHk2Ig4KCHJhcGEgbnVpEAIYAw&lqi=ChVyYXBhIG51aSBidWVub3MgYWlyZXMiA4gBAUimh4icg66AgAhaJxAAEAEYABgBGAIYAyIVcmFwYSBudWkgYnVlbm9zIGFpcmVzMgJlc5IBDmljZV9jcmVhbV9zaG9w4AEA&fvr=1&cs=1&um=1&ie=UTF-8&fb=1&gl=us&sa=X&ftid=0x95bcb587352d1c15:0xcf105028a2f45b81&ved=1t:2428&ictx=111',
+  },
+  {
+    key: 'restaurant6',
+    mapsUrl: 'https://maps.google.com/?q=Rey+de+Copas+Buenos+Aires',
+  },
+  {
+    key: 'restaurant7',
+    mapsUrl: 'https://maps.google.com/?q=G%C3%BCerrin+Pizza+Buenos+Aires',
+  },
+  {
+    key: 'restaurant8',
+    mapsUrl: 'https://maps.google.com/?q=Cafe+Tortoni+Buenos+Aires',
   },
 ];
 
@@ -79,13 +96,13 @@ const ThingsToDo = () => {
                     {t[`${activity.key}Description`]}
                   </p>
                   {activity.url ? (
-                    <a
+                    <WebsiteLink
                       href={activity.url}
                       className="inline-flex items-center gap-2 text-sm font-medium text-onyx hover:text-onyx/70 transition-colors font-poppins mt-3"
                     >
                       <ExternalLink size={14} />
                       {t.hopOnHopOffLink}
-                    </a>
+                    </WebsiteLink>
                   ) : null}
                 </div>
               </div>
@@ -110,13 +127,13 @@ const ThingsToDo = () => {
                   <p className="text-onyx leading-relaxed font-poppins mb-3 text-sm md:text-justify">
                     {t[`${restaurant.key}Description`]}
                   </p>
-                  <a
+                  <WebsiteLink
                     href={restaurant.mapsUrl}
                     className="inline-flex items-center gap-2 text-sm font-medium text-onyx hover:text-onyx/70 transition-colors font-poppins"
                   >
                     <ExternalLink size={14} />
                     {t.viewOnMaps}
-                  </a>
+                  </WebsiteLink>
                 </div>
               </div>
             ))}

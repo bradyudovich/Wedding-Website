@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Plane, Hotel, CloudSun, AlertCircle } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
+import WebsiteLink from '../components/WebsiteLink';
 
 const FALLBACK_RATE = 1420;
 const RATE_SOURCES = [
@@ -20,7 +21,6 @@ const Travel = () => {
   const t = translations[language].travel;
   const [exchangeRate, setExchangeRate] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [liveRateUnavailable, setLiveRateUnavailable] = useState(false);
 
   useEffect(() => {
     let isMounted = true;
@@ -49,7 +49,6 @@ const Travel = () => {
 
       if (isMounted) {
         setExchangeRate(FALLBACK_RATE);
-        setLiveRateUnavailable(true);
         setLoading(false);
       }
     };
@@ -115,14 +114,7 @@ const Travel = () => {
             <p className="text-onyx/70 font-poppins">{t.loading}</p>
           ) : (
             <>
-              <p className="text-lg text-onyx font-poppins">
-                1 USD = {formatRate(exchangeRate)} ARS ({t.officialRateLabel})
-              </p>
-              {liveRateUnavailable ? (
-                <p className="text-sm text-amber-600 mt-2 font-poppins">{t.liveRateUnavailable}</p>
-              ) : (
-                <p className="text-sm text-onyx/60 mt-2 font-poppins">{t.exchangeNote}</p>
-              )}
+              <p className="text-lg text-onyx font-poppins">1 USD = {formatRate(exchangeRate)} ARS</p>
             </>
           )}
         </div>
@@ -142,6 +134,11 @@ const Travel = () => {
           </p>
         </div>
 
+        <div className="bg-off-white p-6 rounded-2xl shadow-md mb-8 border border-wedding-accent">
+          <h2 className="text-2xl font-semibold text-onyx mb-3 font-bodoni">{t.plugTypesTitle}</h2>
+          <p className="text-onyx leading-relaxed font-poppins md:text-justify">{t.plugTypesText}</p>
+        </div>
+
         {/* Accommodations */}
         <div className="bg-off-white p-8 rounded-2xl shadow-md mb-8 border border-wedding-accent">
           <div className="flex items-center mb-4">
@@ -154,34 +151,34 @@ const Travel = () => {
           <div className="space-y-4">
             <div className="bg-wedding-secondary/30 p-4 rounded-xl">
               <h3 className="font-semibold text-xl text-onyx mb-1 font-bodoni">
-                <a
+                <WebsiteLink
                   href="https://plenohotels.com/palermosoho/"
                   className="underline hover:text-onyx/60"
                 >
                   {t.hotel1Name}
-                </a>
+                </WebsiteLink>
               </h3>
               <p className="text-onyx/80 font-poppins">{t.hotel1Details}</p>
             </div>
             <div className="bg-wedding-secondary/30 p-4 rounded-xl">
               <h3 className="font-semibold text-xl text-onyx mb-1 font-bodoni">
-                <a
+                <WebsiteLink
                   href="https://www.bromeliahotel.com.ar/"
                   className="underline hover:text-onyx/60"
                 >
                   {t.hotel2Name}
-                </a>
+                </WebsiteLink>
               </h3>
               <p className="text-onyx/80 font-poppins">{t.hotel2Details}</p>
             </div>
             <div className="bg-wedding-secondary/30 p-4 rounded-xl">
               <h3 className="font-semibold text-xl text-onyx mb-1 font-bodoni">
-                <a
+                <WebsiteLink
                   href="https://www.airbnb.com"
                   className="underline hover:text-onyx/60"
                 >
                   {t.hotel3Name}
-                </a>
+                </WebsiteLink>
               </h3>
               <p className="text-onyx/80 font-poppins">{t.hotel3Details}</p>
             </div>

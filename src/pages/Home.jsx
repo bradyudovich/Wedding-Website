@@ -43,13 +43,13 @@ const Home = () => {
       <div className="relative overflow-hidden bg-pumice py-14 md:py-16 px-4 md:px-6">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(92,112,85,0.16),_transparent_58%)] pointer-events-none" />
         <div className="relative max-w-5xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-onyx mb-3 font-bodoni">
+          <h1 className="text-[clamp(2.25rem,8vw,4.5rem)] font-bold text-onyx mb-3 font-bodoni">
             {t.coupleNames}
           </h1>
           <p className="text-base md:text-lg font-manrope tracking-[0.18em] uppercase text-onyx/70 mb-4">
             {t.heroDateLocation}
           </p>
-          <p className="text-xl md:text-2xl text-onyx/60 font-light font-manrope tracking-wide">{t.subtitle}</p>
+          <p className="text-lg md:text-2xl text-onyx/60 font-light font-manrope tracking-wide max-w-3xl mx-auto">{t.subtitle}</p>
         </div>
       </div>
 
