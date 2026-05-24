@@ -13,6 +13,7 @@ const FAQ = () => {
   const faqs = [
     { question: t.q1, answer: t.a1 },
     { question: t.q4, answer: t.a4, link: { to: '/schedule#schedule-section', label: language === 'en' ? 'View Schedule →' : 'Ver Programa →' } },
+    { question: t.qLongCelebration, answer: t.aLongCelebration },
     { question: t.qKids, answer: t.aKids },
     { question: t.qTransport, answer: t.aTransport, link: { to: '/schedule#schedule-section', label: language === 'en' ? 'View Schedule →' : 'Ver Programa →' } },
     { question: t.qUSCelebration, answer: t.aUSCelebration },

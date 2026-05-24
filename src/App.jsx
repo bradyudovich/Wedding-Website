@@ -38,7 +38,7 @@ function AppContent() {
       <Router basename="/">
         {/* Keep content invisible (not just covered) until unlock is confirmed,
             preventing any flash of underlying content on mobile during unlock */}
-        <div className={`min-h-screen bg-wedding-bg font-poppins pb-16 md:pb-0${!unlocked ? ' invisible' : ''}`} lang={language}>
+        <div className={`min-h-screen bg-wedding-bg font-poppins overflow-x-hidden pb-16 md:pb-0${!unlocked ? ' invisible' : ''}`} lang={language}>
           <ScrollToHash />
           <Navbar />
           <LanguagePopup />

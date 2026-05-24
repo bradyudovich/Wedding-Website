@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 import { VENMO_URL } from '../constants/links';
+import WebsiteLink from '../components/WebsiteLink';
 
 const Registry = () => {
   const { language } = useLanguage();
@@ -55,9 +56,9 @@ const Registry = () => {
             <div id="registry-us-details" className="mt-6 border border-wedding-accent rounded-xl p-5 md:p-6">
               <p className="text-sm uppercase tracking-widest text-onyx/50 font-poppins mb-4">{t.bradyMethod}</p>
               <p className="text-2xl font-semibold text-burnished-copper font-bodoni mb-3">
-                <a href={VENMO_URL} className="underline hover:text-burnished-copper-hover">
+                <WebsiteLink href={VENMO_URL} className="underline hover:text-burnished-copper-hover">
                   {t.bradyHandle}
-                </a>
+                </WebsiteLink>
               </p>
               <p className="text-sm text-onyx/60 font-poppins leading-relaxed">{t.bradyNote}</p>
             </div>

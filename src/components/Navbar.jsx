@@ -5,6 +5,7 @@ import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 import { RSVP_FORM_URL } from '../constants/links';
 import WeddingCountdown from './WeddingCountdown';
+import WebsiteLink from './WebsiteLink';
 
 const Navbar = () => {
   const { language, toggleLanguage } = useLanguage();
@@ -27,7 +28,7 @@ const Navbar = () => {
         <div className="max-w-6xl mx-auto px-4 md:px-6 py-3">
           <div className="flex items-center gap-3">
             {/* Brand */}
-            <Link to="/" className="text-xl md:text-2xl font-bold text-onyx font-bodoni whitespace-nowrap flex-shrink-0">
+            <Link to="/" className="text-lg sm:text-xl md:text-2xl font-bold text-onyx font-bodoni whitespace-nowrap flex-shrink-0">
               Cami & Brady
             </Link>
 
@@ -39,12 +40,12 @@ const Navbar = () => {
             )}
 
             {/* Navigation Links — hidden on mobile, shown on md+ */}
-            <div className="hidden md:flex items-center gap-4 flex-1 justify-center">
+            <div className="hidden md:flex items-center gap-2 lg:gap-4 flex-1 justify-center min-w-0">
               {navLinks.map(({ to, icon, label }) => (
                 <Link
                   key={to}
                   to={to}
-                  className={`flex items-center gap-1 px-2.5 py-1.5 rounded-full border transition-colors font-medium font-poppins whitespace-nowrap ${
+                  className={`flex items-center gap-1 px-2 lg:px-2.5 py-1.5 rounded-full border transition-colors font-medium text-sm lg:text-base font-poppins whitespace-nowrap ${
                     location.pathname === to
                       ? 'text-onyx border-burnished-copper bg-wedding-secondary'
                       : 'text-onyx border-transparent hover:text-onyx/60 hover:bg-wedding-secondary/60'
@@ -54,18 +55,18 @@ const Navbar = () => {
                   <span>{label}</span>
                 </Link>
               ))}
-              <a
+              <WebsiteLink
                 href={RSVP_FORM_URL}
-                className="flex items-center gap-1 bg-burnished-copper text-white px-3 py-1.5 rounded-[8px] hover:bg-burnished-copper-hover transition-colors font-medium font-poppins whitespace-nowrap"
+                className="flex items-center gap-1 bg-burnished-copper text-white px-3 py-1.5 rounded-[8px] hover:bg-burnished-copper-hover transition-colors font-medium text-sm lg:text-base font-poppins whitespace-nowrap"
               >
                 <Send size={16} />
                 <span>{t.rsvp}</span>
-              </a>
+              </WebsiteLink>
             </div>
 
             {/* Compact countdown — desktop only, between nav links and language toggle */}
             {location.pathname !== '/' && (
-              <div className="hidden md:flex items-center flex-shrink-0">
+              <div className="hidden lg:flex items-center flex-shrink-0">
                 <WeddingCountdown />
               </div>
             )}
@@ -105,13 +106,13 @@ const Navbar = () => {
             );
           })}
           {/* RSVP button */}
-          <a
+          <WebsiteLink
             href={RSVP_FORM_URL}
             className="flex flex-col items-center justify-center flex-1 py-2 gap-0.5 text-[10px] font-medium font-poppins transition-colors bg-burnished-copper text-white hover:bg-burnished-copper-hover rounded-[8px] mx-1 my-1"
           >
             <Send size={20} className="text-white" />
             <span className="leading-tight">{t.rsvp}</span>
-          </a>
+          </WebsiteLink>
         </div>
       </nav>
     </>

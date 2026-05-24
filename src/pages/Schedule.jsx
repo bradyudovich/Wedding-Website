@@ -2,6 +2,7 @@ import React from 'react';
 import { CalendarPlus } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
+import WebsiteLink from '../components/WebsiteLink';
 
 const DARSENA_MAPS_URL =
   'https://www.google.com/maps/search/?api=1&query=Jos%C3%A9+A.+Cabrera+4354,+Palermo,+Buenos+Aires';
@@ -176,12 +177,12 @@ const Schedule = () => {
           {item.locationLabel ? (
             <p className="text-sm font-poppins text-onyx/75 leading-relaxed break-words">
               {item.locationUrl ? (
-                <a
+                <WebsiteLink
                   href={item.locationUrl}
                   className="underline hover:text-onyx break-words"
                 >
                   {item.locationLabel}
-                </a>
+                </WebsiteLink>
               ) : (
                 <span>{item.locationLabel}</span>
               )}
@@ -210,12 +211,12 @@ const Schedule = () => {
                 {t.venueLabel} {t.preWeddingVenueName}
               </p>
               <p className="mt-1 min-w-0 text-sm md:text-[15px] text-onyx/80 font-poppins leading-relaxed break-words">
-                <a
+                <WebsiteLink
                   href={DARSENA_MAPS_URL}
                   className="underline hover:text-onyx break-words"
                 >
                   {t.preWeddingVenueAddress}
-                </a>
+                </WebsiteLink>
               </p>
             </div>
             <AddToCalendarLink
@@ -238,12 +239,12 @@ const Schedule = () => {
                   {t.venueLabel} {t.weddingLocation}
                 </p>
                 <p className="mt-1 min-w-0 text-sm md:text-[15px] text-onyx/80 font-poppins leading-relaxed break-words">
-                  <a
+                  <WebsiteLink
                     href={LAS_CORTADERAS_MAPS_URL}
                     className="underline hover:text-onyx break-words"
                   >
                     {t.weddingAddress}
-                  </a>
+                  </WebsiteLink>
                 </p>
               </div>
               <AddToCalendarLink
