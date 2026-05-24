@@ -40,9 +40,9 @@ const Home = () => {
   return (
     <div className="min-h-screen" style={{ WebkitHyphens: 'auto', hyphens: 'auto' }}>
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-pumice py-12 px-4">
+      <div className="relative overflow-hidden bg-pumice py-14 md:py-16 px-4 md:px-6">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(92,112,85,0.16),_transparent_58%)] pointer-events-none" />
-        <div className="relative max-w-4xl mx-auto text-center">
+        <div className="relative max-w-5xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold text-onyx mb-3 font-bodoni">
             {t.coupleNames}
           </h1>
@@ -54,17 +54,17 @@ const Home = () => {
       </div>
 
       {/* Photo Gallery — directly beneath Hero */}
-      <div id="gallery" className="max-w-4xl mx-auto md:max-w-none md:mx-0 pb-4 overflow-hidden">
+      <div id="gallery" className="max-w-6xl mx-auto px-4 md:px-6 pb-6 md:pb-8 overflow-hidden">
         <PhotoCarousel photos={photos} base={base} />
       </div>
 
       {/* Countdown — directly below gallery */}
-      <div className="max-w-4xl mx-auto px-4 pb-4">
+      <div className="max-w-5xl mx-auto px-4 md:px-6 pb-4">
         <WeddingCountdown variant="hero" />
       </div>
 
-      <div className="max-w-4xl mx-auto py-8 px-4">
-        <div className="bg-off-white p-10 rounded-lg shadow-md">
+      <div className="max-w-5xl mx-auto py-8 px-4 md:px-6">
+        <div className="bg-off-white p-8 md:p-10 rounded-2xl shadow-md border border-wedding-accent">
           <h2 className="text-[clamp(1.5rem,6vw,2.25rem)] font-bold text-onyx mb-5 text-center font-bodoni leading-tight">
             {t.welcomeHeading}
           </h2>

@@ -6,14 +6,6 @@ import { translations } from '../translations';
 import { RSVP_FORM_URL } from '../constants/links';
 import WeddingCountdown from './WeddingCountdown';
 
-const openRsvpPopup = () => {
-  window.open(
-    RSVP_FORM_URL,
-    'rsvpPopup',
-    'width=700,height=800,resizable=yes,scrollbars=yes'
-  );
-};
-
 const Navbar = () => {
   const { language, toggleLanguage } = useLanguage();
   const t = translations[language].nav;
@@ -32,7 +24,7 @@ const Navbar = () => {
     <>
       {/* ── Top navbar (always visible) ─────────────────────────── */}
       <nav className="bg-off-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 py-3">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 py-3">
           <div className="flex items-center gap-3">
             {/* Brand */}
             <Link to="/" className="text-xl md:text-2xl font-bold text-onyx font-bodoni whitespace-nowrap flex-shrink-0">
@@ -62,13 +54,13 @@ const Navbar = () => {
                   <span>{label}</span>
                 </Link>
               ))}
-              <button
-                onClick={openRsvpPopup}
+              <a
+                href={RSVP_FORM_URL}
                 className="flex items-center gap-1 bg-burnished-copper text-white px-3 py-1.5 rounded-[8px] hover:bg-burnished-copper-hover transition-colors font-medium font-poppins whitespace-nowrap"
               >
                 <Send size={16} />
                 <span>{t.rsvp}</span>
-              </button>
+              </a>
             </div>
 
             {/* Compact countdown — desktop only, between nav links and language toggle */}
@@ -113,13 +105,13 @@ const Navbar = () => {
             );
           })}
           {/* RSVP button */}
-          <button
-            onClick={openRsvpPopup}
+          <a
+            href={RSVP_FORM_URL}
             className="flex flex-col items-center justify-center flex-1 py-2 gap-0.5 text-[10px] font-medium font-poppins transition-colors bg-burnished-copper text-white hover:bg-burnished-copper-hover rounded-[8px] mx-1 my-1"
           >
             <Send size={20} className="text-white" />
             <span className="leading-tight">{t.rsvp}</span>
-          </button>
+          </a>
         </div>
       </nav>
     </>

@@ -13,8 +13,8 @@ const Registry = () => {
   };
 
   return (
-    <div className="min-h-screen py-12 px-4">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen py-10 md:py-12 px-4 md:px-6">
+      <div className="max-w-5xl mx-auto">
         <h1 className="text-5xl md:text-6xl font-bold text-onyx mb-4 text-center font-bodoni">
           {t.title}
         </h1>
@@ -23,12 +23,12 @@ const Registry = () => {
           {t.message}
         </p>
 
-        <div id="registry-details" className="bg-off-white rounded-lg shadow-md p-6 md:p-8 border border-wedding-accent">
+        <div id="registry-details" className="bg-off-white rounded-2xl shadow-md p-6 md:p-8 border border-wedding-accent">
           <div className="grid grid-cols-2 gap-3 md:gap-4">
             <button
               type="button"
               onClick={() => togglePanel('us')}
-              className={`rounded-lg border px-4 py-4 text-center transition-colors ${
+              className={`rounded-xl border px-4 py-4 text-center transition-colors ${
                 openPanel === 'us' ? 'border-burnished-copper bg-wedding-secondary' : 'border-wedding-accent bg-white hover:bg-wedding-secondary/60'
               }`}
               aria-expanded={openPanel === 'us'}
@@ -40,7 +40,7 @@ const Registry = () => {
             <button
               type="button"
               onClick={() => togglePanel('ar')}
-              className={`rounded-lg border px-4 py-4 text-center transition-colors ${
+              className={`rounded-xl border px-4 py-4 text-center transition-colors ${
                 openPanel === 'ar' ? 'border-burnished-copper bg-wedding-secondary' : 'border-wedding-accent bg-white hover:bg-wedding-secondary/60'
               }`}
               aria-expanded={openPanel === 'ar'}
@@ -52,10 +52,10 @@ const Registry = () => {
           </div>
 
           {openPanel === 'us' ? (
-            <div id="registry-us-details" className="mt-6 border border-wedding-accent rounded-lg p-5 md:p-6">
+            <div id="registry-us-details" className="mt-6 border border-wedding-accent rounded-xl p-5 md:p-6">
               <p className="text-sm uppercase tracking-widest text-onyx/50 font-poppins mb-4">{t.bradyMethod}</p>
               <p className="text-2xl font-semibold text-burnished-copper font-bodoni mb-3">
-                <a href={VENMO_URL} target="_blank" rel="noopener noreferrer" className="underline hover:text-burnished-copper-hover">
+                <a href={VENMO_URL} className="underline hover:text-burnished-copper-hover">
                   {t.bradyHandle}
                 </a>
               </p>
@@ -64,7 +64,7 @@ const Registry = () => {
           ) : null}
 
           {openPanel === 'ar' ? (
-            <div id="registry-ar-details" className="mt-6 border border-wedding-accent rounded-lg p-5 md:p-6 space-y-6">
+            <div id="registry-ar-details" className="mt-6 border border-wedding-accent rounded-xl p-5 md:p-6 space-y-6">
               <div>
                 <p className="text-lg font-semibold text-onyx font-bodoni">Banco Galicia - Caja Ahorro Pesos</p>
                 <p className="text-sm text-onyx/80 font-poppins mt-2">Número de cuenta: 4032920-7 010-8</p>
