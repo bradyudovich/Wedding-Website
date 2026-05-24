@@ -53,7 +53,7 @@ const ThingsToDo = () => {
         </h1>
 
         {/* Explorer message box */}
-        <div className="bg-wedding-secondary p-8 rounded-lg shadow-md mb-10 border border-wedding-accent">
+        <div className="bg-wedding-secondary/30 p-8 rounded-lg shadow-md mb-10 border border-wedding-accent">
           <p className="text-onyx leading-relaxed text-lg font-poppins text-center italic">
             {t.explorerMessage}
           </p>
@@ -70,7 +70,7 @@ const ThingsToDo = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {buenosAiresActivities.map((activity) => (
-              <div key={activity.key} className="bg-wedding-secondary rounded-lg overflow-hidden">
+              <div key={activity.key} className="bg-wedding-secondary/30 rounded-lg overflow-hidden">
                 <div className="p-5">
                   <h3 className="text-xl font-semibold text-onyx mb-2 font-bodoni">
                     {t[`${activity.key}Name`]}
@@ -104,7 +104,7 @@ const ThingsToDo = () => {
           <p className="text-onyx leading-relaxed text-lg mb-6 font-poppins md:text-justify">{t.subtitle}</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {restaurants.map((restaurant) => (
-              <div key={restaurant.key} className="bg-wedding-secondary rounded-lg overflow-hidden">
+              <div key={restaurant.key} className="bg-wedding-secondary/30 rounded-lg overflow-hidden">
                 <div className="p-5">
                   <h3 className="text-xl font-semibold text-onyx mb-2 font-bodoni">
                     {t[`${restaurant.key}Name`]}
@@ -138,8 +138,8 @@ const ThingsToDo = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {destinations.map((dest) => (
-              <div key={dest.key} className="bg-wedding-secondary rounded-lg overflow-hidden">
-                <div className="w-full h-40 bg-wedding-accent flex items-center justify-center">
+              <div key={dest.key} className="bg-wedding-secondary/30 rounded-lg overflow-hidden">
+                <div className="w-full h-40 bg-wedding-secondary/30 flex items-center justify-center">
                   <img
                     src={`${base}photos/${dest.key}.jpg`}
                     alt={t[`${dest.key}Name`]}
@@ -150,7 +150,7 @@ const ThingsToDo = () => {
                       e.target.nextSibling.style.display = 'flex';
                     }}
                   />
-                  <div className="hidden w-full h-full items-center justify-center bg-wedding-secondary">
+                  <div className="hidden w-full h-full items-center justify-center bg-wedding-secondary/30">
                     <Mountain size={48} className="text-onyx/30" />
                   </div>
                 </div>
