@@ -3,11 +3,11 @@ import { CalendarPlus } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 
-const PLENO_PALERMO_SOHO_MAPS_URL =
-  'https://www.google.com/maps/place/Pleno+Palermo+Soho/@-34.5861776,-58.4267193,17z/data=!3m1!4b1!4m9!3m8!1s0x95bcb586c0e9155d:0xe65768f2c8fd000c!5m2!4m1!1i2!8m2!3d-34.586182!4d-58.424139!16s%2Fg%2F11b6d7rhm_?entry=ttu&g_ep=EgoyMDI2MDQyMi4wIKXMDSoASAFQAw%3D%3D';
-
 const DARSENA_MAPS_URL =
   'https://www.google.com/maps/search/?api=1&query=Jos%C3%A9+A.+Cabrera+4354,+Palermo,+Buenos+Aires';
+
+const LAS_CORTADERAS_MAPS_URL =
+  'https://www.google.com/maps/search/?api=1&query=J.+M.+Loreto+4600,+Dique+Luj%C3%A1n,+Provincia+de+Buenos+Aires,+Argentina';
 
 const escapeIcsText = (text = '') =>
   text
@@ -109,7 +109,7 @@ const Schedule = () => {
       title: t.busPickup,
       optional: true,
       locationLabel: t.busPickupLocation,
-      locationUrl: PLENO_PALERMO_SOHO_MAPS_URL,
+      locationUrl: null,
     },
     {
       key: 'guest-arrive',
@@ -129,7 +129,7 @@ const Schedule = () => {
       optional: true,
       note: t.optionalBusesNote,
       locationLabel: t.optionalBusesLocation,
-      locationUrl: PLENO_PALERMO_SOHO_MAPS_URL,
+      locationUrl: null,
     },
   ];
 
@@ -175,14 +175,18 @@ const Schedule = () => {
           ) : null}
           {item.locationLabel ? (
             <p className="text-sm font-poppins text-onyx/75 leading-relaxed break-words">
-              <a
-                href={item.locationUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-onyx break-words"
-              >
-                {item.locationLabel}
-              </a>
+              {item.locationUrl ? (
+                <a
+                  href={item.locationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-onyx break-words"
+                >
+                  {item.locationLabel}
+                </a>
+              ) : (
+                <span>{item.locationLabel}</span>
+              )}
             </p>
           ) : null}
         </div>
@@ -238,7 +242,14 @@ const Schedule = () => {
                   {t.venueLabel} {t.weddingLocation}
                 </p>
                 <p className="mt-1 min-w-0 text-sm md:text-[15px] text-onyx/80 font-poppins leading-relaxed break-words">
-                  {t.addressLabel} {t.weddingAddress}
+                  <a
+                    href={LAS_CORTADERAS_MAPS_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-onyx break-words"
+                  >
+                    {t.addressLabel} {t.weddingAddress}
+                  </a>
                 </p>
               </div>
               <AddToCalendarLink

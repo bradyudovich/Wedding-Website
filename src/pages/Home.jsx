@@ -65,7 +65,7 @@ const Home = () => {
 
       <div className="max-w-4xl mx-auto py-8 px-4">
         <div className="bg-off-white p-10 rounded-lg shadow-md">
-          <h2 className="text-[clamp(1.5rem,7vw,2.25rem)] font-bold text-onyx mb-5 text-center font-bodoni whitespace-nowrap">
+          <h2 className="text-[clamp(1.5rem,6vw,2.25rem)] font-bold text-onyx mb-5 text-center font-bodoni leading-tight">
             {t.welcomeHeading}
           </h2>
           <p className="text-onyx leading-relaxed text-lg md:text-justify">{t.bodyText}</p>

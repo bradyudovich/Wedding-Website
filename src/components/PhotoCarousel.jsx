@@ -61,8 +61,8 @@ const PhotoCarousel = ({ photos, base }) => {
             overflowX: 'auto',
             scrollBehavior: 'auto',
             WebkitOverflowScrolling: 'touch',
-            gap: 2,
-            padding: '0 2px',
+            gap: 6,
+            padding: '0 4px',
             margin: 0,
           }}
         >
@@ -76,7 +76,7 @@ const PhotoCarousel = ({ photos, base }) => {
               <img
                 src={`${base}photos/${photo}`}
                 alt=""
-                style={{ width: '100%', height: '100%', objectFit: 'contain', objectPosition: 'center', display: 'block' }}
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
                 loading="lazy"
               />
             </button>
