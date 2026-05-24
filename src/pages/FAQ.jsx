@@ -15,6 +15,7 @@ const FAQ = () => {
     { question: t.q4, answer: t.a4, link: { to: '/schedule#schedule-section', label: language === 'en' ? 'View Schedule →' : 'Ver Programa →' } },
     { question: t.qKids, answer: t.aKids },
     { question: t.qTransport, answer: t.aTransport, link: { to: '/schedule#schedule-section', label: language === 'en' ? 'View Schedule →' : 'Ver Programa →' } },
+    { question: t.qUSCelebration, answer: t.aUSCelebration },
     { question: t.q7, answer: t.a7, link: { to: '/registry#registry-details', label: language === 'en' ? 'View Registry →' : 'Ver Regalos →' } },
   ];
 
@@ -56,6 +57,8 @@ const FAQ = () => {
                       {faq.link && (
                         <Link
                           to={faq.link.to}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="inline-block mt-3 text-sm font-medium text-burnished-copper underline hover:text-burnished-copper-hover font-poppins"
                         >
                           {faq.link.label}
