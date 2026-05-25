@@ -20,9 +20,11 @@ const Registry = () => {
           {t.title}
         </h1>
 
-        <p className="text-onyx/70 leading-relaxed text-lg mb-10 max-w-2xl mx-auto text-center font-poppins">
-          {t.message}
-        </p>
+        <div className="bg-off-white rounded-2xl shadow-md border border-wedding-accent p-6 md:p-8 mb-10 max-w-3xl mx-auto">
+          <p className="text-onyx/70 leading-relaxed text-lg text-center font-poppins">
+            {t.message}
+          </p>
+        </div>
 
         <div id="registry-details" className="bg-off-white rounded-2xl shadow-md p-6 md:p-8 border border-wedding-accent">
           <div className="grid grid-cols-2 gap-3 md:gap-4">

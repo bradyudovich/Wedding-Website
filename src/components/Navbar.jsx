@@ -25,10 +25,10 @@ const Navbar = () => {
     <>
       {/* ── Top navbar (always visible) ─────────────────────────── */}
       <nav className="bg-off-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 md:px-6 py-3">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 py-3">
           <div className="flex items-center gap-3">
             {/* Brand */}
-            <Link to="/" className="text-lg sm:text-xl md:text-2xl font-bold text-onyx font-bodoni whitespace-nowrap flex-shrink-0">
+            <Link to="/" className="text-lg sm:text-xl md:text-[1.65rem] font-bold text-onyx font-bodoni whitespace-nowrap flex-shrink-0">
               Cami & Brady
             </Link>
 
@@ -40,26 +40,26 @@ const Navbar = () => {
             )}
 
             {/* Navigation Links — hidden on mobile, shown on md+ */}
-            <div className="hidden md:flex items-center gap-2 lg:gap-4 flex-1 justify-center min-w-0">
+            <div className="hidden md:flex items-center gap-1 lg:gap-2 xl:gap-3 flex-1 justify-center min-w-0">
               {navLinks.map(({ to, icon, label }) => (
                 <Link
                   key={to}
                   to={to}
-                  className={`flex items-center gap-1 px-2 lg:px-2.5 py-1.5 rounded-full border transition-colors font-medium text-sm lg:text-base font-poppins whitespace-nowrap ${
+                  className={`flex items-center gap-1 px-1.5 lg:px-2 py-1.5 rounded-full border transition-colors font-medium text-[13px] lg:text-sm xl:text-base font-poppins whitespace-nowrap ${
                     location.pathname === to
                       ? 'text-onyx border-burnished-copper bg-wedding-secondary'
                       : 'text-onyx border-transparent hover:text-onyx/60 hover:bg-wedding-secondary/60'
                   }`}
                 >
-                  {React.cloneElement(icon, { size: 16 })}
+                  <span className="hidden xl:inline-flex">{React.cloneElement(icon, { size: 15 })}</span>
                   <span>{label}</span>
                 </Link>
               ))}
               <WebsiteLink
                 href={RSVP_FORM_URL}
-                className="flex items-center gap-1 bg-burnished-copper text-white px-3 py-1.5 rounded-[8px] hover:bg-burnished-copper-hover transition-colors font-medium text-sm lg:text-base font-poppins whitespace-nowrap"
+                className="flex items-center gap-1 bg-burnished-copper text-white px-2.5 xl:px-3 py-1.5 rounded-[8px] hover:bg-burnished-copper-hover transition-colors font-medium text-[13px] lg:text-sm xl:text-base font-poppins whitespace-nowrap"
               >
-                <Send size={16} />
+                <Send size={15} className="hidden xl:inline-flex" />
                 <span>{t.rsvp}</span>
               </WebsiteLink>
             </div>

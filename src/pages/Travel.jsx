@@ -184,6 +184,18 @@ const Travel = () => {
             </div>
           </div>
         </div>
+
+        <div className="bg-off-white p-8 rounded-2xl shadow-md border border-wedding-accent">
+          <h2 className="text-3xl font-semibold text-onyx mb-5 font-bodoni text-center">{t.travelTipsTitle}</h2>
+          <ul className="space-y-3 text-onyx leading-relaxed font-poppins md:text-justify">
+            <li><strong>{t.tipExchangeLabel}:</strong> {t.tipExchangeText}</li>
+            <li><strong>{t.tipPlugLabel}:</strong> {t.tipPlugText}</li>
+            <li><strong>{t.tipWeatherLabel}:</strong> {t.tipWeatherText}</li>
+            <li><strong>{t.tipPaymentLabel}:</strong> {t.tipPaymentText}</li>
+            <li><strong>{t.tipRideShareLabel}:</strong> {t.tipRideShareText}</li>
+            <li><strong>{t.tipWaterLabel}:</strong> {t.tipWaterText}</li>
+          </ul>
+        </div>
       </div>
     </div>
   );
