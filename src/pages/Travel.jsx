@@ -83,42 +83,6 @@ const Travel = () => {
           </div>
         </div>
 
-        {/* April Weather in Buenos Aires */}
-        <div className="bg-off-white p-8 rounded-2xl shadow-md mb-8 border border-wedding-accent">
-          <div className="flex items-center justify-center mb-4">
-            <CloudSun size={32} className="text-burnished-copper mr-3" />
-            <h2 className="text-3xl font-semibold text-onyx font-bodoni">{t.weatherTitle}</h2>
-          </div>
-          <p className="text-onyx leading-relaxed text-lg mb-4 font-poppins text-center">
-            {t.weatherDescription}
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-            <div className="bg-wedding-secondary/30 p-4 rounded-xl">
-              <p className="text-sm text-onyx/60 font-poppins">{t.weatherHighLabel}</p>
-              <p className="text-xl font-semibold text-onyx font-bodoni">{t.weatherHigh}</p>
-            </div>
-            <div className="bg-wedding-secondary/30 p-4 rounded-xl">
-              <p className="text-sm text-onyx/60 font-poppins">{t.weatherLowLabel}</p>
-              <p className="text-xl font-semibold text-onyx font-bodoni">{t.weatherLow}</p>
-            </div>
-            <div className="bg-wedding-secondary/30 p-4 rounded-xl flex flex-col items-center justify-center min-w-0">
-              <p className="text-base font-semibold text-onyx font-poppins text-center break-words">{t.weatherRain}</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Exchange Rate Display */}
-        <div className="bg-off-white p-6 rounded-2xl shadow-md mb-8 border border-wedding-accent">
-          <h2 className="text-2xl font-semibold text-onyx mb-4 font-bodoni">{t.exchangeRateTitle}</h2>
-          {loading ? (
-            <p className="text-onyx/70 font-poppins">{t.loading}</p>
-          ) : (
-            <>
-              <p className="text-lg text-onyx font-poppins">1 USD = {formatRate(exchangeRate)} ARS</p>
-            </>
-          )}
-        </div>
-
         {/* Getting There */}
         <div className="bg-off-white p-8 rounded-2xl shadow-md mb-8 border border-wedding-accent">
           <div className="flex items-center mb-4">
@@ -132,11 +96,6 @@ const Travel = () => {
             <strong>{t.airport2Name}</strong>
             {t.gettingThereTextPart3}
           </p>
-        </div>
-
-        <div className="bg-off-white p-6 rounded-2xl shadow-md mb-8 border border-wedding-accent">
-          <h2 className="text-2xl font-semibold text-onyx mb-3 font-bodoni">{t.plugTypesTitle}</h2>
-          <p className="text-onyx leading-relaxed font-poppins md:text-justify">{t.plugTypesText}</p>
         </div>
 
         {/* Accommodations */}
@@ -187,13 +146,35 @@ const Travel = () => {
 
         <div className="bg-off-white p-8 rounded-2xl shadow-md border border-wedding-accent">
           <h2 className="text-3xl font-semibold text-onyx mb-5 font-bodoni text-center">{t.travelTipsTitle}</h2>
-          <ul className="space-y-3 text-onyx leading-relaxed font-poppins md:text-justify">
-            <li><strong>{t.tipExchangeLabel}:</strong> {t.tipExchangeText}</li>
-            <li><strong>{t.tipPlugLabel}:</strong> {t.tipPlugText}</li>
-            <li><strong>{t.tipWeatherLabel}:</strong> {t.tipWeatherText}</li>
-            <li><strong>{t.tipPaymentLabel}:</strong> {t.tipPaymentText}</li>
-            <li><strong>{t.tipRideShareLabel}:</strong> {t.tipRideShareText}</li>
-            <li><strong>{t.tipWaterLabel}:</strong> {t.tipWaterText}</li>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+            <div className="bg-wedding-secondary/30 p-4 rounded-xl">
+              <div className="flex items-center gap-2 mb-2">
+                <CloudSun size={20} className="text-burnished-copper" />
+                <p className="font-semibold text-onyx font-bodoni">{t.weatherTitle}</p>
+              </div>
+              <p className="text-sm text-onyx/80 font-poppins">{t.weatherDescription}</p>
+              <p className="text-sm text-onyx font-poppins mt-2">
+                {t.weatherHighLabel}: <strong>{t.weatherHigh}</strong> · {t.weatherLowLabel}: <strong>{t.weatherLow}</strong> · {t.weatherRain}
+              </p>
+            </div>
+            <div className="bg-wedding-secondary/30 p-4 rounded-xl">
+              <p className="font-semibold text-onyx font-bodoni mb-2">{t.exchangeRateTitle}</p>
+              {loading ? (
+                <p className="text-sm text-onyx/70 font-poppins">{t.loading}</p>
+              ) : (
+                <p className="text-sm text-onyx font-poppins">1 USD = <strong>{formatRate(exchangeRate)} ARS</strong></p>
+              )}
+              <p className="text-sm text-onyx/80 font-poppins mt-2">{t.tipExchangeText}</p>
+            </div>
+            <div className="bg-wedding-secondary/30 p-4 rounded-xl md:col-span-2">
+              <p className="font-semibold text-onyx font-bodoni mb-2">{t.plugTypesTitle}</p>
+              <p className="text-sm text-onyx/80 font-poppins">{t.plugTypesText}</p>
+            </div>
+          </div>
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-onyx leading-relaxed font-poppins">
+            <li className="bg-wedding-secondary/20 rounded-xl p-4"><strong>{t.tipPaymentLabel}:</strong> {t.tipPaymentText}</li>
+            <li className="bg-wedding-secondary/20 rounded-xl p-4"><strong>{t.tipRideShareLabel}:</strong> {t.tipRideShareText}</li>
+            <li className="bg-wedding-secondary/20 rounded-xl p-4 md:col-span-2"><strong>{t.tipWaterLabel}:</strong> {t.tipWaterText}</li>
           </ul>
         </div>
       </div>
