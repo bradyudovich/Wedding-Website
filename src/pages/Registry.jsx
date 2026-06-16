@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
-import { VENMO_URL } from '../constants/links';
-import WebsiteLink from '../components/WebsiteLink';
+import { VENMO_APP_URL, VENMO_URL } from '../constants/links';
 
 const Registry = () => {
   const { language } = useLanguage();
@@ -11,6 +10,21 @@ const Registry = () => {
 
   const togglePanel = (panel) => {
     setOpenPanel((current) => (current === panel ? null : panel));
+  };
+
+  const openVenmoContribution = () => {
+    const clearFallback = () => {
+      window.clearTimeout(fallback);
+      document.removeEventListener('visibilitychange', clearFallback);
+    };
+
+    const fallback = window.setTimeout(() => {
+      clearFallback();
+      window.location.assign(VENMO_URL);
+    }, 700);
+
+    document.addEventListener('visibilitychange', clearFallback);
+    window.location.assign(VENMO_APP_URL);
   };
 
   return (
@@ -58,9 +72,13 @@ const Registry = () => {
             <div id="registry-us-details" className="mt-6 border border-wedding-accent rounded-xl p-5 md:p-6">
               <p className="text-sm uppercase tracking-widest text-onyx/50 font-poppins mb-4">{t.bradyMethod}</p>
               <p className="text-2xl font-semibold text-burnished-copper font-bodoni mb-3">
-                <WebsiteLink href={VENMO_URL} className="underline hover:text-burnished-copper-hover">
+                <button
+                  type="button"
+                  onClick={openVenmoContribution}
+                  className="underline hover:text-burnished-copper-hover transition-colors"
+                >
                   {t.bradyHandle}
-                </WebsiteLink>
+                </button>
               </p>
               <p className="text-sm text-onyx/60 font-poppins leading-relaxed">{t.bradyNote}</p>
             </div>

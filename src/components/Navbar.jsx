@@ -94,14 +94,20 @@ const Navbar = () => {
               <Link
                 key={to}
                 to={to}
-                className={`flex flex-col items-center justify-center flex-1 py-2 gap-0.5 text-[10px] font-medium font-poppins transition-colors ${
+                className={`flex flex-col items-center justify-center flex-1 py-2 gap-0.5 text-[9px] font-medium font-poppins transition-colors ${
                   active ? 'text-onyx' : 'text-onyx/40'
                 }`}
               >
                 <span className={active ? 'text-onyx' : 'text-onyx/40'}>
                   {icon}
                 </span>
-                <span className="leading-tight text-center px-0.5">{label}</span>
+                <span
+                  className={`leading-tight text-center px-0.5 whitespace-nowrap ${
+                    to === '/things-to-do' ? 'text-[8px]' : ''
+                  }`}
+                >
+                  {label}
+                </span>
               </Link>
             );
           })}
