@@ -229,8 +229,8 @@ export const translations = {
       buttonText: "Open RSVP Form"
     },
     registry: {
-      title: "Registry",
-      message: "Your presence at our wedding is truly the gift. Since many guests are traveling, physical gifts don't make much sense, so we've set up simple registry contribution options if you'd like to participate.",
+      title: "Ways to Celebrate With Us",
+      message: "Having you with us in Buenos Aires is the best gift we could ask for. Since so many guests are traveling, we kept things simple with contribution options here for anyone who would like to take part.",
       bradyTitle: "Brady",
       bradyMethod: "Registry contribution via Venmo",
       bradyHandle: "@Brady-Udovich",
@@ -475,8 +475,8 @@ export const translations = {
       buttonText: "Abrir formulario de RSVP"
     },
     registry: {
-      title: "Regalos",
-      message: "Tu presencia en nuestra boda es el mejor regalo. Como muchos viajan, los regalos físicos no son tan prácticos, así que dejamos opciones simples de contribución al registro para quien quiera sumar.",
+      title: "Formas de Celebrar con Nosotros",
+      message: "Tenerlos con nosotros en Buenos Aires es el mejor regalo que podemos recibir. Como muchos viajan, dejamos acá opciones simples de contribución para quien quiera sumar.",
       bradyTitle: "Brady",
       bradyMethod: "Contribución al registro por Venmo",
       bradyHandle: "@Brady-Udovich",

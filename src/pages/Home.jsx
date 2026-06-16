@@ -40,7 +40,7 @@ const Home = () => {
   return (
     <div className="min-h-screen" style={{ WebkitHyphens: 'auto', hyphens: 'auto' }}>
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-pumice pt-24 pb-20 md:pt-28 md:pb-24 px-4 md:px-6">
+      <div className="relative overflow-hidden bg-pumice pt-20 pb-14 md:pt-24 md:pb-16 px-4 md:px-6">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(92,112,85,0.16),_transparent_58%)] pointer-events-none" />
         <div className="relative max-w-5xl mx-auto text-center">
           <h1 className="text-[clamp(2.25rem,8vw,4.5rem)] font-bold text-onyx mb-3 font-bodoni">
