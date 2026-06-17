@@ -150,28 +150,28 @@ const Travel = () => {
             <div className="bg-wedding-secondary/30 p-4 rounded-xl">
               <div className="flex items-center gap-2 mb-2">
                 <CloudSun size={20} className="text-burnished-copper" />
-                <p className="font-semibold text-onyx font-bodoni">{t.weatherTitle}</p>
+                <p className="text-lg font-semibold text-onyx font-bodoni">{t.weatherTitle}</p>
               </div>
-              <p className="text-sm text-onyx/80 font-poppins">{t.weatherDescription}</p>
-              <p className="text-sm text-onyx font-poppins mt-2">
+              <p className="text-base text-onyx/80 font-poppins leading-relaxed">{t.weatherDescription}</p>
+              <p className="text-base text-onyx font-poppins mt-2 leading-relaxed">
                 {t.weatherHighLabel}: <strong>{t.weatherHigh}</strong> · {t.weatherLowLabel}: <strong>{t.weatherLow}</strong> · {t.weatherRain}
               </p>
             </div>
             <div className="bg-wedding-secondary/30 p-4 rounded-xl">
-              <p className="font-semibold text-onyx font-bodoni mb-2">{t.exchangeRateTitle}</p>
+              <p className="text-lg font-semibold text-onyx font-bodoni mb-2">{t.exchangeRateTitle}</p>
               {loading ? (
-                <p className="text-sm text-onyx/70 font-poppins">{t.loading}</p>
+                <p className="text-base text-onyx/70 font-poppins leading-relaxed">{t.loading}</p>
               ) : (
-                <p className="text-sm text-onyx font-poppins">1 USD = <strong>{formatRate(exchangeRate)} ARS</strong></p>
+                <p className="text-base text-onyx font-poppins leading-relaxed">1 USD = <strong>{formatRate(exchangeRate)} ARS</strong></p>
               )}
-              <p className="text-sm text-onyx/80 font-poppins mt-2">{t.tipExchangeText}</p>
+              <p className="text-base text-onyx/80 font-poppins mt-2 leading-relaxed">{t.tipExchangeText}</p>
             </div>
             <div className="bg-wedding-secondary/30 p-4 rounded-xl md:col-span-2">
-              <p className="font-semibold text-onyx font-bodoni mb-2">{t.plugTypesTitle}</p>
-              <p className="text-sm text-onyx/80 font-poppins">{t.plugTypesText}</p>
+              <p className="text-lg font-semibold text-onyx font-bodoni mb-2">{t.plugTypesTitle}</p>
+              <p className="text-base text-onyx/80 font-poppins leading-relaxed">{t.plugTypesText}</p>
             </div>
           </div>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-onyx leading-relaxed font-poppins">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-base text-onyx leading-relaxed font-poppins">
             <li className="bg-wedding-secondary/20 rounded-xl p-4"><strong>{t.tipPaymentLabel}:</strong> {t.tipPaymentText}</li>
             <li className="bg-wedding-secondary/20 rounded-xl p-4"><strong>{t.tipRideShareLabel}:</strong> {t.tipRideShareText}</li>
             <li className="bg-wedding-secondary/20 rounded-xl p-4 md:col-span-2"><strong>{t.tipWaterLabel}:</strong> {t.tipWaterText}</li>
