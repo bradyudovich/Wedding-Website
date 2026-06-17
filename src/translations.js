@@ -230,7 +230,7 @@ export const translations = {
     },
     registry: {
       title: "Ways to Celebrate With Us",
-      message: "Having you with us in Buenos Aires is the best gift we could ask for. Since so many guests are traveling, we kept things simple with contribution options here for anyone who would like to take part.",
+      message: "Having you with us in Buenos Aires is the best gift we could ask for. We're still setting up our first home together, so we kept things simple — just a few contribution options for anyone who'd like to take part.",
       bradyTitle: "Brady",
       bradyMethod: "Registry contribution via Venmo",
       bradyHandle: "@Brady-Udovich",
@@ -476,7 +476,7 @@ export const translations = {
     },
     registry: {
       title: "Formas de Celebrar con Nosotros",
-      message: "Tenerlos con nosotros en Buenos Aires es el mejor regalo que podemos recibir. Como muchos viajan, dejamos acá opciones simples de contribución para quien quiera sumar.",
+      message: "Tenerlos con nosotros en Buenos Aires es el mejor regalo que podemos recibir. Todavía estamos armando nuestro primer hogar juntos, así que decidimos mantenerlo simple — dejamos unas opciones de contribución para quien quiera sumarse.",
       bradyTitle: "Brady",
       bradyMethod: "Contribución al registro por Venmo",
       bradyHandle: "@Brady-Udovich",
