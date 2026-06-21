@@ -236,7 +236,7 @@ export const translations = {
     },
     registry: {
       title: "Registry",
-      message: "Having you with us on our wedding day is the best gift we could ask for. We're still saving up our first home together, so we kept things simple with just a few options below.",
+      message: "Having you with us on our wedding day is the best gift we could ask for. But if you would like to contribute, we kept it simple with a few options below since we are still saving for our first home together.",
       bradyTitle: "Brady",
       bradyMethod: "Registry contribution via Venmo",
       bradyHandle: "@Brady-Udovich",
