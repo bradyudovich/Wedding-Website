@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Plane, Hotel, CloudSun, AlertCircle } from 'lucide-react';
+import { Plane, Hotel, CloudSun, AlertCircle, DollarSign, Zap, CreditCard, Car, Droplets } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 import WebsiteLink from '../components/WebsiteLink';
@@ -158,7 +158,10 @@ const Travel = () => {
               </p>
             </div>
             <div className="bg-wedding-secondary/30 p-4 rounded-xl">
-              <p className="text-lg font-semibold text-onyx font-bodoni mb-2">{t.exchangeRateTitle}</p>
+              <div className="flex items-center gap-2 mb-2">
+                <DollarSign size={20} className="text-burnished-copper" />
+                <p className="text-lg font-semibold text-onyx font-bodoni">{t.exchangeRateTitle}</p>
+              </div>
               {loading ? (
                 <p className="text-base text-onyx/70 font-poppins leading-relaxed">{t.loading}</p>
               ) : (
@@ -167,21 +170,33 @@ const Travel = () => {
               <p className="text-base text-onyx/80 font-poppins mt-2 leading-relaxed">{t.tipExchangeText}</p>
             </div>
             <div className="bg-wedding-secondary/30 p-4 rounded-xl md:col-span-2">
-              <p className="text-lg font-semibold text-onyx font-bodoni mb-2">{t.plugTypesTitle}</p>
+              <div className="flex items-center gap-2 mb-2">
+                <Zap size={20} className="text-burnished-copper" />
+                <p className="text-lg font-semibold text-onyx font-bodoni">{t.plugTypesTitle}</p>
+              </div>
               <p className="text-base text-onyx/80 font-poppins leading-relaxed">{t.plugTypesText}</p>
             </div>
           </div>
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <li className="bg-wedding-secondary/20 rounded-xl p-4">
-              <p className="text-base font-semibold text-onyx font-bodoni mb-1">{t.tipPaymentLabel}</p>
+              <div className="flex items-center gap-2 mb-1">
+                <CreditCard size={18} className="text-burnished-copper" />
+                <p className="text-base font-semibold text-onyx font-bodoni">{t.tipPaymentLabel}</p>
+              </div>
               <p className="text-base text-onyx/80 font-poppins leading-relaxed">{t.tipPaymentText}</p>
             </li>
             <li className="bg-wedding-secondary/20 rounded-xl p-4">
-              <p className="text-base font-semibold text-onyx font-bodoni mb-1">{t.tipRideShareLabel}</p>
+              <div className="flex items-center gap-2 mb-1">
+                <Car size={18} className="text-burnished-copper" />
+                <p className="text-base font-semibold text-onyx font-bodoni">{t.tipRideShareLabel}</p>
+              </div>
               <p className="text-base text-onyx/80 font-poppins leading-relaxed">{t.tipRideShareText}</p>
             </li>
             <li className="bg-wedding-secondary/20 rounded-xl p-4 md:col-span-2">
-              <p className="text-base font-semibold text-onyx font-bodoni mb-1">{t.tipWaterLabel}</p>
+              <div className="flex items-center gap-2 mb-1">
+                <Droplets size={18} className="text-burnished-copper" />
+                <p className="text-base font-semibold text-onyx font-bodoni">{t.tipWaterLabel}</p>
+              </div>
               <p className="text-base text-onyx/80 font-poppins leading-relaxed">{t.tipWaterText}</p>
             </li>
           </ul>
