@@ -171,10 +171,19 @@ const Travel = () => {
               <p className="text-base text-onyx/80 font-poppins leading-relaxed">{t.plugTypesText}</p>
             </div>
           </div>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-base text-onyx leading-relaxed font-poppins">
-            <li className="bg-wedding-secondary/20 rounded-xl p-4"><strong>{t.tipPaymentLabel}:</strong> {t.tipPaymentText}</li>
-            <li className="bg-wedding-secondary/20 rounded-xl p-4"><strong>{t.tipRideShareLabel}:</strong> {t.tipRideShareText}</li>
-            <li className="bg-wedding-secondary/20 rounded-xl p-4 md:col-span-2"><strong>{t.tipWaterLabel}:</strong> {t.tipWaterText}</li>
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <li className="bg-wedding-secondary/20 rounded-xl p-4">
+              <p className="text-base font-semibold text-onyx font-bodoni mb-1">{t.tipPaymentLabel}</p>
+              <p className="text-base text-onyx/80 font-poppins leading-relaxed">{t.tipPaymentText}</p>
+            </li>
+            <li className="bg-wedding-secondary/20 rounded-xl p-4">
+              <p className="text-base font-semibold text-onyx font-bodoni mb-1">{t.tipRideShareLabel}</p>
+              <p className="text-base text-onyx/80 font-poppins leading-relaxed">{t.tipRideShareText}</p>
+            </li>
+            <li className="bg-wedding-secondary/20 rounded-xl p-4 md:col-span-2">
+              <p className="text-base font-semibold text-onyx font-bodoni mb-1">{t.tipWaterLabel}</p>
+              <p className="text-base text-onyx/80 font-poppins leading-relaxed">{t.tipWaterText}</p>
+            </li>
           </ul>
         </div>
       </div>

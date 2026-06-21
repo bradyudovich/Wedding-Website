@@ -44,18 +44,6 @@ const Registry = () => {
           <div className="grid grid-cols-2 gap-3 md:gap-4">
             <button
               type="button"
-              onClick={() => togglePanel('us')}
-              className={`rounded-xl border px-4 py-4 text-center transition-colors ${
-                openPanel === 'us' ? 'border-burnished-copper bg-wedding-secondary' : 'border-wedding-accent bg-white hover:bg-wedding-secondary/60'
-              }`}
-              aria-expanded={openPanel === 'us'}
-              aria-controls="registry-us-details"
-            >
-              <div className="text-4xl leading-none">🇺🇸</div>
-              <p className="mt-2 text-sm md:text-base font-semibold text-onyx font-poppins">{t.usLabel}</p>
-            </button>
-            <button
-              type="button"
               onClick={() => togglePanel('ar')}
               className={`rounded-xl border px-4 py-4 text-center transition-colors ${
                 openPanel === 'ar' ? 'border-burnished-copper bg-wedding-secondary' : 'border-wedding-accent bg-white hover:bg-wedding-secondary/60'
@@ -65,6 +53,18 @@ const Registry = () => {
             >
               <div className="text-4xl leading-none">🇦🇷</div>
               <p className="mt-2 text-sm md:text-base font-semibold text-onyx font-poppins">{t.argentinaLabel}</p>
+            </button>
+            <button
+              type="button"
+              onClick={() => togglePanel('us')}
+              className={`rounded-xl border px-4 py-4 text-center transition-colors ${
+                openPanel === 'us' ? 'border-burnished-copper bg-wedding-secondary' : 'border-wedding-accent bg-white hover:bg-wedding-secondary/60'
+              }`}
+              aria-expanded={openPanel === 'us'}
+              aria-controls="registry-us-details"
+            >
+              <div className="text-4xl leading-none">🇺🇸</div>
+              <p className="mt-2 text-sm md:text-base font-semibold text-onyx font-poppins">{t.usLabel}</p>
             </button>
           </div>
 
