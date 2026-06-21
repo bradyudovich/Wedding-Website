@@ -19,7 +19,7 @@ const restaurants = [
   {
     key: 'restaurant1',
     mapsUrl: 'https://maps.google.com/?q=Atte+Pizzeria+Buenos+Aires',
-    instagramUrl: 'https://www.instagram.com/attepizzeria/',
+    instagramUrl: 'https://www.instagram.com/attepizza/',
   },
   {
     key: 'restaurant2',
@@ -29,7 +29,7 @@ const restaurants = [
   {
     key: 'restaurant3',
     mapsUrl: 'https://maps.google.com/?q=La+Alacena+Buenos+Aires',
-    instagramUrl: 'https://www.instagram.com/laalacenaba/',
+    instagramUrl: 'https://www.instagram.com/laalacenatrattoria/',
   },
   {
     key: 'restaurant4',
@@ -129,28 +129,32 @@ const ThingsToDo = () => {
             {restaurants.map((restaurant) => (
               <div key={restaurant.key} className="bg-wedding-secondary/30 rounded-xl overflow-hidden">
                 <div className="p-5">
-                  <h3 className="text-xl font-semibold text-onyx mb-2 font-bodoni">
-                    {t[`${restaurant.key}Name`]}
-                  </h3>
+                  <div className="mb-2 flex items-start justify-between gap-3">
+                    <h3 className="text-xl font-semibold text-onyx font-bodoni">
+                      {t[`${restaurant.key}Name`]}
+                    </h3>
+                    <div className="flex items-center gap-2">
+                      <WebsiteLink
+                        href={restaurant.instagramUrl}
+                        aria-label={t.viewOnInstagram}
+                        title={t.viewOnInstagram}
+                        className="inline-flex h-8 w-8 items-center justify-center rounded-full text-onyx transition-colors hover:text-onyx/70"
+                      >
+                        <Instagram size={16} />
+                      </WebsiteLink>
+                      <WebsiteLink
+                        href={restaurant.mapsUrl}
+                        aria-label={t.viewOnMaps}
+                        title={t.viewOnMaps}
+                        className="inline-flex h-8 w-8 items-center justify-center rounded-full text-onyx transition-colors hover:text-onyx/70"
+                      >
+                        <MapPin size={16} />
+                      </WebsiteLink>
+                    </div>
+                  </div>
                   <p className="text-onyx leading-relaxed font-poppins mb-3 text-sm md:text-justify">
                     {t[`${restaurant.key}Description`]}
                   </p>
-                  <WebsiteLink
-                    href={restaurant.mapsUrl}
-                    className="inline-flex items-center gap-2 text-sm font-medium text-onyx hover:text-onyx/70 transition-colors font-poppins"
-                  >
-                    <ExternalLink size={14} />
-                    {t.viewOnMaps}
-                  </WebsiteLink>
-                  {restaurant.instagramUrl ? (
-                    <WebsiteLink
-                      href={restaurant.instagramUrl}
-                      className="inline-flex items-center gap-2 text-sm font-medium text-onyx hover:text-onyx/70 transition-colors font-poppins ml-4"
-                    >
-                      <Instagram size={14} />
-                      {t.viewOnInstagram}
-                    </WebsiteLink>
-                  ) : null}
                 </div>
               </div>
             ))}

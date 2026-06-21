@@ -117,11 +117,6 @@ const Schedule = () => {
       time: t.guestsArriveTime,
       title: t.guestsArrive,
     },
-    { key: 'ceremony', time: t.ceremonyTime, title: t.ceremony },
-    { key: 'cocktail', time: t.cocktailTime, title: t.cocktailHour },
-    { key: 'dinner', time: t.dinnerTime, title: t.dinner },
-    { key: 'mesa-dulce', time: t.mesaDulceTime, title: t.mesaDulce },
-    { key: 'bajon', time: t.bajonTime, title: t.bajon },
     { key: 'party-end', time: t.partyEndTime, title: t.partyEnd },
     {
       key: 'optional-buses',
