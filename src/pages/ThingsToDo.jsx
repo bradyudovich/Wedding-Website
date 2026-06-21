@@ -24,12 +24,12 @@ const restaurants = [
   {
     key: 'restaurant2',
     mapsUrl: 'https://maps.google.com/?q=La+Cabrera+5099+Palermo+Buenos+Aires',
-    instagramUrl: 'https://www.instagram.com/lacabrera5099/',
+    instagramUrl: 'https://www.instagram.com/lacabrera_bsas/',
   },
   {
     key: 'restaurant3',
     mapsUrl: 'https://maps.google.com/?q=La+Alacena+Buenos+Aires',
-    instagramUrl: 'https://www.instagram.com/laalacena/',
+    instagramUrl: 'https://www.instagram.com/laalacenaba/',
   },
   {
     key: 'restaurant4',
@@ -39,22 +39,22 @@ const restaurants = [
   {
     key: 'restaurant5',
     mapsUrl: 'https://www.google.com/maps?vet=10CAAQoqAOahcKEwjAmaTu_dKUAxUAAAAAHQAAAAAQCQ..i&sca_esv=c2ae7bdc94c3d893&client=safari&hs=BMc&pvq=Cg0vZy8xMWcwdHM0MHk2Ig4KCHJhcGEgbnVpEAIYAw&lqi=ChVyYXBhIG51aSBidWVub3MgYWlyZXMiA4gBAUimh4icg66AgAhaJxAAEAEYABgBGAIYAyIVcmFwYSBudWkgYnVlbm9zIGFpcmVzMgJlc5IBDmljZV9jcmVhbV9zaG9w4AEA&fvr=1&cs=1&um=1&ie=UTF-8&fb=1&gl=us&sa=X&ftid=0x95bcb587352d1c15:0xcf105028a2f45b81&ved=1t:2428&ictx=111',
-    instagramUrl: 'https://www.instagram.com/rapanuioficial/',
+    instagramUrl: 'https://www.instagram.com/chocolates_rapanui/',
   },
   {
     key: 'restaurant6',
     mapsUrl: 'https://maps.google.com/?q=Rey+de+Copas+Buenos+Aires',
-    instagramUrl: 'https://www.instagram.com/reydecopas/',
+    instagramUrl: 'https://www.instagram.com/reydecopas_bar/',
   },
   {
     key: 'restaurant7',
     mapsUrl: 'https://maps.google.com/?q=G%C3%BCerrin+Pizza+Buenos+Aires',
-    instagramUrl: 'https://www.instagram.com/guerrinpizzeria/',
+    instagramUrl: 'https://www.instagram.com/pizzeriaguerrin/',
   },
   {
     key: 'restaurant8',
     mapsUrl: 'https://maps.google.com/?q=Cafe+Tortoni+Buenos+Aires',
-    instagramUrl: 'https://www.instagram.com/cafetortoni/',
+    instagramUrl: 'https://www.instagram.com/grancafetortoni/',
   },
 ];
 
