@@ -68,7 +68,9 @@ const Home = () => {
           <h2 className="text-[clamp(1.5rem,6vw,2.25rem)] font-bold text-onyx mb-5 text-center font-bodoni leading-tight">
             {t.welcomeHeading}
           </h2>
-          <p className="text-onyx leading-relaxed text-lg md:text-justify">{t.bodyText}</p>
+          {t.bodyTexts.map((para, i) => (
+            <p key={i} className={`text-onyx leading-relaxed text-lg md:text-justify${i < t.bodyTexts.length - 1 ? ' mb-4' : ''}`}>{para}</p>
+          ))}
         </div>
       </div>
     </div>

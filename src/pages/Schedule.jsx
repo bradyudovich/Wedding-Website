@@ -210,19 +210,21 @@ const Schedule = () => {
               <p className="text-xs md:text-[13px] font-semibold uppercase tracking-[0.14em] text-onyx font-poppins">
                 {t.venueLabel} {t.preWeddingVenueName}
               </p>
-              <p className="mt-1 min-w-0 text-sm md:text-[15px] text-onyx/80 font-poppins leading-relaxed break-words">
-                <WebsiteLink
-                  href={DARSENA_MAPS_URL}
-                  className="underline hover:text-onyx break-words"
-                >
-                  {t.preWeddingVenueAddress}
-                </WebsiteLink>
-              </p>
+              {t.preWeddingVenueAddress && (
+                <p className="mt-1 min-w-0 text-sm md:text-[15px] text-onyx/80 font-poppins leading-relaxed break-words">
+                  <WebsiteLink
+                    href={DARSENA_MAPS_URL}
+                    className="underline hover:text-onyx break-words"
+                  >
+                    {t.preWeddingVenueAddress}
+                  </WebsiteLink>
+                </p>
+              )}
             </div>
             <AddToCalendarLink
               title={t.preWeddingEvent}
               date="20270401"
-              location={`${t.preWeddingVenueName}, ${t.preWeddingVenueAddress}`}
+              location={[t.preWeddingVenueName, t.preWeddingVenueAddress].filter(Boolean).join(', ')}
               details={t.preWeddingDetails}
               label={t.addToCalendar}
             />
