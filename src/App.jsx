@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { LanguageProvider, useLanguage } from './LanguageContext';
 import Navbar from './components/Navbar';
 import LanguagePopup from './components/LanguagePopup';
-import SiteLock from './components/SiteLock';
-import { SiteLockProvider, useSiteLock } from './context/SiteLockContext';
 import Home from './pages/Home';
 import Travel from './pages/Travel';
 import Schedule from './pages/Schedule';
@@ -30,15 +28,11 @@ function ScrollToHash() {
 
 function AppContent() {
   const { language } = useLanguage();
-  const { unlocked } = useSiteLock();
   
   return (
     <>
-      <SiteLock />
       <Router basename="/">
-        {/* Keep content invisible (not just covered) until unlock is confirmed,
-            preventing any flash of underlying content on mobile during unlock */}
-        <div className={`min-h-screen bg-wedding-bg font-poppins overflow-x-hidden pb-16 md:pb-0${!unlocked ? ' invisible' : ''}`} lang={language}>
+        <div className="min-h-screen bg-wedding-bg font-poppins overflow-x-hidden pb-16 md:pb-0" lang={language}>
           <ScrollToHash />
           <Navbar />
           <LanguagePopup />
@@ -60,9 +54,7 @@ function AppContent() {
 function App() {
   return (
     <LanguageProvider>
-      <SiteLockProvider>
-        <AppContent />
-      </SiteLockProvider>
+      <AppContent />
     </LanguageProvider>
   );
 }

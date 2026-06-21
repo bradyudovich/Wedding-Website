@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, ExternalLink, Mountain, Globe } from 'lucide-react';
+import { MapPin, ExternalLink, Mountain, Globe, Instagram } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 import WebsiteLink from '../components/WebsiteLink';
@@ -19,34 +19,42 @@ const restaurants = [
   {
     key: 'restaurant1',
     mapsUrl: 'https://maps.google.com/?q=Atte+Pizzeria+Buenos+Aires',
+    instagramUrl: 'https://www.instagram.com/attepizzeria/',
   },
   {
     key: 'restaurant2',
     mapsUrl: 'https://maps.google.com/?q=La+Cabrera+5099+Palermo+Buenos+Aires',
+    instagramUrl: 'https://www.instagram.com/lacabrera_bsas/',
   },
   {
     key: 'restaurant3',
     mapsUrl: 'https://maps.google.com/?q=La+Alacena+Buenos+Aires',
+    instagramUrl: 'https://www.instagram.com/laalacenaba/',
   },
   {
     key: 'restaurant4',
     mapsUrl: 'https://maps.google.com/?q=El+Preferido+de+Palermo+Buenos+Aires',
+    instagramUrl: 'https://www.instagram.com/elpreferidodepalermo/',
   },
   {
     key: 'restaurant5',
     mapsUrl: 'https://www.google.com/maps?vet=10CAAQoqAOahcKEwjAmaTu_dKUAxUAAAAAHQAAAAAQCQ..i&sca_esv=c2ae7bdc94c3d893&client=safari&hs=BMc&pvq=Cg0vZy8xMWcwdHM0MHk2Ig4KCHJhcGEgbnVpEAIYAw&lqi=ChVyYXBhIG51aSBidWVub3MgYWlyZXMiA4gBAUimh4icg66AgAhaJxAAEAEYABgBGAIYAyIVcmFwYSBudWkgYnVlbm9zIGFpcmVzMgJlc5IBDmljZV9jcmVhbV9zaG9w4AEA&fvr=1&cs=1&um=1&ie=UTF-8&fb=1&gl=us&sa=X&ftid=0x95bcb587352d1c15:0xcf105028a2f45b81&ved=1t:2428&ictx=111',
+    instagramUrl: 'https://www.instagram.com/chocolates_rapanui/',
   },
   {
     key: 'restaurant6',
     mapsUrl: 'https://maps.google.com/?q=Rey+de+Copas+Buenos+Aires',
+    instagramUrl: 'https://www.instagram.com/reydecopas_bar/',
   },
   {
     key: 'restaurant7',
     mapsUrl: 'https://maps.google.com/?q=G%C3%BCerrin+Pizza+Buenos+Aires',
+    instagramUrl: 'https://www.instagram.com/pizzeriaguerrin/',
   },
   {
     key: 'restaurant8',
     mapsUrl: 'https://maps.google.com/?q=Cafe+Tortoni+Buenos+Aires',
+    instagramUrl: 'https://www.instagram.com/grancafetortoni/',
   },
 ];
 
@@ -134,6 +142,15 @@ const ThingsToDo = () => {
                     <ExternalLink size={14} />
                     {t.viewOnMaps}
                   </WebsiteLink>
+                  {restaurant.instagramUrl ? (
+                    <WebsiteLink
+                      href={restaurant.instagramUrl}
+                      className="inline-flex items-center gap-2 text-sm font-medium text-onyx hover:text-onyx/70 transition-colors font-poppins ml-4"
+                    >
+                      <Instagram size={14} />
+                      {t.viewOnInstagram}
+                    </WebsiteLink>
+                  ) : null}
                 </div>
               </div>
             ))}
