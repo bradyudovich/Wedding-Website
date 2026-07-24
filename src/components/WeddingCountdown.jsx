@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useLanguage } from '../LanguageContext';
+import { translations } from '../translations';
 
 const WEDDING_DATE = new Date('2027-04-03T03:00:00Z');
 
@@ -16,6 +18,8 @@ const calcTimeLeft = () => {
 const pad = (n) => String(n).padStart(2, '0');
 
 const WeddingCountdown = ({ variant = 'compact' }) => {
+  const { language } = useLanguage();
+  const t = (translations[language] || translations.en).home;
   const [timeLeft, setTimeLeft] = useState(calcTimeLeft);
 
   useEffect(() => {
@@ -25,10 +29,10 @@ const WeddingCountdown = ({ variant = 'compact' }) => {
 
   if (variant === 'hero') {
     const units = [
-      { label: 'days', value: String(timeLeft.days) },
-      { label: 'hours', value: pad(timeLeft.hours) },
-      { label: 'mins', value: pad(timeLeft.minutes) },
-      { label: 'secs', value: pad(timeLeft.seconds) },
+      { label: t.countdownDays, value: String(timeLeft.days) },
+      { label: t.countdownHours, value: pad(timeLeft.hours) },
+      { label: t.countdownMinutes, value: pad(timeLeft.minutes) },
+      { label: t.countdownSeconds, value: pad(timeLeft.seconds) },
     ];
 
     return (

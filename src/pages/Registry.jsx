@@ -34,13 +34,31 @@ const Registry = () => {
           {t.title}
         </h1>
 
-        <div className="bg-off-white rounded-2xl shadow-md border border-wedding-accent p-6 md:p-8 mb-10 max-w-3xl mx-auto">
+        <div className="bg-off-white rounded-2xl shadow-md border border-wedding-accent p-6 md:p-8 mb-10">
           <p className="text-onyx/70 leading-relaxed text-lg text-center font-poppins">
             {t.message}
           </p>
         </div>
 
         <div id="registry-details" className="bg-off-white rounded-2xl shadow-md p-6 md:p-8 border border-wedding-accent">
+          <div className="mb-6 border border-wedding-accent rounded-xl p-5 md:p-6 bg-wedding-secondary/20">
+            <p className="text-sm uppercase tracking-widest text-onyx/50 font-poppins mb-3">{t.bradyMethod}</p>
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+              <p className="text-2xl font-semibold text-burnished-copper font-bodoni">
+                <button
+                  type="button"
+                  onClick={openVenmoContribution}
+                  className="underline hover:text-burnished-copper-hover transition-colors"
+                >
+                  {t.bradyHandle}
+                </button>
+              </p>
+              <p className="text-sm text-onyx/70 font-poppins">
+                {t.bradyPhoneLabel}: <strong>{t.bradyPhoneLast4}</strong>
+              </p>
+            </div>
+          </div>
+
           <div className="grid grid-cols-2 gap-3 md:gap-4">
             <button
               type="button"
