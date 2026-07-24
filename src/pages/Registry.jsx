@@ -41,24 +41,6 @@ const Registry = () => {
         </div>
 
         <div id="registry-details" className="bg-off-white rounded-2xl shadow-md p-6 md:p-8 border border-wedding-accent">
-          <div className="mb-6 border border-wedding-accent rounded-xl p-5 md:p-6 bg-wedding-secondary/20">
-            <p className="text-sm uppercase tracking-widest text-onyx/50 font-poppins mb-3">{t.bradyMethod}</p>
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-              <p className="text-2xl font-semibold text-burnished-copper font-bodoni">
-                <button
-                  type="button"
-                  onClick={openVenmoContribution}
-                  className="underline hover:text-burnished-copper-hover transition-colors"
-                >
-                  {t.bradyHandle}
-                </button>
-              </p>
-              <p className="text-sm text-onyx/70 font-poppins">
-                {t.bradyPhoneLabel}: <strong>{t.bradyPhoneLast4}</strong>
-              </p>
-            </div>
-          </div>
-
           <div className="grid grid-cols-2 gap-3 md:gap-4">
             <button
               type="button"
@@ -89,15 +71,20 @@ const Registry = () => {
           {openPanel === 'us' ? (
             <div id="registry-us-details" className="mt-6 border border-wedding-accent rounded-xl p-5 md:p-6">
               <p className="text-sm uppercase tracking-widest text-onyx/50 font-poppins mb-4">{t.bradyMethod}</p>
-              <p className="text-2xl font-semibold text-burnished-copper font-bodoni mb-3">
-                <button
-                  type="button"
-                  onClick={openVenmoContribution}
-                  className="underline hover:text-burnished-copper-hover transition-colors"
-                >
-                  {t.bradyHandle}
-                </button>
-              </p>
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-3">
+                <p className="text-2xl font-semibold text-burnished-copper font-bodoni">
+                  <button
+                    type="button"
+                    onClick={openVenmoContribution}
+                    className="underline hover:text-burnished-copper-hover transition-colors"
+                  >
+                    {t.bradyHandle}
+                  </button>
+                </p>
+                <p className="text-sm text-onyx/70 font-poppins">
+                  {t.bradyPhoneLabel}: <strong>{t.bradyPhoneLast4}</strong>
+                </p>
+              </div>
               <p className="text-sm text-onyx/60 font-poppins leading-relaxed">{t.bradyNote}</p>
             </div>
           ) : null}

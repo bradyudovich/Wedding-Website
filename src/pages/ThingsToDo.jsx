@@ -15,6 +15,7 @@ const buenosAiresActivities = [
   },
   { key: 'recoleta' },
   { key: 'ateneo' },
+  { key: 'puertoMadero' },
 ];
 
 const restaurants = [
