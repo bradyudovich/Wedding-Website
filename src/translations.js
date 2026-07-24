@@ -117,6 +117,8 @@ export const translations = {
       recoletaDescription: "Recoleta is one of the city's most beautiful areas for a daytime walk, with elegant architecture, leafy plazas, and the famous Recoleta Cemetery nearby.",
       ateneoName: "Visit El Ateneo Grand Splendid",
       ateneoDescription: "A stunning historic theater turned bookstore and café. It's one of the most unique spots in the city and easy to pair with a Recoleta afternoon.",
+      puertoMaderoName: "Stroll Puerto Madero",
+      puertoMaderoDescription: "Buenos Aires' revitalized waterfront district is a great place for a leisurely walk along the Río de la Plata. The iconic Puente de la Mujer footbridge is worth seeing, and there are plenty of restaurants and cafés with nice water views.",
       hopOnHopOffLink: "View bus tour",
       restaurantsTitle: "Gastronomy",
       subtitle: "Our favorite spots in Buenos Aires",
@@ -201,11 +203,7 @@ export const translations = {
       tipRideShareText: "Uber and Cabify are easy options in the city and usually simpler than hailing a cab.",
       tipWaterLabel: "Hydration",
       tipWaterText: "Tap water is generally safe in Buenos Aires, but bottled water is easy to find if you prefer.",
-      safetyTipsTitle: "Basic safety tips",
-      safetyTipsIntro: "Buenos Aires is a wonderful city to explore — these small habits can help your day go smoothly:",
-      safetyTip1: "Keep your phone in your pocket or bag when you're walking, and step inside a café or shop if you need to check directions.",
-      safetyTip2: "Use rideshare apps at night or when carrying valuables, especially if you're in an area you don't know well.",
-      safetyTip3: "Carry only what you need for the day and keep bags zipped in busy areas."
+      phoneCarefulNote: "Like any big city, it's worth being mindful of your phone when you're out and about — try to keep it pocketed while walking, and step into a café or shop if you need to check something. Nothing unusual, just the usual big-city common sense."
     },
     recommendations: {
       title: "Recommendations",
@@ -250,7 +248,7 @@ export const translations = {
       bradyMethod: "Registry contribution via Venmo",
       bradyHandle: "@Brady-Udovich",
       bradyPhoneLabel: "Phone (last 4)",
-      bradyPhoneLast4: "####",
+      bradyPhoneLast4: "2077",
       bradyNote: "If it's convenient, you can use Venmo as an easy registry contribution option that avoids any additional fees.",
       camiTitle: "Cami",
       camiMethod: "Bank Transfer",
@@ -377,6 +375,8 @@ export const translations = {
       recoletaDescription: "Recoleta es una de las zonas más lindas para caminar de día, con arquitectura elegante, plazas arboladas y el famoso Cementerio de la Recoleta muy cerca.",
       ateneoName: "Visitar El Ateneo Grand Splendid",
       ateneoDescription: "Un teatro histórico convertido en librería y café. Es uno de los lugares más únicos de la ciudad y combina perfecto con una tarde por Recoleta.",
+      puertoMaderoName: "Recorrer Puerto Madero",
+      puertoMaderoDescription: "El barrio portuario revitalizado de Buenos Aires es ideal para un paseo tranquilo junto al Río de la Plata. El icónico Puente de la Mujer vale la pena, y hay varios restaurantes y bares con linda vista al agua.",
       hopOnHopOffLink: "Ver tour en bus",
       restaurantsTitle: "Gastronomía",
       subtitle: "Nuestros lugares favoritos en Buenos Aires",
@@ -460,11 +460,7 @@ export const translations = {
       tipRideShareText: "Uber y Cabify funcionan bien en la ciudad y suelen ser más simples que parar un taxi.",
       tipWaterLabel: "Hidratación",
       tipWaterText: "En Buenos Aires el agua de canilla suele ser segura, pero hay agua embotellada en todos lados si preferís.",
-      safetyTipsTitle: "Tips básicos de seguridad",
-      safetyTipsIntro: "Buenos Aires es una ciudad increíble para recorrer — estos hábitos simples ayudan a que el día sea más cómodo:",
-      safetyTip1: "Cuando camines, guardá el celular y, si necesitás mirar direcciones, frená dentro de un café o comercio.",
-      safetyTip2: "De noche o si llevás cosas de valor, usá apps de viaje para moverte, sobre todo en zonas que no conocés.",
-      safetyTip3: "Llevá solo lo necesario para el día y mantené bolsos y mochilas cerrados en lugares concurridos."
+      phoneCarefulNote: "Como en cualquier ciudad grande, conviene tener cuidado con el celular cuando estás en la calle — tratá de guardarlo mientras caminás y entrá a un café o local si necesitás revisar algo. Nada distinto al sentido común de siempre en una gran ciudad."
     },
     recommendations: {
       title: "Recomendaciones",
@@ -509,7 +505,7 @@ export const translations = {
       bradyMethod: "Contribución al registro por Venmo",
       bradyHandle: "@Brady-Udovich",
       bradyPhoneLabel: "Teléfono (últimos 4)",
-      bradyPhoneLast4: "####",
+      bradyPhoneLast4: "2077",
       bradyNote: "Si te queda cómodo, podés usar Venmo como una opción sencilla de contribución al registro que evita cargos adicionales.",
       camiTitle: "Cami",
       camiMethod: "Transferencia Bancaria",
