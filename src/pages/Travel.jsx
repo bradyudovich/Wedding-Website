@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Plane, Hotel, CloudSun, AlertCircle, DollarSign, Zap, CreditCard, Car, Droplets } from 'lucide-react';
+import { Plane, Hotel, CloudSun, AlertCircle, DollarSign, Zap, CreditCard, Car, Droplets, Shield } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 import WebsiteLink from '../components/WebsiteLink';
@@ -200,6 +200,18 @@ const Travel = () => {
               <p className="text-base text-onyx/80 font-poppins leading-relaxed">{t.tipWaterText}</p>
             </li>
           </ul>
+          <div className="mt-5 bg-wedding-secondary/20 rounded-xl p-4">
+            <div className="flex items-center gap-2 mb-2">
+              <Shield size={18} className="text-burnished-copper" />
+              <p className="text-base font-semibold text-onyx font-bodoni">{t.safetyTipsTitle}</p>
+            </div>
+            <p className="text-base text-onyx/80 font-poppins leading-relaxed mb-2">{t.safetyTipsIntro}</p>
+            <ul className="list-disc pl-5 space-y-1 text-base text-onyx/80 font-poppins leading-relaxed">
+              <li>{t.safetyTip1}</li>
+              <li>{t.safetyTip2}</li>
+              <li>{t.safetyTip3}</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

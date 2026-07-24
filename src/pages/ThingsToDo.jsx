@@ -13,6 +13,8 @@ const buenosAiresActivities = [
     key: 'hopOnHopOff',
     url: 'https://www.hop-on-hop-off-bus-tours.com/city/buenos-aires-bus-tours?gad_source=1&gad_campaignid=20940768125&gbraid=0AAAAAoTfqyymgIiO3NBfdKXsoPg719sC0&gclid=CjwKCAjwwdbPBhBgEiwAxBRA4V3PMsnx36qcxZdhgSbz34E2g2NrIvfw7wNgnvJDdRxqH20ICDJMPxoC9r4QAvD_BwE',
   },
+  { key: 'recoleta' },
+  { key: 'ateneo' },
 ];
 
 const restaurants = [

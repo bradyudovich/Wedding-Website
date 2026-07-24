@@ -63,7 +63,7 @@ const Home = () => {
         <WeddingCountdown variant="hero" />
       </div>
 
-      <div className="max-w-5xl mx-auto py-8 px-4 md:px-6">
+      <div className="max-w-6xl mx-auto py-8 px-4 md:px-6">
         <div className="bg-off-white p-8 md:p-10 rounded-2xl shadow-md border border-wedding-accent">
           <h2 className="text-[clamp(1.5rem,6vw,2.25rem)] font-bold text-onyx mb-5 text-center font-bodoni leading-tight">
             {t.welcomeHeading}
