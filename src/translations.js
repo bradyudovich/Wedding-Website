@@ -398,6 +398,7 @@ export const translations = {
       restaurant8Description: "Uno de los cafés históricos más emblemáticos de Buenos Aires, ideal para café, pastelería y un ambiente tradicional.",
       viewOnMaps: "Ver en Google Maps",
       viewOnInstagram: "Ver en Instagram",
+      destinationsTitle: "Más Allá de Buenos Aires",
       destinationsSubtitle: "Si tienes tiempo extra, Argentina tiene algunos de los destinos más impresionantes del mundo. Aquí hay algunos que recomendamos mucho:",
       mendozaName: "Mendoza",
       mendozaDescription: "Si te gusta el vino (o aunque no), Mendoza vale la pena. Viñedos de Malbec con los Andes de fondo, buena comida y un ritmo más tranquilo que la ciudad — es un contraste muy lindo.",
