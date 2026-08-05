@@ -12,10 +12,10 @@ const FAQ = () => {
 
   const faqs = [
     { question: t.q1, answer: t.a1 },
-    { question: t.q4, answer: t.a4, link: { to: '/schedule#schedule-section', label: language === 'en' ? 'View Schedule →' : 'Ver Programa →' } },
+    { question: t.q4, answer: t.a4, link: { to: '/schedule#schedule-section', label: language === 'en' ? 'View Schedule →' : 'Ver Itinerario →' } },
     { question: t.qLongCelebration, answer: t.aLongCelebration },
     { question: t.qKids, answer: t.aKids },
-    { question: t.qTransport, answer: t.aTransport, link: { to: '/schedule#schedule-section', label: language === 'en' ? 'View Schedule →' : 'Ver Programa →' } },
+    { question: t.qTransport, answer: t.aTransport, link: { to: '/schedule#schedule-section', label: language === 'en' ? 'View Schedule →' : 'Ver Itinerario →' } },
     { question: t.qUSCelebration, answer: t.aUSCelebration },
     { question: t.q7, answer: t.a7, link: { to: '/registry#registry-details', label: language === 'en' ? 'View Registry →' : 'Ver Regalos →' } },
   ];

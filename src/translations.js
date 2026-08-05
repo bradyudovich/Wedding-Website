@@ -264,7 +264,7 @@ export const translations = {
     nav: {
       home: "Inicio",
       travel: "Viaje",
-      schedule: "Programa",
+      schedule: "Itinerario",
       thingsToDo: "Qué Hacer",
       faq: "Preguntas",
       recommendations: "Recomendaciones",
@@ -273,7 +273,7 @@ export const translations = {
     },
     home: {
       coupleNames: "Cami & Brady",
-      heroDateLocation: "3 de abril de 2027 \u2022 Buenos Aires, AR",
+      heroDateLocation: "3 de abril de 2027 \u2022 Buenos Aires, ARG",
       title: "¡Nos Casamos!",
       subtitle: "Celebremos juntos en la ciudad donde todo empezó",
       welcomeHeading: "Bienvenidos a Nuestra Boda",
@@ -283,8 +283,8 @@ export const translations = {
       preWeddingDate: "1 de abril de 2027",
       preWeddingLocation: "Lugar: Por Confirmar",
       location: "Ubicación",
-      locationDetails: "Buenos Aires, AR",
-      scheduleTitle: "Programa",
+      locationDetails: "Buenos Aires, ARG",
+      scheduleTitle: "Itinerario",
       scheduleEventHeader: "Evento",
       scheduleLocationHeader: "Lugar",
       weddingEventTitle: "Boda",
@@ -308,7 +308,7 @@ export const translations = {
       countdownSeconds: "Segundos"
     },
     schedule: {
-      title: "Programa",
+      title: "Itinerario",
       scheduleEventHeader: "Evento",
       scheduleLocationHeader: "Lugar",
       preWeddingEvent: "Previa de Boda",
@@ -352,7 +352,7 @@ export const translations = {
       optionalBusesLocation: "Punto de descenso: Por confirmar",
       optionalBadge: "Opcional",
       addToCalendar: "Agregar al Calendario",
-      languagePopupTitle: "Selector de Idioma",
+      languagePopupTitle: "Seleccionar Idioma",
       languagePopupText: "Este sitio web está disponible en inglés y español. Puedes cambiar el idioma usando el botón con la bandera (🇦🇷/🇺🇸) ubicado en la esquina superior derecha de la barra de navegación.",
       languagePopupClose: "¡Entendido!"
     },
