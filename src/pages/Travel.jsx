@@ -152,8 +152,8 @@ const Travel = () => {
                 <CloudSun size={20} className="text-burnished-copper" />
                 <p className="text-lg font-semibold text-onyx font-bodoni">{t.weatherTitle}</p>
               </div>
-              <p className="text-base text-onyx/80 font-poppins leading-relaxed">{t.weatherDescription}</p>
-              <p className="text-base text-onyx font-poppins mt-2 leading-relaxed">
+              <p className="text-lg text-onyx/80 font-poppins leading-relaxed">{t.weatherDescription}</p>
+              <p className="text-lg text-onyx font-poppins mt-2 leading-relaxed">
                 {t.weatherHighLabel}: <strong>{t.weatherHigh}</strong> · {t.weatherLowLabel}: <strong>{t.weatherLow}</strong> · {t.weatherRain}
               </p>
             </div>
@@ -163,47 +163,47 @@ const Travel = () => {
                 <p className="text-lg font-semibold text-onyx font-bodoni">{t.exchangeRateTitle}</p>
               </div>
               {loading ? (
-                <p className="text-base text-onyx/70 font-poppins leading-relaxed">{t.loading}</p>
+                <p className="text-lg text-onyx/70 font-poppins leading-relaxed">{t.loading}</p>
               ) : (
-                <p className="text-base text-onyx font-poppins leading-relaxed">1 USD = <strong>{formatRate(exchangeRate)} ARS</strong></p>
+                <p className="text-lg text-onyx font-poppins leading-relaxed">1 USD = <strong>{formatRate(exchangeRate)} ARS</strong></p>
               )}
-              <p className="text-base text-onyx/80 font-poppins mt-2 leading-relaxed">{t.tipExchangeText}</p>
+              <p className="text-lg text-onyx/80 font-poppins mt-2 leading-relaxed">{t.tipExchangeText}</p>
             </div>
             <div className="bg-wedding-secondary/30 p-4 rounded-xl md:col-span-2">
               <div className="flex items-center gap-2 mb-2">
                 <Zap size={20} className="text-burnished-copper" />
                 <p className="text-lg font-semibold text-onyx font-bodoni">{t.plugTypesTitle}</p>
               </div>
-              <p className="text-base text-onyx/80 font-poppins leading-relaxed">{t.plugTypesText}</p>
+              <p className="text-lg text-onyx/80 font-poppins leading-relaxed">{t.plugTypesText}</p>
             </div>
           </div>
           <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <li className="bg-wedding-secondary/20 rounded-xl p-4">
               <div className="flex items-center gap-2 mb-1">
                 <CreditCard size={18} className="text-burnished-copper" />
-                <p className="text-base font-semibold text-onyx font-bodoni">{t.tipPaymentLabel}</p>
+                <p className="text-lg font-semibold text-onyx font-bodoni">{t.tipPaymentLabel}</p>
               </div>
-              <p className="text-base text-onyx/80 font-poppins leading-relaxed">{t.tipPaymentText}</p>
+              <p className="text-lg text-onyx/80 font-poppins leading-relaxed">{t.tipPaymentText}</p>
             </li>
             <li className="bg-wedding-secondary/20 rounded-xl p-4">
               <div className="flex items-center gap-2 mb-1">
                 <Car size={18} className="text-burnished-copper" />
-                <p className="text-base font-semibold text-onyx font-bodoni">{t.tipRideShareLabel}</p>
+                <p className="text-lg font-semibold text-onyx font-bodoni">{t.tipRideShareLabel}</p>
               </div>
-              <p className="text-base text-onyx/80 font-poppins leading-relaxed">{t.tipRideShareText}</p>
+              <p className="text-lg text-onyx/80 font-poppins leading-relaxed">{t.tipRideShareText}</p>
             </li>
             <li className="bg-wedding-secondary/20 rounded-xl p-4 md:col-span-2">
               <div className="flex items-center gap-2 mb-1">
                 <Droplets size={18} className="text-burnished-copper" />
-                <p className="text-base font-semibold text-onyx font-bodoni">{t.tipWaterLabel}</p>
+                <p className="text-lg font-semibold text-onyx font-bodoni">{t.tipWaterLabel}</p>
               </div>
-              <p className="text-base text-onyx/80 font-poppins leading-relaxed">{t.tipWaterText}</p>
+              <p className="text-lg text-onyx/80 font-poppins leading-relaxed">{t.tipWaterText}</p>
             </li>
           </ul>
           <div className="mt-5 bg-wedding-secondary/20 rounded-xl p-4">
             <div className="flex items-start gap-3">
               <Smartphone size={18} className="text-burnished-copper mt-0.5 flex-shrink-0" />
-              <p className="text-base text-onyx/80 font-poppins leading-relaxed">{t.phoneCarefulNote}</p>
+              <p className="text-lg text-onyx/80 font-poppins leading-relaxed">{t.phoneCarefulNote}</p>
             </div>
           </div>
         </div>
