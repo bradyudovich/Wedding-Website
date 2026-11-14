@@ -244,8 +244,6 @@ export const translations = {
     registry: {
       title: "Registry",
       message: "Having you with us is the best gift we could ask for. If you'd also like to celebrate us with a gift, we've shared a few ways to do so below.",
-      usRegistryTitle: "The Knot Registry",
-      usRegistryLinkText: "View Registry",
       camiTitle: "Cami",
       camiMethod: "Bank Transfer",
       camiAccountName: "Camila Pires",
@@ -501,8 +499,6 @@ export const translations = {
     registry: {
       title: "Regalos",
       message: "Tenerlos con nosotros es el mejor regalo que podríamos pedir. Si además quieren celebrarnos con un regalo, compartimos algunas opciones aquí abajo.",
-      usRegistryTitle: "Lista de regalos en The Knot",
-      usRegistryLinkText: "Ver lista de regalos",
       camiTitle: "Cami",
       camiMethod: "Transferencia Bancaria",
       camiAccountName: "Camila Pires",

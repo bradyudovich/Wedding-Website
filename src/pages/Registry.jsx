@@ -40,33 +40,16 @@ const Registry = () => {
               <div className="text-4xl leading-none">🇦🇷</div>
               <p className="mt-2 text-sm md:text-base font-semibold text-onyx font-poppins">{t.argentinaLabel}</p>
             </button>
-            <button
-              type="button"
-              onClick={() => togglePanel('us')}
-              className={`rounded-xl border px-4 py-4 text-center transition-colors ${
-                openPanel === 'us' ? 'border-burnished-copper bg-wedding-secondary' : 'border-wedding-accent bg-white hover:bg-wedding-secondary/60'
-              }`}
-              aria-expanded={openPanel === 'us'}
-              aria-controls="registry-us-details"
+            <a
+              href={US_REGISTRY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-xl border px-4 py-4 text-center transition-colors border-wedding-accent bg-white hover:bg-wedding-secondary/60"
             >
               <div className="text-4xl leading-none">🇺🇸</div>
               <p className="mt-2 text-sm md:text-base font-semibold text-onyx font-poppins">{t.usLabel}</p>
-            </button>
+            </a>
           </div>
-
-          {openPanel === 'us' ? (
-            <div id="registry-us-details" className="mt-6 border border-wedding-accent rounded-xl p-5 md:p-6">
-              <p className="text-sm uppercase tracking-widest text-onyx/50 font-poppins mb-4">{t.usRegistryTitle}</p>
-              <a
-                href={US_REGISTRY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-2xl font-semibold text-burnished-copper font-bodoni underline hover:text-burnished-copper-hover transition-colors"
-              >
-                {t.usRegistryLinkText}
-              </a>
-            </div>
-          ) : null}
 
           {openPanel === 'ar' ? (
             <div id="registry-ar-details" className="mt-6 border border-wedding-accent rounded-xl p-5 md:p-6 space-y-6">
