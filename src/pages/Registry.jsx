@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
-import { VENMO_APP_URL, VENMO_URL } from '../constants/links';
+
+const US_REGISTRY_URL = 'https://registry.theknot.com/cami-blanco-brady-udovich-april-2027-ar/76931396';
 
 const Registry = () => {
   const { language } = useLanguage();
@@ -10,21 +11,6 @@ const Registry = () => {
 
   const togglePanel = (panel) => {
     setOpenPanel((current) => (current === panel ? null : panel));
-  };
-
-  const openVenmoContribution = () => {
-    const clearFallback = () => {
-      window.clearTimeout(fallback);
-      document.removeEventListener('visibilitychange', clearFallback);
-    };
-
-    const fallback = window.setTimeout(() => {
-      clearFallback();
-      window.location.assign(VENMO_URL);
-    }, 700);
-
-    document.addEventListener('visibilitychange', clearFallback);
-    window.location.assign(VENMO_APP_URL);
   };
 
   return (
@@ -70,22 +56,15 @@ const Registry = () => {
 
           {openPanel === 'us' ? (
             <div id="registry-us-details" className="mt-6 border border-wedding-accent rounded-xl p-5 md:p-6">
-              <p className="text-sm uppercase tracking-widest text-onyx/50 font-poppins mb-4">{t.bradyMethod}</p>
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-3">
-                <p className="text-2xl font-semibold text-burnished-copper font-bodoni">
-                  <button
-                    type="button"
-                    onClick={openVenmoContribution}
-                    className="underline hover:text-burnished-copper-hover transition-colors"
-                  >
-                    {t.bradyHandle}
-                  </button>
-                </p>
-                <p className="text-sm text-onyx/70 font-poppins">
-                  {t.bradyPhoneLabel}: <strong>{t.bradyPhoneLast4}</strong>
-                </p>
-              </div>
-              <p className="text-sm text-onyx/60 font-poppins leading-relaxed">{t.bradyNote}</p>
+              <p className="text-sm uppercase tracking-widest text-onyx/50 font-poppins mb-4">{t.usRegistryTitle}</p>
+              <a
+                href={US_REGISTRY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-2xl font-semibold text-burnished-copper font-bodoni underline hover:text-burnished-copper-hover transition-colors"
+              >
+                {t.usRegistryLinkText}
+              </a>
             </div>
           ) : null}
 
