@@ -243,7 +243,7 @@ export const translations = {
     },
     registry: {
       title: "Registry",
-      message: "Having you with us is the best gift we could ask for. If you'd also like to celebrate us with a gift, we've shared a few ways to do so below.",
+      message: "Having you with us is the greatest gift we could ask for. Your love and support mean so much to us as we begin this next chapter together. If you'd like to give a gift, we've shared a few options below. Thank you for celebrating with us!",
       camiTitle: "Cami",
       camiMethod: "Bank Transfer",
       camiAccountName: "Camila Pires",
@@ -498,7 +498,7 @@ export const translations = {
     },
     registry: {
       title: "Regalos",
-      message: "Tenerlos con nosotros es el mejor regalo que podríamos pedir. Si además quieren celebrarnos con un regalo, compartimos algunas opciones aquí abajo.",
+      message: "Tenerlos con nosotros es el mejor regalo que podríamos pedir. Su cariño y apoyo significan muchísimo para nosotros mientras comenzamos esta nueva etapa juntos. Si quieren hacernos un regalo, compartimos algunas opciones acá abajo. ¡Gracias por celebrar con nosotros!",
       camiTitle: "Cami",
       camiMethod: "Transferencia Bancaria",
       camiAccountName: "Camila Pires",
